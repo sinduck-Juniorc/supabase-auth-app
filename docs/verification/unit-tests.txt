@@ -1,0 +1,15 @@
+
+> supabase-auth-app@1.0.0 test
+> tsx --test tests/auth.test.ts
+
+✔ 로그인 후 목적지는 허용한 앱 경로로 제한한다 (0.729081ms)
+✔ 보호 경로는 루트와 하위 경로까지 포함한다 (0.317009ms)
+✔ 가입 입력은 이메일과 비밀번호 일치를 서버에서 검사한다 (21.531941ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 324.525037

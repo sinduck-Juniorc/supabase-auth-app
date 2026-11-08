@@ -1,0 +1,97 @@
+
+> supabase-auth-app@1.0.0 test:integration
+> node tests/run-integration.mjs
+
+ Network supabase-auth-app-test_default  Creating
+ Network supabase-auth-app-test_default  Created
+ Container supabase-auth-app-test-mailpit-1  Creating
+ Container supabase-auth-app-test-db-1  Creating
+ Container supabase-auth-app-test-mailpit-1  Created
+ Container supabase-auth-app-test-db-1  Created
+ Container supabase-auth-app-test-auth-1  Creating
+ Container supabase-auth-app-test-auth-1  Created
+ Container supabase-auth-app-test-mailpit-1  Starting
+ Container supabase-auth-app-test-db-1  Starting
+ Container supabase-auth-app-test-mailpit-1  Started
+ Container supabase-auth-app-test-db-1  Started
+ Container supabase-auth-app-test-db-1  Waiting
+ Container supabase-auth-app-test-db-1  Healthy
+ Container supabase-auth-app-test-auth-1  Starting
+ Container supabase-auth-app-test-auth-1  Started
+ Container supabase-auth-app-test-auth-1  Waiting
+ Container supabase-auth-app-test-db-1  Waiting
+ Container supabase-auth-app-test-mailpit-1  Waiting
+ Container supabase-auth-app-test-db-1  Healthy
+ Container supabase-auth-app-test-mailpit-1  Healthy
+ Container supabase-auth-app-test-auth-1  Healthy
+로컬 Auth 테스트 게이트웨이 준비
+
+> supabase-auth-app@1.0.0 build
+> next build --webpack
+
+▲ Next.js 16.4.5 (webpack)
+- Environments: .env.local
+✓ Running next.config.ts took 46ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.2s
+  Running TypeScript ...
+  Finished TypeScript in 1877ms ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/5) ...
+  Generating static pages using 2 workers (1/5)
+  Generating static pages using 2 workers (2/5)
+  Generating static pages using 2 workers (3/5)
+✓ Generating static pages using 2 workers (5/5) in 188ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /account
+├ ƒ /api/private
+├ ƒ /auth/callback
+├ ƒ /auth/confirm
+├ ƒ /dashboard
+├ ƒ /login
+└ ƒ /signup
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> supabase-auth-app@1.0.0 test:e2e
+> playwright test
+
+[WebServer] (node:16290) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:16304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/e2e/auth.spec.ts:27:1 › 비로그인 사용자는 화면과 API에 접근할 수 없다 (1.2s)
+  ✓  2 tests/e2e/auth.spec.ts:39:1 › 위조한 세션 쿠키는 인증으로 인정하지 않는다 (807ms)
+  ✓  3 tests/e2e/auth.spec.ts:46:1 › 가입·실제 확인 메일·로그인·계정·로그아웃이 동작한다 (3.4s)
+  ✓  4 tests/e2e/auth.spec.ts:79:1 › 외부 목적지와 잘못된 확인 링크를 안전하게 처리한다 (1.0s)
+  ✓  5 tests/e2e/auth.spec.ts:89:1 › 모바일에서도 로그인 양식을 사용할 수 있다 (703ms)
+
+  5 passed (8.7s)
+ Container supabase-auth-app-test-auth-1  Stopping
+ Container supabase-auth-app-test-auth-1  Stopped
+ Container supabase-auth-app-test-auth-1  Removing
+ Container supabase-auth-app-test-auth-1  Removed
+ Container supabase-auth-app-test-db-1  Stopping
+ Container supabase-auth-app-test-mailpit-1  Stopping
+ Container supabase-auth-app-test-db-1  Stopped
+ Container supabase-auth-app-test-db-1  Removing
+ Container supabase-auth-app-test-db-1  Removed
+ Container supabase-auth-app-test-mailpit-1  Stopped
+ Container supabase-auth-app-test-mailpit-1  Removing
+ Container supabase-auth-app-test-mailpit-1  Removed
+ Network supabase-auth-app-test_default  Removing
+ Network supabase-auth-app-test_default  Removed

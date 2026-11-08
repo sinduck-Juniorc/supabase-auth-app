@@ -1,0 +1,11 @@
+
+> supabase-auth-app@1.0.0 verify:remote
+> node --env-file=.env.local scripts/verify-remote.mjs
+
+{
+  "projectUrl": "https://bonejjsjfagjpdbxqwyz.supabase.co",
+  "emailAuthEnabled": true,
+  "emailAutoConfirm": false,
+  "invalidTokenStatus": 403,
+  "verification": "원격 프로젝트에서 설정 조회와 잘못된 토큰 거부를 확인; 외부 이메일 발송 없음"
+}
