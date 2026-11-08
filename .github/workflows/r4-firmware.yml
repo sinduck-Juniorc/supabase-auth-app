@@ -1,0 +1,52 @@
+name: UNO R4 WiFi 펌웨어 검증
+on:
+  push:
+    paths:
+      - firmware/uno-r4-wifi/**
+      - .github/workflows/r4-firmware.yml
+  pull_request:
+    paths:
+      - firmware/uno-r4-wifi/**
+      - .github/workflows/r4-firmware.yml
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: arduino/setup-arduino-cli@81d310742121c928ea9c8bbd407b4217b432ae02 # v2.0.0
+        with:
+          version: "1.5.1"
+      - name: 프로토콜 및 수집기 검사
+        run: |
+          mkdir -p .r4-build/logs .r4-build/artifacts
+          g++ -std=c++11 -Wall -Wextra -Werror -pedantic firmware/uno-r4-wifi/tests/protocol_test.cpp -o .r4-build/protocol-test
+          .r4-build/protocol-test
+          python3 -m unittest discover -s firmware/uno-r4-wifi/tests -p 'test_*.py' -v
+      - name: 고정 도구 설치
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install arduino:renesas_uno@1.6.0
+          arduino-cli lib install Arduino_SpiNINA@0.0.2 ArduinoBLE@2.1.0
+      - name: 진단 및 세 역할 빌드
+        shell: bash
+        run: |
+          set -o pipefail
+          for role in 0 1 2 3; do
+            node=$role
+            if [ "$node" -eq 0 ]; then node=1; fi
+            arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi --jobs 2 --warnings all \
+              --build-property "compiler.cpp.extra_flags=-DZETAMESH_ROLE=$role -DZETAMESH_NODE_ID=$node" \
+              --build-path "$RUNNER_TEMP/r4-build-$role" --output-dir ".r4-build/artifacts/role$role" \
+              firmware/uno-r4-wifi/ZetaMeshR4 2>&1 | tee ".r4-build/logs/role$role.txt"
+          done
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: uno-r4-wifi-builds
+          path: |
+            .r4-build/artifacts/
+            .r4-build/logs/
+          include-hidden-files: true
+          if-no-files-found: error

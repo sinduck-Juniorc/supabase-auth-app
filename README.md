@@ -1,5 +1,7 @@
 # Supabase 인증 앱
 
+추가 하드웨어 작업: 보유한 UNO R4 WiFi 한 대로 시작하는 [ZetaMesh R4 펌웨어와 Windows 안내](firmware/uno-r4-wifi/README.md)는 `firmware/uno-r4-wifi/`에 있다. 웹 인증 앱과 독립적으로 빌드하며 실제 보드 검증 상태를 별도로 기록한다.
+
 `space-quiz`와 별도로 만든 Next.js 앱이다. Supabase 이메일·비밀번호 로그인/회원가입, 확인 메일, 서버에서 검증하는 보호 경로를 제공한다. GitHub는 소스 관리 대상으로 사용하며 GitHub OAuth 로그인은 이번 범위에 포함하지 않는다.
 
 ## 연결된 프로젝트

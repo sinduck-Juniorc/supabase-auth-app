@@ -1,0 +1,106 @@
+{
+  "actual_os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "python_for_capture_tests": "3.11.17",
+  "logical_cpus": 3,
+  "cpu_quota": "200000 100000",
+  "memory_limit_bytes": 8589934592,
+  "toolchain": {
+    "arduino_cli": "1.5.1",
+    "fqbn": "arduino:renesas_uno:unor4wifi",
+    "core": "arduino:renesas_uno@1.6.0",
+    "library": "ArduinoBLE@2.1.0",
+    "library_dependencies": [
+      "Arduino_SpiNINA@0.0.2"
+    ],
+    "connectivity_firmware_minimum": "0.2.0",
+    "python_target": "3.11",
+    "serial_baud": 115200,
+    "physical_board_tested": false
+  },
+  "arduino_cli_archive_sha256_verified": "28a8e119c498a25607821c36cb2dc49e8463941b261a0d99091baa7bc692dd2b",
+  "builds": [
+    {
+      "role": "diagnostic",
+      "role_id": 0,
+      "node_id": 1,
+      "passed": true,
+      "flash_bytes": 87492,
+      "static_ram_bytes": 10048,
+      "vendor_warning_lines": 33,
+      "sketch_warnings": 0,
+      "artifacts_sha256": {
+        "ZetaMeshR4.ino.bin": "0f32d6a05971ae5a270b1615e6fcb74123af8f94b8b5a190ba6158c49efb23de",
+        "ZetaMeshR4.ino.elf": "ea3d01689fe997bf6526056a5310772428004ddd797d35c0d24daf453b29c87b",
+        "ZetaMeshR4.ino.hex": "419f90132bb32bb0a4cfcab4f91c3b2f6a80a03a0c758baf386cdecb654bc6f9",
+        "ZetaMeshR4.ino.map": "35c11343a684de31180e4ccf15a63ac62e6b5d5a244d0c65341e8378ed472c82"
+      }
+    },
+    {
+      "role": "donor",
+      "role_id": 1,
+      "node_id": 1,
+      "passed": true,
+      "flash_bytes": 87496,
+      "static_ram_bytes": 10052,
+      "vendor_warning_lines": 33,
+      "sketch_warnings": 0,
+      "artifacts_sha256": {
+        "ZetaMeshR4.ino.bin": "1d75540898c853881e2822d89edf686c20d6f82fff17aeadb1fd32cf9dc4a487",
+        "ZetaMeshR4.ino.elf": "9d81fb1b4780de38726e49d65c794e66135d23fbbfc7a2748b0f747d656e8293",
+        "ZetaMeshR4.ino.hex": "c15fc3bd2f7ee580e2f6f2d77480987a4948493d3223d5ca40692a58056e4714",
+        "ZetaMeshR4.ino.map": "7705a8c8b428ed5a8ca9d6c35ad269af4fef44cf8032dcfe2fa7d34f57be7f33"
+      }
+    },
+    {
+      "role": "relay",
+      "role_id": 2,
+      "node_id": 2,
+      "passed": true,
+      "flash_bytes": 87496,
+      "static_ram_bytes": 10052,
+      "vendor_warning_lines": 33,
+      "sketch_warnings": 0,
+      "artifacts_sha256": {
+        "ZetaMeshR4.ino.bin": "b52d48e96316cd96af73aa41a4a67db7e8760be37d8f2e51d5dcef9df1985bb6",
+        "ZetaMeshR4.ino.elf": "80b671d98f9ad5a070f398294c48e09e6c070e89a43332c1e208d5bfafa28828",
+        "ZetaMeshR4.ino.hex": "c7e9a458f4c6689e59aaf14803d91199ac088373cfa5667d99efce4ee867667b",
+        "ZetaMeshR4.ino.map": "1fde6dcdf38caa76ed2b5fc6291f09c2b823094e9ae16fc1dc66ef0d3bf93a0a"
+      }
+    },
+    {
+      "role": "seeker",
+      "role_id": 3,
+      "node_id": 3,
+      "passed": true,
+      "flash_bytes": 87496,
+      "static_ram_bytes": 10052,
+      "vendor_warning_lines": 33,
+      "sketch_warnings": 0,
+      "artifacts_sha256": {
+        "ZetaMeshR4.ino.bin": "261b5429f43304f27af472eb61bcb3414a5f059dec68192776d06d346e03d037",
+        "ZetaMeshR4.ino.elf": "29b5048cbbad4f41122b45796fccd4fa9f71379595428222f954612fc8c90d44",
+        "ZetaMeshR4.ino.hex": "70e5d9bb660e8e33cb9bb321876993d204a24a4f9aaa762213b4b3e4d0500c8f",
+        "ZetaMeshR4.ino.map": "8607f85c5d927398db60dc8b4978301e69ff5c95a142f309274d234637167d19"
+      }
+    }
+  ],
+  "host_protocol_test": "passed",
+  "capture_unittests": 2,
+  "no_device_error_path": "passed, no output data generated",
+  "physical_board_uploaded": false,
+  "rf_reception_tested": false,
+  "power_measured": false,
+  "windows_measured": false,
+  "three_node_hardware_tested": false,
+  "fifty_node_experiments_rerun": false,
+  "source_sha256": {
+    "ZetaMeshR4/Config.h": "6f797c5e98998c4aade29250dd452a9d1f7431bb5e9676dd9878a7396a642cb2",
+    "ZetaMeshR4/Protocol.h": "f9c8b643965bc16c8df61487f13385f1ac959a205fc1ebfc63491ca75d87dd00",
+    "ZetaMeshR4/ZetaMeshR4.ino": "c1ecd72790a1e21fe557e2c1bd3b601aaef792a1db0d8e65023cc8f6bdd1f8d1",
+    "tests/protocol_test.cpp": "086e79d9ada9535867595d82fafb574dc672437d4fb55b852b52709f9e20a855",
+    "tests/test_capture.py": "90fd7b1b229d1a8ed7f2ea877c3bb1e70db44658c237deda88e72d761afc4cdb",
+    "tools/capture_serial.py": "b3930ae77297a4a375f07b18df4f253fa29461cae32a0c6f58c37ce38338412c"
+  },
+  "initial_clean_build_vendor_warning_lines": 33
+}

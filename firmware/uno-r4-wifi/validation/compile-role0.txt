@@ -1,0 +1,132 @@
+/workspace/work/r4-tools/sketchbook/libraries/ArduinoBLE/src/utility/HCIVirtualTransportAT.cpp: In member function 'virtual int HCIVirtualTransportATClass::read()':
+/workspace/work/r4-tools/sketchbook/libraries/ArduinoBLE/src/utility/HCIVirtualTransportAT.cpp:89:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for(int i = 0; i < res.size(); i++) {
+                    ~~^~~~~~~~~~~~
+/workspace/work/r4-tools/sketchbook/libraries/ArduinoBLE/src/utility/HCIVirtualTransportAT.cpp:81:11: warning: unused variable 'c' [-Wunused-variable]
+   uint8_t c;
+           ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/Modem.cpp: In destructor 'ModemClass::~ModemClass()':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/Modem.cpp:27:14: warning: deleting object of polymorphic class type 'UART' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+       delete _serial;
+              ^~~~~~~
+In file included from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiClient.h:30:0,
+                 from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiClient.cpp:1:
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'int arduino::FifoBuffer<T, size>::available() [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:94:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'int arduino::FifoBuffer<T, size>::freePositions() [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:100:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'bool arduino::FifoBuffer<T, size>::isFull() [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:113:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'uint32_t arduino::FifoBuffer<T, size>::nextIndex(uint32_t) [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:41:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'T arduino::FifoBuffer<T, size>::read(bool*) [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:88:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+In file included from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiClient.h:30:0,
+                 from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiSSLClient.h:24,
+                 from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiSSLClient.cpp:1:
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'int arduino::FifoBuffer<T, size>::available() [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:94:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'int arduino::FifoBuffer<T, size>::freePositions() [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:100:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'bool arduino::FifoBuffer<T, size>::isFull() [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:113:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'uint32_t arduino::FifoBuffer<T, size>::nextIndex(uint32_t) [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:41:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'T arduino::FifoBuffer<T, size>::read(bool*) [with T = unsigned char; long unsigned int size = 1024]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:88:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+In file included from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiUdp.h:31:0,
+                 from /workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/libraries/WiFiS3/src/WiFiUdp.cpp:1:
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'int arduino::FifoBuffer<T, size>::available() [with T = unsigned char; long unsigned int size = 1461]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:94:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'int arduino::FifoBuffer<T, size>::freePositions() [with T = unsigned char; long unsigned int size = 1461]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:100:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'bool arduino::FifoBuffer<T, size>::isFull() [with T = unsigned char; long unsigned int size = 1461]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:113:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'uint32_t arduino::FifoBuffer<T, size>::nextIndex(uint32_t) [with T = unsigned char; long unsigned int size = 1461]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:41:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h: In member function 'T arduino::FifoBuffer<T, size>::read(bool*) [with T = unsigned char; long unsigned int size = 1461]':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/FifoBuffer.h:88:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp: In member function 'bool IRQManager::addPeripheral(Peripheral_t, void*)':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:385:38: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if (irqcfg->first_irq_number != FSP_INVALID_VECTOR) {
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:448:38: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if (irqcfg->first_irq_number != FSP_INVALID_VECTOR) {
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:609:26: warning: unused variable 'scfg' [-Wunused-variable]
+         i2c_slave_cfg_t *scfg = (i2c_slave_cfg_t *)p_cfg->scfg;
+                          ^~~~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:701:27: warning: unused variable 'mcfg' [-Wunused-variable]
+         i2c_master_cfg_t *mcfg = (i2c_master_cfg_t *)p_cfg->mcfg;
+                           ^~~~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp: In member function 'void IRQManager::set_canfd_error_link_event(int, int)':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:1779:49: warning: unused parameter 'li' [-Wunused-parameter]
+ void IRQManager::set_canfd_error_link_event(int li, int ch)
+                                                 ^~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:1779:57: warning: unused parameter 'ch' [-Wunused-parameter]
+ void IRQManager::set_canfd_error_link_event(int li, int ch)
+                                                         ^~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp: In member function 'void IRQManager::set_canfd_rx_link_event(int, int)':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:1794:46: warning: unused parameter 'li' [-Wunused-parameter]
+ void IRQManager::set_canfd_rx_link_event(int li, int ch)
+                                              ^~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:1794:54: warning: unused parameter 'ch' [-Wunused-parameter]
+ void IRQManager::set_canfd_rx_link_event(int li, int ch)
+                                                      ^~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp: In member function 'void IRQManager::set_canfd_tx_link_event(int, int)':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:1809:46: warning: unused parameter 'li' [-Wunused-parameter]
+ void IRQManager::set_canfd_tx_link_event(int li, int ch)
+                                              ^~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/IRQManager.cpp:1809:54: warning: unused parameter 'ch' [-Wunused-parameter]
+ void IRQManager::set_canfd_tx_link_event(int li, int ch)
+                                                      ^~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/Interrupts.cpp: In function 'int pin2IrqChannel(int)':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/Interrupts.cpp:78:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if(pin < 0 || pin >= PINS_COUNT) {
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/cm_backtrace/cm_backtrace.c: In function 'cm_backtrace_init':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/cm_backtrace/cm_backtrace.c:144:13: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     fw_name = firmware_name;
+             ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/cm_backtrace/cm_backtrace.c:145:12: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     hw_ver = hardware_ver;
+            ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/cm_backtrace/cm_backtrace.c:146:12: warning: assignment discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+     sw_ver = software_ver;
+            ^
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/tinyusb/rusb2/dcd_rusb2.c: In function 'wait_pipe_fifo_empty':
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/tinyusb/rusb2/dcd_rusb2.c:289:3: warning: 'return' with a value, in function returning void
+   TU_ASSERT(num);
+   ^~~~~~~~~
+/workspace/work/r4-tools/data/packages/arduino/hardware/renesas_uno/1.6.0/cores/arduino/tinyusb/rusb2/dcd_rusb2.c:288:13: note: declared here
+ static void wait_pipe_fifo_empty(rusb2_reg_t* rusb, uint8_t num) {
+             ^~~~~~~~~~~~~~~~~~~~
+Sketch uses 87492 bytes (33%) of program storage space. Maximum is 262144 bytes.
+Global variables use 10048 bytes (30%) of dynamic memory, leaving 22720 bytes for local variables. Maximum is 32768 bytes.

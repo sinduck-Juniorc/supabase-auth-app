@@ -1,0 +1,11 @@
+{
+  "arduino_cli": "1.5.1",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "core": "arduino:renesas_uno@1.6.0",
+  "library": "ArduinoBLE@2.1.0",
+  "library_dependencies": ["Arduino_SpiNINA@0.0.2"],
+  "connectivity_firmware_minimum": "0.2.0",
+  "python_target": "3.11",
+  "serial_baud": 115200,
+  "physical_board_tested": false
+}

@@ -1,0 +1,15 @@
+diagnostic
+Sketch uses 87492 bytes (33%) of program storage space. Maximum is 262144 bytes.
+Global variables use 10048 bytes (30%) of dynamic memory, leaving 22720 bytes for local variables. Maximum is 32768 bytes.
+
+donor
+Sketch uses 87496 bytes (33%) of program storage space. Maximum is 262144 bytes.
+Global variables use 10052 bytes (30%) of dynamic memory, leaving 22716 bytes for local variables. Maximum is 32768 bytes.
+
+relay
+Sketch uses 87496 bytes (33%) of program storage space. Maximum is 262144 bytes.
+Global variables use 10052 bytes (30%) of dynamic memory, leaving 22716 bytes for local variables. Maximum is 32768 bytes.
+
+seeker
+Sketch uses 87496 bytes (33%) of program storage space. Maximum is 262144 bytes.
+Global variables use 10052 bytes (30%) of dynamic memory, leaving 22716 bytes for local variables. Maximum is 32768 bytes.

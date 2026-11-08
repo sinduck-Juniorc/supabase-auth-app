@@ -1,0 +1,7 @@
+test_missing_and_malformed (test_capture.CaptureTests.test_missing_and_malformed) ... ok
+test_real_record_schema_and_missing_values (test_capture.CaptureTests.test_real_record_schema_and_missing_values) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
