@@ -109,16 +109,17 @@ Linux에 `/usr/bin/chromium`이 있으면 이를 사용하며 다른 환경은 P
 
 ## GitHub
 
-희망 저장소 이름은 `sinduck-Juniorc/supabase-auth-app`이며 비공개를 기본으로 준비했다. 현재 GitHub 인증은 새 저장소 생성 요청을 `Resource not accessible by integration (createRepository)`로 거부했다. 기존 `space-quiz` 저장소에는 변경을 쓰지 않았다.
+소스 저장소: https://github.com/sinduck-Juniorc/supabase-auth-app
 
-새 빈 저장소를 만들고 연결된 GitHub 앱에 그 저장소 접근 권한을 추가하면 다음 명령으로 올릴 수 있다. 이 폴더를 직접 업로드할 때는 `node_modules`, `.next`, `.env.local`을 포함하지 않는다.
+사용자가 생성한 공개 저장소를 사용한다. 기존 `space-quiz` 저장소에는 변경을 쓰지 않았다. `.env.local`, `node_modules`, `.next`는 Git 추적에서 제외한다.
 
 ```bash
-git remote add origin https://github.com/sinduck-Juniorc/supabase-auth-app.git
-git push -u origin main
+git clone https://github.com/sinduck-Juniorc/supabase-auth-app.git
+cd supabase-auth-app
+npm ci
 ```
 
-이미 `origin`이 등록되어 있으면 같은 명령을 반복하지 않고 `git remote -v`로 주소를 확인한다. `.github/workflows/verify.yml`은 단위 검사·타입 검사·프로덕션 빌드 및 로컬 Auth 통합 시험을 실행한다.
+이후 위 실행 안내에 따라 `.env.local`을 구성한다. `.github/workflows/verify.yml`은 단위 검사·타입 검사·프로덕션 빌드 및 로컬 Auth 통합 시험을 실행한다. 원격 검사 결과는 https://github.com/sinduck-Juniorc/supabase-auth-app/actions 에서 확인한다.
 
 ## 주요 파일
 

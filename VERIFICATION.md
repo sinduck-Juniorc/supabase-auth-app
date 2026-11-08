@@ -15,7 +15,7 @@
 | Supabase 보안 검사 | 알림 0개 | 연결된 프로젝트의 security advisor 조회 |
 | 운영 의존성 감사 | 알려진 취약점 0개 | `docs/verification/dependency-audit.json` |
 
-실제 실행 환경은 Linux, Node.js 24.22.1, Docker 29.9.2, 시스템 Chromium이다. Windows에서의 직접 실행과 GitHub Actions 실행은 아직 하지 않았다.
+이 문서의 로컬 검증 환경은 Linux, Node.js 24.22.1, Docker 29.9.2, 시스템 Chromium이다. Windows에서의 직접 실행은 하지 않았다. GitHub Actions의 원격 실행 결과는 저장소의 Actions 기록에서 확인한다.
 
 ## 통합 시험 범위
 
@@ -34,8 +34,8 @@
 
 React 서버 액션 오류 뒤 자동 폼 초기화로 이메일까지 지워지던 문제를 수정했다. 이메일은 유지하고 비밀번호는 다시 입력하도록 했으며, 해당 흐름을 브라우저 검사에 포함했다. 로컬 GoTrue 시험 DB의 스키마/검색 경로, 컨테이너 상태 검사, 메일 확인 URL도 검증 과정에서 보정했다.
 
-## 남은 연결 단계
+## GitHub 연결 및 배포 범위
 
-GitHub 새 저장소 생성은 연결 토큰이 `Resource not accessible by integration (createRepository)`로 거부했다. 운영체제 승인 검토가 거부한 오류가 아니라 GitHub API 권한 제한이다. 따라서 소스와 로컬 Git 커밋을 준비했지만 GitHub 원격 저장소 생성·푸시·Actions 실행은 하지 못했다.
+초기 GitHub 새 저장소 생성 요청은 `Resource not accessible by integration (createRepository)`로 거부됐다. 이후 사용자가 `sinduck-Juniorc/supabase-auth-app`을 생성했고 연결된 계정의 접근 권한을 확인했다. 저장소 주소는 https://github.com/sinduck-Juniorc/supabase-auth-app 이다. 초기 구현 커밋은 `7ceab12`이며 Git 기록에 보존한다.
 
-사용자가 `supabase-auth-app` 빈 저장소를 만들고 GitHub 연결의 접근 대상으로 추가하면 같은 소스를 푸시할 수 있다. 앱 호스팅 배포와 원격 Auth 리다이렉트 허용 목록 설정도 이번 작업에서 실행하지 않았다. 구체적인 주소/명령은 README에 있다.
+앱 호스팅 배포와 원격 Auth 리다이렉트 허용 목록 변경은 수행하지 않았다. 배포 전에 실제 서비스 주소를 등록해야 한다. 구체적인 설정은 README에 있다.

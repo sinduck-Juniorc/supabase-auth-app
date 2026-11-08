@@ -15,10 +15,12 @@
   "remoteAuthUsersAtVerification": 0,
   "supabaseSecurityAdvisories": 0,
   "npmProductionVulnerabilities": 0,
-  "githubRepositoryCreated": false,
-  "githubCreationBlock": "Resource not accessible by integration (createRepository)",
+  "githubRepositoryCreated": true,
+  "githubCreationBlock": null,
   "githubExistingRepositoryModified": false,
   "hostedApplicationDeployed": false,
   "remoteAuthRedirectUrlsChanged": false,
-  "localTestServicesCleanedUp": true
+  "localTestServicesCleanedUp": true,
+  "githubRepositoryUrl": "https://github.com/sinduck-Juniorc/supabase-auth-app",
+  "githubRepositoryVisibility": "public"
 }
