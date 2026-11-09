@@ -25,3 +25,7 @@ android/gnss-assist/build/
 android/gnss-assist/.local/
 android/gnss-assist/captures/
 *.keystore
+
+# 개인 S26+ 기기의 로컬 진단 결과
+/s26-capabilities*.json
+reports/s26-cell-search/captures/

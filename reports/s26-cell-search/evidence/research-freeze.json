@@ -1,0 +1,7 @@
+{
+  "research_cutoff_utc": "2026-11-09T12:49:20.507036+00:00",
+  "rule": "이 시점 이후 새 외부 자료를 조사하지 않는다. 보고서 작성·검토는 저장된 자료에 한정한다.",
+  "baseline_commit": "eb12bf5a1df8aae8922129fb01760138c298af4e",
+  "prior_cloud_report": "android/gnss-assist/REPORT_ko.md",
+  "phone_trials": 0
+}

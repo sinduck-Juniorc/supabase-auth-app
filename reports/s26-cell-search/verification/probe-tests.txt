@@ -1,0 +1,10 @@
+test_all_success_is_still_not_injection (test_probe.ProbeTests.test_all_success_is_still_not_injection) ... ok
+test_grant_deny_and_conflict (test_probe.ProbeTests.test_grant_deny_and_conflict) ... ok
+test_offline_stops_and_redacts (test_probe.ProbeTests.test_offline_stops_and_redacts) ... ok
+test_requested_permission_is_not_granted (test_probe.ProbeTests.test_requested_permission_is_not_granted) ... ok
+test_timeout_and_missing_executable (test_probe.ProbeTests.test_timeout_and_missing_executable) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

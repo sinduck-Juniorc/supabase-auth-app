@@ -1,0 +1,11 @@
+{
+  "python_test_versions": [
+    "3.12.14",
+    "3.11.17"
+  ],
+  "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+  "node": "v24.22.1",
+  "playwright": "1.65.0",
+  "pdf_pages": 10,
+  "device_trials": 0
+}

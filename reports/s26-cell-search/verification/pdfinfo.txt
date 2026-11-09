@@ -1,0 +1,19 @@
+Title:           S26+ 기지국 탐색 개선 타당성 보고서
+Creator:         Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+Producer:        Skia/PDF m156
+CreationDate:    Mon Nov  9 12:54:54 2026 UTC
+ModDate:         Mon Nov  9 12:54:54 2026 UTC
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           10
+Encrypted:       no
+Page size:       594.96 x 841.92 pts (A4)
+Page rot:        0
+File size:       471521 bytes
+Optimized:       no
+PDF version:     1.4

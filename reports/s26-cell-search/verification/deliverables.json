@@ -1,0 +1,29 @@
+{
+  "sha256": {
+    "README.md": "f4f5055a7b5b8e90c1c96d045ae129d1d6fa071461ce7fce918e713601875e73",
+    "REPORT_ko.html": "667097d911d669f83335545f300791e0d05cb99fa4b69ce83c0d729cc1006e03",
+    "REPORT_ko.md": "38e1e533ebb70d7d735b9c37244efea351358daf612a01777867753f34cd5966",
+    "REPORT_ko.pdf": "01f37adfff45a2e06ab820bd3223ae1115a5c79d1e528441e520f25e5f9c8fb3",
+    "REVIEW_ko.md": "c904cc2cdb925ff4fe0dd42c620be5e7a0be1203064eefea286acea4fb6a2e03",
+    "SOURCES.md": "68382326286a4ff5b78cba700d24d0e6374100086589236a09301e7495ba1fc1",
+    "evidence/AOSP_EXCERPTS.md": "0f0825d8ac0742e67bbe4c57f6e34257da3fc301b6d00c4b81acabad896d5897",
+    "evidence/aosp-sources.json": "f942f3b11edc02028edec5c0d2bc00e67a0721d9e7ba5c8684a36c7e3ee26274",
+    "evidence/research-freeze.json": "1df89cd1266c7ab9f972a4453741006b2f65334622ab2643bf88ca40cb035e23",
+    "tests/test_probe.py": "e34f1ed71ddaa710c4eb7f722994ab2da87980c681f4ea3a6695799ad5418fba",
+    "tools/probe.py": "964a174771d0e06d9ffd977646e62aa27935ce87aeaad87beab00495b0aa4115",
+    "tools/render_pdf.mjs": "ad256aaefa54d61a07e03fe4803c98e734eb80b6c182c6deba2c1b495a0f3f77",
+    "tools/render_report.py": "f269ad6afe87dd770a7b813a17cb87a8d8dd817208ef8970e131d488f317ee4b",
+    "verification/environment.json": "994eb0c3e39ccf8548477b26879f110802d17c40ac45764877d786ae8e6c580e",
+    "verification/layout.json": "1293998902127652c8298d9b53672161a6135a8be22e6a3e485af17c70dec7b3",
+    "verification/page-01.png": "4fb51d4152e3dc5778358ba3759b3e4fcf3c4f447c84ee4c74c03193439711cf",
+    "verification/page-10.png": "774d329a17b4f0de5e1ae58d5a4082e464aa0a8288d3235636c6b18dd7d91237",
+    "verification/pdf-text-check.json": "83b7c219294024a415ec358d364bf648b3114f5fddc1ec0d4bf7a41960013c98",
+    "verification/pdfinfo.txt": "e29ca7cd20bdb2deb655009d6c310084d6c7ed58563a899afae6de03bea440ec",
+    "verification/probe-plan.json": "fdc88894239083599b158553869d99eda5e37b111516aa6c1872959a9e5d989e",
+    "verification/probe-tests-python311.txt": "665ccdcf648ad21efdaec88e9a7157b1e0847f65e0719a4bfcb8e7cb644c7e6a",
+    "verification/probe-tests.txt": "665ccdcf648ad21efdaec88e9a7157b1e0847f65e0719a4bfcb8e7cb644c7e6a",
+    "verification/review-inputs.json": "d5748b947cf638668628ebdafe2688db70abfad35014a2fbde66bda4bc25d906",
+    "verification/review-result.json": "dc2bb55e04412a3dec501316af0af3f7a88238a040103640fd04fbd2f68eed66",
+    "verification/tool-versions.json": "be739c95b9e994afddef768eadbe3b8e0f0d9ee44a613c5b9e56dcc3f0457c40"
+  }
+}

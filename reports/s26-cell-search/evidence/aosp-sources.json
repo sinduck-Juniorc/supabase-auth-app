@@ -1,0 +1,93 @@
+[
+  {
+    "id": "shell_manifest",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/packages/Shell/AndroidManifest.xml?format=TEXT",
+    "bytes": 65788,
+    "sha256": "9779778e85fbb5c9ac30555c4a41bdce16245d93d4704d880f4b92166a56725f",
+    "retrieved_kst": "2026-11-09T21:44:12.266534+09:00"
+  },
+  {
+    "id": "permissions",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/res/AndroidManifest.xml?format=TEXT",
+    "bytes": 503122,
+    "sha256": "336cc3ed0c0182b9a6d9345f6003e042285b9bfbd67d74c5c5959d01186280fc",
+    "retrieved_kst": "2026-11-09T21:44:12.475480+09:00"
+  },
+  {
+    "id": "gnss_provider",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/services/core/java/com/android/server/location/gnss/GnssLocationProvider.java?format=TEXT",
+    "bytes": 76189,
+    "sha256": "7555e1f546a89bc993005cdad585a9dbe8ecb1e886f14ae858d7b71e5155d3c4",
+    "retrieved_kst": "2026-11-09T21:44:12.254558+09:00"
+  },
+  {
+    "id": "location_manager",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/location/java/android/location/LocationManager.java?format=TEXT",
+    "bytes": 154248,
+    "sha256": "524337e366915cb45143f5a75d2fff6983b51c468a4606ab431af95da739c487",
+    "retrieved_kst": "2026-11-09T21:44:12.309494+09:00"
+  },
+  {
+    "id": "telephony",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/telephony/java/android/telephony/TelephonyManager.java?format=TEXT",
+    "bytes": 835293,
+    "sha256": "125e4e94103d72fd5b2f775088ccb7b0aaa0c11b1a844da734effdd10d102eb8",
+    "retrieved_kst": "2026-11-09T21:44:12.893236+09:00"
+  },
+  {
+    "id": "network_scan_request",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/telephony/java/android/telephony/NetworkScanRequest.java?format=TEXT",
+    "bytes": 10701,
+    "sha256": "d2bc5d79f81d7a30f4d26b00cd090e8deaab5982417313e3b997cda7c3b601c9",
+    "retrieved_kst": "2026-11-09T21:44:12.533048+09:00"
+  },
+  {
+    "id": "gnss_hal",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/location/java/android/location/GnssMeasurementCorrections.java?format=TEXT",
+    "bytes": 17372,
+    "sha256": "72ddc0af2211f4022194979d9881efefba848fa071c9583a43877d5225867d5c",
+    "retrieved_kst": "2026-11-09T21:44:12.721482+09:00"
+  },
+  {
+    "id": "location_service",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/services/core/java/com/android/server/location/LocationManagerService.java?format=TEXT",
+    "sha256": "5b91c7605b78cc9e031020d9dc69e7ba71d014860be930932b73b6fb73a3ebaf",
+    "bytes": 85061,
+    "retrieved_kst": "2026-11-09T21:45:00.020749+09:00"
+  },
+  {
+    "id": "gnss_service",
+    "url": "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/services/core/java/com/android/server/location/gnss/GnssManagerService.java?format=TEXT",
+    "sha256": "b0406e1b585211a03ced734f3a40f057135674acc8e15faf5e8aaa3b1104acb0",
+    "bytes": 17067,
+    "retrieved_kst": "2026-11-09T21:44:59.810719+09:00"
+  },
+  {
+    "id": "phone_shell",
+    "url": "https://android.googlesource.com/platform/packages/services/Telephony/+/refs/heads/main/src/com/android/phone/TelephonyShellCommand.java?format=TEXT",
+    "sha256": "4c6f95b1ffc05be02504c5db393d2c2a78ce62c8bdc23b317204e2006e999096",
+    "bytes": 180514,
+    "retrieved_kst": "2026-11-09T21:45:00.493051+09:00"
+  },
+  {
+    "id": "phone_service",
+    "url": "https://android.googlesource.com/platform/packages/services/Telephony/+/refs/heads/main/src/com/android/phone/PhoneInterfaceManager.java?format=TEXT",
+    "sha256": "2e908a747570bccfa6ab5e7d967ac800e319d940d12b4621a3f7f0a35380c6a4",
+    "bytes": 659666,
+    "retrieved_kst": "2026-11-09T21:45:00.381208+09:00"
+  },
+  {
+    "id": "gnss_aidl",
+    "url": "https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/main/gnss/aidl/android/hardware/gnss/IGnss.aidl?format=TEXT",
+    "sha256": "a59abefd2d938e49c26a2a593599d7c129cc212f5e789aa984d4ad02fe4bcd17",
+    "bytes": 12116,
+    "retrieved_kst": "2026-11-09T21:45:00.031423+09:00"
+  },
+  {
+    "id": "telephony_hal",
+    "url": "https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/main/radio/aidl/android/hardware/radio/network/IRadioNetwork.aidl?format=TEXT",
+    "sha256": "bc3f6892af9bc416d4951a3a27b15d1f35146618760486bf13a19cc8a9a0f53e",
+    "bytes": 33626,
+    "retrieved_kst": "2026-11-09T21:45:00.717938+09:00"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "page": 1,
+    "text_characters": 1369,
+    "footer_present": true
+  },
+  {
+    "page": 2,
+    "text_characters": 1362,
+    "footer_present": true
+  },
+  {
+    "page": 3,
+    "text_characters": 1388,
+    "footer_present": true
+  },
+  {
+    "page": 4,
+    "text_characters": 1414,
+    "footer_present": true
+  },
+  {
+    "page": 5,
+    "text_characters": 1458,
+    "footer_present": true
+  },
+  {
+    "page": 6,
+    "text_characters": 1385,
+    "footer_present": true
+  },
+  {
+    "page": 7,
+    "text_characters": 1382,
+    "footer_present": true
+  },
+  {
+    "page": 8,
+    "text_characters": 1701,
+    "footer_present": true
+  },
+  {
+    "page": 9,
+    "text_characters": 1311,
+    "footer_present": true
+  },
+  {
+    "page": 10,
+    "text_characters": 1381,
+    "footer_present": true
+  }
+]

@@ -132,3 +132,7 @@ npm ci
 `src/lib/supabase/server.ts`, `src/lib/auth.ts`, `src/proxy.ts`, `src/app/auth/actions.ts`, `src/app/auth/{callback,confirm}/route.ts`, `src/app/{login,signup,dashboard,account}/page.tsx`, `src/app/api/private/route.ts`, `tests/`.
 
 공식 참고: https://supabase.com/docs/guides/auth/server-side/creating-a-client 및 https://supabase.com/docs/guides/auth/passwords
+
+## S26+ 기지국 탐색 개선 검토
+
+[10쪽 보고서와 실행 안내](reports/s26-cell-search/README.md), [PDF](reports/s26-cell-search/REPORT_ko.pdf), [논리 검토서](reports/s26-cell-search/REVIEW_ko.md)를 추가했다. 일반 앱 MVP의 중단을 권고하지만 ADB·통신사·OEM 경로까지 모두 불가능하다고 판정하지 않았다. 읽기 전용 사전 진단 도구를 구현했으며 S26+ 실물 성능은 미측정이다.
