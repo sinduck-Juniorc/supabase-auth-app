@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): false
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=ZetaMesh Development
+Signer #1 certificate SHA-256 digest: a0fb90de7e18ba3e0a1bdc950511f6dc46f315bd890b5cd92129659a9af2e348
+Signer #1 certificate SHA-1 digest: 79fbf47c5d5af8dbb33738612cfd0f1797b1ba79
+Signer #1 certificate MD5 digest: e504c09f7200e8ae9fb19f870c78ce8d
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 90943d9b0b96ef550db8c33c18df0137e474c0ee4811425f9ef506cdda9cac24
+Signer #1 public key SHA-1 digest: bde278b1d6657d5dd071098c9bbe62ca199b474a
+Signer #1 public key MD5 digest: 701e80469e400638fc323a0a5e68e21c

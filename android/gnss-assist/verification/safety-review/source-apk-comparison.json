@@ -1,0 +1,26 @@
+{
+  "reviewed_utc": "2026-11-09T13:25:24.295217+00:00",
+  "original_apk_sha256": "54e70a699971624f6cfe7d833b61dc64f0eae38dbe46a66d16a8d580d4be40a5",
+  "rebuilt_apk_sha256": "8c0a9553657ccb8afd2420f517c54411dc59a25b5294305ede4c61ec4ca8935e",
+  "payloads": {
+    "classes.dex": {
+      "matches": true,
+      "sha256": "d216b872e95c5d5765f58135376d55dc80914228dc9e06c77c815d85419e2c2c"
+    },
+    "AndroidManifest.xml": {
+      "matches": true,
+      "sha256": "6c579944a76d4903979ca37e7ed6bed64e883cb4a03781cd8ec581de6819a995"
+    },
+    "resources.arsc": {
+      "matches": true,
+      "sha256": "1fa3cb291285348ec1b33c85e7317d989467707f4791c4e5302f2d312d1e18c8"
+    }
+  },
+  "source_hashes_match_build_record": {
+    "AndroidManifest.xml": true,
+    "src/org/zetamesh/gnss/MainActivity.java": true,
+    "src/org/zetamesh/gnss/Trial.java": true
+  },
+  "physical_s26_tested": false,
+  "firmware_or_hardware_safety_certified": false
+}

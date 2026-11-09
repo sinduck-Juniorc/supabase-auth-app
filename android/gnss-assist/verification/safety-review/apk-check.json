@@ -1,0 +1,31 @@
+{
+  "download_url": "https://github.com/sinduck-Juniorc/supabase-auth-app/raw/refs/heads/main/android/gnss-assist/downloads/ZetaMesh-GNSS-Assist-debug.apk",
+  "apk_sha256": "54e70a699971624f6cfe7d833b61dc64f0eae38dbe46a66d16a8d580d4be40a5",
+  "remote_matches": true,
+  "entries": [
+    {
+      "name": "AndroidManifest.xml",
+      "bytes": 3128
+    },
+    {
+      "name": "resources.arsc",
+      "bytes": 40
+    },
+    {
+      "name": "classes.dex",
+      "bytes": 21128
+    },
+    {
+      "name": "META-INF/ANDROIDD.SF",
+      "bytes": 412
+    },
+    {
+      "name": "META-INF/ANDROIDD.RSA",
+      "bytes": 1147
+    },
+    {
+      "name": "META-INF/MANIFEST.MF",
+      "bytes": 285
+    }
+  ]
+}
