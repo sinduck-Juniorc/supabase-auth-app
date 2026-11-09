@@ -1,7 +1,18 @@
 import org.zetamesh.gnss.Trial;
+import org.zetamesh.gnss.Cleanup;
 public class TrialTest {
     static void check(boolean b) { if(!b)throw new AssertionError(); }
     public static void main(String[] args) {
+        for(int failed=0;failed<3;failed++) {
+            final int failure=failed; final int[] called={0};
+            Runnable[] actions=new Runnable[3];
+            for(int i=0;i<3;i++) { final int index=i; actions[i]=() -> {
+                called[0]++; if(index==failure)throw new IllegalStateException("시험 예외");
+            }; }
+            check(!Cleanup.run(actions)); check(called[0]==3);
+        }
+        check(Cleanup.run(() -> {}, () -> {}, () -> {}));
+        System.out.println("통과: 각 위치에서 해제 예외가 나도 모든 자원 정리 시도");
         Trial t=new Trial("baseline",10000000000L);
         check(!t.firstFix(50,11000000000L));
         check(!t.location(9000000000L,11000000000L,false));

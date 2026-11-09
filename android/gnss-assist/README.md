@@ -1,5 +1,7 @@
 # ZetaMesh GNSS 지원 경로 진단
 
+현재 배포판은 **0.1.1**이다. [안전성 보강 내역](CHANGES_0.1.1_ko.md)을 확인한다. S26+ Android 17 / One UI 9는 실기기 미검증이다.
+
 [한국어 조사·적용 보고서](REPORT_ko.md)를 먼저 읽는다. 이 앱은 실제 GNSS 보조정보 갱신 요청과 TTFF 기록용이며, Fold3 가속 효과나 R4 좌표의 칩 주입을 입증한 제품이 아니다.
 
 [설치 APK](downloads/ZetaMesh-GNSS-Assist-debug.apk) · [PDF 보고서](REPORT_ko.pdf) · [HTML 보고서](REPORT_ko.html) · [빌드 검증](verification/build.json)

@@ -4,7 +4,7 @@ package org.zetamesh.gnss;
 public final class Trial {
     public final String mode;
     public final long startedNanos;
-    public boolean active = true;
+    public volatile boolean active = true;
     public boolean engineStarted = false;
     public boolean mockSeen = false;
     public boolean callbackRegistered = false;

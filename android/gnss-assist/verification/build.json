@@ -5,12 +5,13 @@
   "target_sdk": 35,
   "min_sdk": 30,
   "build_tools": "35.0.0",
-  "apk_sha256": "54e70a699971624f6cfe7d833b61dc64f0eae38dbe46a66d16a8d580d4be40a5",
+  "apk_sha256": "107bfd400f6fca855e7c906ed1b616b0c54eae93f68209e63d5102abd643d778",
   "physical_fold3_tested": false,
   "ttff_improvement_measured": false,
   "source_sha256": {
-    "AndroidManifest.xml": "87ed95b089694d4c1b123d678062395f401b822595a43f16d529886a33b20385",
-    "src/org/zetamesh/gnss/MainActivity.java": "56c8c49833eac5df2c65ffe519bdcd45c0298fa5334362ec8ea43271ceb44cda",
-    "src/org/zetamesh/gnss/Trial.java": "1b0629c5608dc2c923f36ac8c360054289583b2281ae295ceb65751150a6bf3a"
+    "AndroidManifest.xml": "8095d2b877552eb40eded1e9d1d91cd226417192bc58f53227f34b92eedd2e21",
+    "src/org/zetamesh/gnss/Cleanup.java": "d2cbb353264d147f1839ece43367057c15f94f226e3d27d4658c749e74da8d86",
+    "src/org/zetamesh/gnss/MainActivity.java": "098993555f2e1ffea3cbe6e6dd7fa1056ce26437ce9edcdee291ee5dca0ce679",
+    "src/org/zetamesh/gnss/Trial.java": "f3e578fb11f1f81b9b2c64d49e6c27f8772e320de7ca3e0ab5698429f9f8fb2a"
   }
 }
