@@ -1,0 +1,8 @@
+test_interruptions_remain_in_denominator (test_analyze.AnalyzeTest.test_interruptions_remain_in_denominator) ... ok
+test_invalid_time_duplicate_and_empty (test_analyze.AnalyzeTest.test_invalid_time_duplicate_and_empty) ... ok
+test_mock_not_counted (test_analyze.AnalyzeTest.test_mock_not_counted) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK

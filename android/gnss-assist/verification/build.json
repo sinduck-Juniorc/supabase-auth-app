@@ -5,13 +5,15 @@
   "target_sdk": 35,
   "min_sdk": 30,
   "build_tools": "35.0.0",
-  "apk_sha256": "107bfd400f6fca855e7c906ed1b616b0c54eae93f68209e63d5102abd643d778",
+  "apk_sha256": "d25035e8f73a9e097462e9a7dfc4d66c70a57944c9a8844320ce9504c829bcc7",
   "physical_fold3_tested": false,
   "ttff_improvement_measured": false,
   "source_sha256": {
-    "AndroidManifest.xml": "8095d2b877552eb40eded1e9d1d91cd226417192bc58f53227f34b92eedd2e21",
+    "AndroidManifest.xml": "4ad06300621b9342e00568e8a6fa1bb08afd85a41c9d88adcf433f2b3312a992",
     "src/org/zetamesh/gnss/Cleanup.java": "d2cbb353264d147f1839ece43367057c15f94f226e3d27d4658c749e74da8d86",
     "src/org/zetamesh/gnss/MainActivity.java": "098993555f2e1ffea3cbe6e6dd7fa1056ce26437ce9edcdee291ee5dca0ce679",
-    "src/org/zetamesh/gnss/Trial.java": "f3e578fb11f1f81b9b2c64d49e6c27f8772e320de7ca3e0ab5698429f9f8fb2a"
+    "src/org/zetamesh/gnss/ObservationRules.java": "65bbaa2d3f4a7c2b29c183528174bd982afd9dfe74f390bb12cf19b56c964316",
+    "src/org/zetamesh/gnss/Trial.java": "f3e578fb11f1f81b9b2c64d49e6c27f8772e320de7ca3e0ab5698429f9f8fb2a",
+    "src/org/zetamesh/gnss/WalkActivity.java": "d369212cdd6e9d67ab6f676bb5d3bec2a8bd32362d8468cc0b828d1b20a93ce4"
   }
 }

@@ -1,8 +1,15 @@
 import org.zetamesh.gnss.Trial;
 import org.zetamesh.gnss.Cleanup;
+import org.zetamesh.gnss.ObservationRules;
 public class TrialTest {
     static void check(boolean b) { if(!b)throw new AssertionError(); }
     public static void main(String[] args) {
+        check(ObservationRules.fresh(6000000000L,7000000000L,5000000000L,false));
+        check(!ObservationRules.fresh(4000000000L,7000000000L,5000000000L,false));
+        check(!ObservationRules.fresh(8000000000L,7000000000L,5000000000L,false));
+        check(!ObservationRules.fresh(6000000000L,12000000000L,5000000000L,false));
+        check(!ObservationRules.fresh(6000000000L,7000000000L,5000000000L,true));
+        System.out.println("통과: 실외 위치의 캐시·미래·오래된·모의 위치 거부");
         for(int failed=0;failed<3;failed++) {
             final int failure=failed; final int[] called={0};
             Runnable[] actions=new Runnable[3];
