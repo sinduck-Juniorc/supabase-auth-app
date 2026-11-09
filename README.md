@@ -1,5 +1,7 @@
 # Supabase 인증 앱
 
+Fold3 내장 GNSS 지원 경로: [조사 보고서·Android 설치 APK](android/gnss-assist/README.md). 보조정보 요청 및 실제 첫 측정 진단용이며 단말 가속 실측은 아직 없다.
+
 ZetaMesh 시뮬레이션: [밀집 50노드 성공률 개선 보고서](research/ZetaMesh50/revisions/dense90/REPORT_ko.md). 기존 제타·체비쇼프 알고리즘을 유지하고 광고 스케줄 설정을 수정한 소스·원자료·재현 명령이 포함되어 있다.
 
 추가 하드웨어 작업: 보유한 UNO R4 WiFi 한 대로 시작하는 [ZetaMesh R4 펌웨어와 Windows 안내](firmware/uno-r4-wifi/README.md)는 `firmware/uno-r4-wifi/`에 있다. 웹 인증 앱과 독립적으로 빌드하며 실제 보드 검증 상태를 별도로 기록한다.

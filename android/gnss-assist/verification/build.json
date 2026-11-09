@@ -1,0 +1,16 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.11.17 (main, Oct 21 2026, 17:46:53) [Clang 23.1.3 ]",
+  "compile_sdk": 35,
+  "target_sdk": 35,
+  "min_sdk": 30,
+  "build_tools": "35.0.0",
+  "apk_sha256": "54e70a699971624f6cfe7d833b61dc64f0eae38dbe46a66d16a8d580d4be40a5",
+  "physical_fold3_tested": false,
+  "ttff_improvement_measured": false,
+  "source_sha256": {
+    "AndroidManifest.xml": "87ed95b089694d4c1b123d678062395f401b822595a43f16d529886a33b20385",
+    "src/org/zetamesh/gnss/MainActivity.java": "56c8c49833eac5df2c65ffe519bdcd45c0298fa5334362ec8ea43271ceb44cda",
+    "src/org/zetamesh/gnss/Trial.java": "1b0629c5608dc2c923f36ac8c360054289583b2281ae295ceb65751150a6bf3a"
+  }
+}

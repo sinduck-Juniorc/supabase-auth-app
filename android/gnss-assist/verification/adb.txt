@@ -1,0 +1,14 @@
+* daemon not running; starting now at tcp:5037
+ADB server didn't ACK
+Full server startup log: /tmp/adb.1000.log
+Server had pid: 2476
+--- adb starting (pid 2476) ---
+11-09 07:47:02.777  2476  2476 I adb     : main.cpp:65 Android Debug Bridge version 1.0.41
+11-09 07:47:02.777  2476  2476 I adb     : main.cpp:65 Version 37.0.2-16765528
+11-09 07:47:02.777  2476  2476 I adb     : main.cpp:65 Installed as /workspace/work/gnss-tools/sdk/platform-tools/adb
+11-09 07:47:02.777  2476  2476 I adb     : main.cpp:65 Running on Linux 6.18.57 (x86_64)
+11-09 07:47:02.777  2476  2476 I adb     : main.cpp:65
+11-09 07:47:02.778  2476  2476 F adb     : adb_utils.cpp:315 Cannot mkdir '/home/agent/.android': Read-only file system
+
+* failed to start daemon
+adb: failed to check server version: cannot connect to daemon

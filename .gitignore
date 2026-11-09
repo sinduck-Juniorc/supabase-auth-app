@@ -19,3 +19,9 @@ supabase/.branches/
 # 연구 재현에 필요한 실제 실행 로그
 !research/ZetaMesh50/logs/*.log
 !research/ZetaMesh50/revisions/dense90/logs/*.log
+
+# Android 진단 빌드/개인 서명 키/실물 원자료
+android/gnss-assist/build/
+android/gnss-assist/.local/
+android/gnss-assist/captures/
+*.keystore

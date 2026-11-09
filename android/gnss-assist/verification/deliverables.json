@@ -1,0 +1,18 @@
+{
+  "downloads/ZetaMesh-GNSS-Assist-debug.apk": {
+    "bytes": 20883,
+    "sha256": "54e70a699971624f6cfe7d833b61dc64f0eae38dbe46a66d16a8d580d4be40a5"
+  },
+  "REPORT_ko.pdf": {
+    "bytes": 381170,
+    "sha256": "7bd02c66a556ee0eb5d2006d3602af7624d0ffc2b77cc19b78af35bf16066473"
+  },
+  "REPORT_ko.html": {
+    "bytes": 18904,
+    "sha256": "fb78f54d209778846fb726d1e39cb1931a176bda18ac594a35913ddeb488ebda"
+  },
+  "REPORT_ko.md": {
+    "bytes": 15760,
+    "sha256": "48127d7fb7c703c4527aff26949e542d0a67cf1c6273c2a0fe718228b140a8bc"
+  }
+}
