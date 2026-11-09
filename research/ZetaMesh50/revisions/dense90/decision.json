@@ -1,0 +1,13 @@
+{
+  "mean_success": 0.9838400408282629,
+  "ci95": [
+    0.979212628255655,
+    0.9884674534008708
+  ],
+  "min_seed_success": 0.950413223140496,
+  "seeds_below_90": 0,
+  "target_mean_90_pass": true,
+  "lower_ci_90_pass": true,
+  "original_three_conditions_mean_pass": false,
+  "hardware_measured": false
+}

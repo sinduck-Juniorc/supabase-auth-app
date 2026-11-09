@@ -1,0 +1,201 @@
+{
+  "frozen_utc": "2026-11-08T08:12:01Z",
+  "evaluation_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029
+  ],
+  "tuning_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204
+  ],
+  "tuning_csv_sha256": "a7f42a192f13e722e1f534702e90370e4af371e06e5ac459022ae7f8e79db599",
+  "design_sha256": "8a03277690c539e9857d5a720bbd746ebe0284a0c8b192346d0cb452217ce66c",
+  "success_thresholds": {
+    "energy_reduction_min": 0.1,
+    "success_delta_min": -0.02,
+    "latency_relative_increase_max": 0.05
+  },
+  "choices": {
+    "dense": {
+      "baseline": "fixed",
+      "eligible": [
+        "fixed",
+        "random",
+        "greedy"
+      ],
+      "tuning_means": {
+        "cheb_only": {
+          "energy_j": 85.03022001479897,
+          "success_rate": 0.9983870967741936,
+          "latency_p95_s": 1.383218011081015
+        },
+        "combined": {
+          "energy_j": 58.33478000153004,
+          "success_rate": 0.8225874400972749,
+          "latency_p95_s": 7.223350588220439
+        },
+        "fixed": {
+          "energy_j": 84.99846554303898,
+          "success_rate": 0.9145149369382256,
+          "latency_p95_s": 8.402106430883086
+        },
+        "greedy": {
+          "energy_j": 84.99929623223898,
+          "success_rate": 0.9983870967741936,
+          "latency_p95_s": 1.9100424350719194
+        },
+        "lut": {
+          "energy_j": 57.03851623104092,
+          "success_rate": 0.889957528940792,
+          "latency_p95_s": 7.710519570361898
+        },
+        "random": {
+          "energy_j": 84.99912151542921,
+          "success_rate": 0.9820036824868381,
+          "latency_p95_s": 5.630439850927189
+        },
+        "threshold": {
+          "energy_j": 57.38228371256457,
+          "success_rate": 0.8816517654912619,
+          "latency_p95_s": 7.0599224254775255
+        },
+        "zeta_only": {
+          "energy_j": 84.99919449983898,
+          "success_rate": 0.9885359351327452,
+          "latency_p95_s": 2.95061795779606
+        }
+      }
+    },
+    "mountain": {
+      "baseline": "fixed",
+      "eligible": [
+        "fixed",
+        "random",
+        "greedy"
+      ],
+      "tuning_means": {
+        "cheb_only": {
+          "energy_j": 78.40219271879897,
+          "success_rate": 0.9916561612990185,
+          "latency_p95_s": 3.198440821751229
+        },
+        "combined": {
+          "energy_j": 58.48632812490331,
+          "success_rate": 0.7235871271585557,
+          "latency_p95_s": 8.08160557593468
+        },
+        "fixed": {
+          "energy_j": 78.39441394031897,
+          "success_rate": 0.880916107701822,
+          "latency_p95_s": 8.0770974564233
+        },
+        "greedy": {
+          "energy_j": 78.39464615867897,
+          "success_rate": 0.9903053295910439,
+          "latency_p95_s": 2.8091594444213315
+        },
+        "lut": {
+          "energy_j": 56.238310938092845,
+          "success_rate": 0.7908482390625248,
+          "latency_p95_s": 7.66413240616896
+        },
+        "random": {
+          "energy_j": 78.39482690897265,
+          "success_rate": 0.9141570730856445,
+          "latency_p95_s": 7.037696257511702
+        },
+        "threshold": {
+          "energy_j": 56.018863145079465,
+          "success_rate": 0.8160409035409035,
+          "latency_p95_s": 7.402509106036436
+        },
+        "zeta_only": {
+          "energy_j": 78.39461929007898,
+          "success_rate": 0.9819525712382855,
+          "latency_p95_s": 3.385298140090812
+        }
+      }
+    },
+    "urban": {
+      "baseline": "random",
+      "eligible": [
+        "fixed",
+        "random",
+        "greedy"
+      ],
+      "tuning_means": {
+        "cheb_only": {
+          "energy_j": 84.9986217030989,
+          "success_rate": 0.9868430532345845,
+          "latency_p95_s": 3.7841893320974114
+        },
+        "combined": {
+          "energy_j": 63.257650068328346,
+          "success_rate": 0.758752581967302,
+          "latency_p95_s": 8.384214015533633
+        },
+        "fixed": {
+          "energy_j": 84.9915463314989,
+          "success_rate": 0.8716648243395257,
+          "latency_p95_s": 8.22208056686811
+        },
+        "greedy": {
+          "energy_j": 84.9917651175389,
+          "success_rate": 0.9918423813270391,
+          "latency_p95_s": 3.848875929067718
+        },
+        "lut": {
+          "energy_j": 61.77625116408333,
+          "success_rate": 0.8044173586230665,
+          "latency_p95_s": 8.505640878716665
+        },
+        "random": {
+          "energy_j": 84.99030648133916,
+          "success_rate": 0.9148735296603832,
+          "latency_p95_s": 7.047996961668497
+        },
+        "threshold": {
+          "energy_j": 61.7644544054011,
+          "success_rate": 0.8178044445600415,
+          "latency_p95_s": 8.532703951234385
+        },
+        "zeta_only": {
+          "energy_j": 84.9917348274989,
+          "success_rate": 0.9770725313358172,
+          "latency_p95_s": 4.525111206484351
+        }
+      }
+    }
+  }
+}

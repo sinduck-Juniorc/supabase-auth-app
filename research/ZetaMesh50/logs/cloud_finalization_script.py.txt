@@ -1,0 +1,114 @@
+from pathlib import Path
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import time
+
+ROOT = Path('/workspace/work/ZetaMesh50')
+LOGS = Path('/workspace/work/logs')
+os.environ['MPLCONFIGDIR'] = '/workspace/work/mpl-cache'
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['OPENBLAS_NUM_THREADS'] = '1'
+os.environ['MKL_NUM_THREADS'] = '1'
+
+
+def run(module, arguments, logfile):
+    print('시작:', module, flush=True)
+    with (LOGS / logfile).open('w') as stream:
+        subprocess.run([sys.executable, '-m', module, *arguments], cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT, check=True)
+    print('종료:', module, flush=True)
+
+
+def audit():
+    import numpy as np
+    import pandas as pd
+    sys.path.insert(0, str(ROOT))
+    from simulator.topologies import environment
+    from simulator.runtime import source_version
+    from scripts.make_report import validate
+    manifest = json.loads((ROOT / 'outputs/evaluation/manifest.json').read_text())
+    design = json.loads((ROOT / 'reports/preregistration.json').read_text())
+    data = pd.read_csv(ROOT / 'outputs/evaluation/runs.csv')
+    validate(data)
+    nodes = pd.read_csv(ROOT / 'outputs/evaluation/nodes.csv')
+    requests = pd.read_csv(ROOT / 'outputs/evaluation/requests.csv')
+    assert len(nodes) == 720 * 50
+    assert np.allclose(nodes.radio_state_seconds, 90)
+    assert nodes.groupby(['scenario','policy','seed']).node_id.nunique().eq(50).all()
+    assert design['frozen_utc'] <= manifest['started_utc']
+    assert (ROOT / 'reports/preregistration.json').stat().st_mtime_ns < (ROOT / 'outputs/evaluation/source_snapshot.zip').stat().st_mtime_ns
+    assert design['tuning_csv_sha256'] == hashlib.sha256((ROOT / 'outputs/tuning/runs.csv').read_bytes()).hexdigest()
+    import zipfile
+    reporting_changed = []
+    with zipfile.ZipFile(ROOT / 'outputs/evaluation/source_snapshot.zip') as snapshot:
+        assert snapshot.read('reports/preregistration.json') == (ROOT / 'reports/preregistration.json').read_bytes()
+        for name in snapshot.namelist():
+            if (ROOT / name).read_bytes() != snapshot.read(name):
+                reporting_changed.append(name)
+    assert set(reporting_changed) <= {'scripts/make_report.py'}
+    env_cache = {}
+    configs = {c['scenario']: c for c in manifest['configs']}
+    served = requests[requests.delivered_s.notna()]
+    assert (served.delivered_s <= served.deadline_s + 1e-9).all()
+    assert served.hops.between(1, 4).all()
+    assert np.allclose(served.latency_s, served.delivered_s - served.created_s)
+    for (scenario, seed), group in requests.groupby(['scenario','seed']):
+        config = configs[scenario]
+        env = environment(config, int(seed))
+        expected = None
+        for policy, rows in group.groupby('policy'):
+            traffic = rows[['node_id','created_s','deadline_s']].to_numpy()
+            if expected is None:
+                expected = traffic
+            else:
+                assert np.array_equal(expected, traffic)
+        for row in group[group.delivered_s.notna()].itertuples():
+            source, sequence = map(int, row.packet_id.split(':'))
+            created = env['gnss_phases'][source] + (sequence - 1) * config['generation_period_s']
+            assert env['roles'][source] == 'Donor'
+            assert created <= row.delivered_s + 1e-9
+            assert row.delivered_s < created + config['packet_lifetime_s']
+            assert row.delivered_s - created <= config['max_info_age_s'] + 1e-9
+    sensitivity_runs = 0
+    for path in (ROOT / 'outputs/sensitivity').glob('*/runs.csv'):
+        frame = pd.read_csv(path)
+        assert len(frame) == 10
+        assert set(frame.nodes) == {50}
+        assert set(frame.seed) == set(range(3000,3005))
+        assert frame.groupby('seed').environment_fingerprint.nunique().eq(1).all()
+        sensitivity_runs += len(frame)
+    assert sensitivity_runs == 90
+    assert (data.wall_s > 0).all() and (data.peak_rss_bytes > 0).all()
+    figures = list((ROOT / 'reports/figures').glob('*.png'))
+    assert len(figures) >= 5
+    summary = {'main_runs': len(data), 'nodes_per_run': 50, 'scenarios': 3, 'policies': 8,
+               'independent_seeds_per_scenario_policy': 30, 'node_records': len(nodes),
+               'request_records': len(requests), 'successful_request_records': len(served),
+               'sensitivity_runs': sensitivity_runs, 'figure_types': len(figures),
+               'radio_state_time_conservation': True, 'energy_component_and_role_conservation': True,
+               'paired_environment_fingerprints': True, 'paired_traffic_identical': True,
+               'delivered_packets_within_hops_age_expiry_deadline': True,
+               'baseline_frozen_before_evaluation': True, 'simulation_source_matches_evaluation': True,
+               'registration_saved_in_pre_execution_source_snapshot': True, 'timestamp_resolution_seconds': 1,
+               'reporting_source_updated_after_evaluation': reporting_changed,
+               'code_version': manifest['code_version'], 'target_windows_measured': False,
+               'esp32_hardware_measured': False, 'audit_utc': time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())}
+    (ROOT / 'reports/verification.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+    print(json.dumps(summary,ensure_ascii=False),flush=True)
+
+
+if __name__ == '__main__':
+    start = time.monotonic()
+    while True:
+        manifest = json.loads((ROOT / 'outputs/evaluation/manifest.json').read_text())
+        if 'completed_utc' in manifest:
+            break
+        if time.monotonic() - start > 1800:
+            raise TimeoutError('평가 종료를 확인하지 못했습니다. 평가 로그를 확인하세요.')
+        time.sleep(5)
+    run('scripts.sensitivity', ['--workers','2'], 'sensitivity.log')
+    run('scripts.make_report', [], 'report.log')
+    audit()
+    subprocess.run([sys.executable,'/workspace/work/package_outputs.py'],check=True)

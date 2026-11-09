@@ -1,0 +1,24 @@
+{
+  "compared_to": "outputs/evaluation/source_snapshot.zip",
+  "unchanged_files": {
+    "policies/__init__.py": true,
+    "policies/chebyshev.py": true,
+    "policies/combined.py": true,
+    "policies/fixed.py": true,
+    "policies/greedy.py": true,
+    "policies/random.py": true,
+    "policies/zeta.py": true,
+    "simulator/__init__.py": true,
+    "simulator/energy.py": true,
+    "simulator/events.py": true,
+    "simulator/metrics.py": true,
+    "simulator/network.py": true,
+    "simulator/packet.py": true,
+    "simulator/radio.py": true,
+    "simulator/runtime.py": true,
+    "simulator/topologies.py": true,
+    "models/quality.json": true
+  },
+  "dense_only_change": "slow_adv_s: 1.6 -> 0.8",
+  "other_scenarios_identical": true
+}

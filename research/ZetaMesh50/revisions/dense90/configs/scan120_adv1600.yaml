@@ -1,0 +1,46 @@
+nodes: 50
+duration_s: 90.0
+warmup_s: 10.0
+donor_fraction: 0.2
+scan_interval_s: 0.6
+base_scan_window_s: 0.18
+low_scan_window_s: 0.12
+min_scan_window_s: 0.04
+max_scan_window_s: 0.21
+base_adv_s: 0.8
+slow_adv_s: 1.6
+min_adv_s: 0.4
+max_adv_s: 2.0
+airtime_s: 0.000376
+channel_spacing_s: 0.0006
+wake_guard_s: 0.002
+cache_s: 5.0
+packet_lifetime_s: 24.0
+generation_period_s: 12.0
+gnss_active_s: 2.0
+max_info_age_s: 15.0
+request_period_s: 16.0
+deadline_s: 10.0
+max_hops: 4
+relay_backoff_s: 0.04
+exploration: 0.1
+battery_capacity_j: 11880.0
+tx_power_dbm: 0.0
+sensitivity_dbm: -96.0
+max_range_m: 110.0
+pathloss_exponent: 2.0
+nlos_probability: 0.08
+nlos_loss_db: 14.0
+shadow_sigma_db: 2.0
+external_interference: 0.08
+energy:
+  voltage_v: 3.3
+  tx_a: 0.018
+  rx_a: 0.016
+  scan_a: 0.016
+  idle_a: 0.001
+  sleep_a: 2.0e-05
+  cpu_increment_a: 0.006
+  gnss_a: 0.025
+  provenance: 모든 전류/전압/CPU 시간은 ESP32-C3 실측 전 가정값
+scenario: dense

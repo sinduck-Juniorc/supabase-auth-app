@@ -1,0 +1,71 @@
+{
+  "frozen_utc": "2026-11-09T01:03:48.129186+00:00",
+  "selected": "scan60_adv800",
+  "changes": {
+    "slow_adv_s": [
+      1.6,
+      0.8
+    ]
+  },
+  "evaluation_seeds": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027,
+    2028,
+    2029
+  ],
+  "baseline": "fixed",
+  "tuning_result": {
+    "variant": "scan60_adv800",
+    "success": 0.9870141058362354,
+    "ci_low": 0.9801903220572722,
+    "ci_high": 0.9938378896151986,
+    "energy_j": 48.42501641253139,
+    "p95_s": 4.441648392310744,
+    "csv_sha256": "76b2de3649751a3f25f667ac7c4c09eb1652d3ec7a03f79643206530724b572e"
+  },
+  "config_sha256": "d37cfaab29c99b04ddb2965b0337175c71546fd688b6b187b219485ec397f3d8",
+  "algorithm_sha256": {
+    "policies/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "policies/chebyshev.py": "e4c6647a943299e754f7af2c1f6596cd9f3e4d60d44b50d43a55cdd7cb146e0e",
+    "policies/combined.py": "7a82479c320f7680c22369839395b8c0d3e294ee04330f261efce524260588e0",
+    "policies/fixed.py": "c7af868699839f275e116debedf184d46aed00de7e8ef4bb66db356527b7f272",
+    "policies/greedy.py": "4ff35d973880d671f0719c986a8b48bc5ff031e794b96fe6900d2363e47a89e5",
+    "policies/random.py": "402f4e69738cb4e4053d6c239def77845575084be5681b12d52354c7a5dc2cff",
+    "policies/zeta.py": "51383720ba56769af3947e889f8aeb0dba22d7a9d45bac640538134f995df0a8",
+    "simulator/__init__.py": "c0fb18b7b37dcb318cc7d4fe7ccd518f4f596473f53248c51bcbe5bbc3cdfae7",
+    "simulator/energy.py": "b5b42b7c0073466b16b39dd8cee0817c2627c1d7f4904bc39d0033b53540583a",
+    "simulator/events.py": "5db13568a35477ed4b3be73f2c02811085f76a9608abb4c2e4a3c81bbb6a0f42",
+    "simulator/metrics.py": "0d3e55278201d8c68560188f96b6be67c0cb7925efb8e8a996bc5ba002cfe1a3",
+    "simulator/network.py": "8c55e740bbb4b449cb32d47f4221cabeead29a8d3dbef5a60804c4ef329cfbf1",
+    "simulator/packet.py": "74bea7e2244594d611e6292dfb6fb8d06dc514b43ee8de5b40d665a352c9f786",
+    "simulator/radio.py": "b5921d73b734fe38ad61bf8fa322ec137486a51f9ca7a3280704f2013fe03d14",
+    "simulator/runtime.py": "035b8250729be66b64c6da8423aef09d8ceb521b0aa81ad8f398aafebb810489",
+    "simulator/topologies.py": "108d752e822ea027db6e9716ea7767aee09cda603bc2636ebfd65d8b8e69e843"
+  }
+}

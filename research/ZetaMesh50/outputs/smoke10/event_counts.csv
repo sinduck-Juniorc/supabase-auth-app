@@ -1,0 +1,4 @@
+scenario,policy,seed,adv,tx_start,tx_end,sleep,scan_start,receive,generate,scan_end,collision,gnss_end,relay,request,request_deadline,expire
+dense,fixed,10,1118,3354,3354,3861,1500,2508,16,1497,7.0,16,43,25,25,43
+mountain,fixed,10,1118,3354,3354,3861,1500,561,8,1497,1.0,8,25,30,30,27
+urban,fixed,10,1120,3360,3360,3870,1500,347,16,1497,0.0,16,26,25,25,38

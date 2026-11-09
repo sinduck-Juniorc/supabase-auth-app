@@ -1,0 +1,28 @@
+{
+  "main_runs": 720,
+  "nodes_per_run": 50,
+  "scenarios": 3,
+  "policies": 8,
+  "independent_seeds_per_scenario_policy": 30,
+  "node_records": 36000,
+  "request_records": 93056,
+  "successful_request_records": 83338,
+  "sensitivity_runs": 90,
+  "figure_types": 8,
+  "radio_state_time_conservation": true,
+  "energy_component_and_role_conservation": true,
+  "paired_environment_fingerprints": true,
+  "paired_traffic_identical": true,
+  "delivered_packets_within_hops_age_expiry_deadline": true,
+  "baseline_frozen_before_evaluation": true,
+  "simulation_source_matches_evaluation": true,
+  "registration_saved_in_pre_execution_source_snapshot": true,
+  "timestamp_resolution_seconds": 1,
+  "reporting_source_updated_after_evaluation": [
+    "scripts/make_report.py"
+  ],
+  "code_version": "sha256:fec771606182f1af1b6815e6f6b67870be7dfa2e9a019888cffe772336bb0e4b",
+  "target_windows_measured": false,
+  "esp32_hardware_measured": false,
+  "audit_utc": "2026-11-08T08:28:55Z"
+}

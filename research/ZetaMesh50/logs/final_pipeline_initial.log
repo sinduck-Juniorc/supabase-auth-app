@@ -1,0 +1,12 @@
+시작: scripts.sensitivity
+종료: scripts.sensitivity
+시작: scripts.make_report
+종료: scripts.make_report
+Traceback (most recent call last):
+  File "/workspace/work/finish_study.py", line 103, in <module>
+    if 'completed_utc' in manifest:
+^^^^^^^
+  File "/workspace/work/finish_study.py", line 40, in audit
+    assert design['frozen_utc'] < manifest['started_utc']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

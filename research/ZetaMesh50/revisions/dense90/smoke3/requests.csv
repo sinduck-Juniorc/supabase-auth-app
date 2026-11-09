@@ -1,0 +1,5 @@
+request_id,node_id,created_s,deadline_s,delivered_s,latency_s,hops,packet_id,scenario,policy,seed
+0,0,20.797215,30.797215,20.797215,0.0,2,2:2,dense,combined,10
+1,0,36.797215,46.797215,36.797215,0.0,1,2:3,dense,combined,10
+2,0,52.797215,62.797215,52.797215,0.0,1,2:5,dense,combined,10
+3,0,68.797215,78.797215,71.98200316952915,3.184788169529156,1,2:6,dense,combined,10

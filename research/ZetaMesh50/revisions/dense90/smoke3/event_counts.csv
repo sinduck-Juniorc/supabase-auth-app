@@ -1,0 +1,2 @@
+scenario,policy,seed,generate,adv,tx_start,tx_end,sleep,scan_start,receive,scan_end,gnss_end,relay,request,expire,request_deadline
+dense,combined,10,8,336,1008,1008,1269,450,104,450,8,16,4,18,4

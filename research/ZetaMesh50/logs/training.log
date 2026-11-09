@@ -1,0 +1,9 @@
+ model split      mae     rmse  max_abs_error    fit_s  median_inference_us  python_peak_allocation_bytes  float64_coefficient_bytes mcu_flash_bytes mcu_inference_energy_j  python_pickle_bytes
+cheb_3  test 0.009452 0.014265       0.169349 0.010081            17.306190                          1566                      272.0            None                   None                  NaN
+cheb_5  test 0.009116 0.013848       0.167461 0.010833            17.479287                          1566                      368.0            None                   None                  NaN
+cheb_7  test 0.009121 0.013867       0.167635 0.014465            17.774363                          1566                      464.0            None                   None                  NaN
+   lut  test 0.009112 0.013853       0.167440 0.010833            14.591087                          1566                     1712.0            None                   None                  NaN
+linear  test 0.023842 0.035746       0.374708 0.003190            49.809883                          2519                        NaN            None                   None                500.0
+  tree  test 0.022816 0.033001       0.221594 0.047452            80.234337                          2807                        NaN            None                   None              33240.0
+   mlp  test 0.002201 0.003021       0.031131 3.994617            64.903430                          2465                        NaN            None                   None              26110.0
+검증 집합으로 선택한 차수: 5

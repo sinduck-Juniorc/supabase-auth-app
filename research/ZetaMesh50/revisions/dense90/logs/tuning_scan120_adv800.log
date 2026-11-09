@@ -1,0 +1,11 @@
+[1/10] dense combined seed=300 E=65.9763J success=0.9921 events=129568 wall=10.134s
+[2/10] dense combined seed=301 E=65.5668J success=0.9839 events=129965 wall=10.034s
+[3/10] dense combined seed=302 E=65.5525J success=0.9837 events=130211 wall=10.820s
+[4/10] dense combined seed=303 E=65.9381J success=0.9919 events=130271 wall=11.264s
+[5/10] dense combined seed=304 E=66.1416J success=0.9921 events=130133 wall=10.802s
+[6/10] dense combined seed=305 E=66.3710J success=0.9836 events=131059 wall=11.240s
+[7/10] dense combined seed=306 E=66.4461J success=1.0000 events=130721 wall=9.739s
+[8/10] dense combined seed=307 E=66.0371J success=0.9919 events=130376 wall=9.664s
+[9/10] dense combined seed=308 E=66.0948J success=0.9748 events=130337 wall=8.559s
+[10/10] dense combined seed=309 E=64.8232J success=1.0000 events=129501 wall=8.284s
+실행 종료: 10회, 벽시계 50.97s

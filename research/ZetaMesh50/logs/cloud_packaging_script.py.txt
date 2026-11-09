@@ -1,0 +1,108 @@
+from pathlib import Path
+import base64
+import hashlib
+import html
+import json
+import re
+import shutil
+import zipfile
+
+ROOT = Path('/workspace/work/ZetaMesh50')
+READY = Path('/workspace/work/ready')
+
+
+def inline(value):
+    value = html.escape(value)
+    value = re.sub(r'`([^`]+)`', r'<code>\1</code>', value)
+    value = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', value)
+    return value
+
+
+def render_report():
+    source = (ROOT / 'reports/50node_validation_ko.md').read_text(encoding='utf-8').splitlines()
+    body, paragraph, code, table = [], [], [], []
+    in_code = False
+
+    def flush():
+        if paragraph:
+            body.append('<p>' + inline(' '.join(paragraph)) + '</p>')
+            paragraph.clear()
+        if table:
+            rows = [line.strip('| ').split('|') for line in table]
+            body.append('<div class="table"><table><thead><tr>' + ''.join('<th>' + inline(v.strip()) + '</th>' for v in rows[0]) + '</tr></thead><tbody>')
+            for row in rows[2:]:
+                body.append('<tr>' + ''.join('<td>' + inline(v.strip()) + '</td>' for v in row) + '</tr>')
+            body.append('</tbody></table></div>')
+            table.clear()
+
+    for line in source:
+        if line.startswith('```'):
+            flush()
+            if in_code:
+                body.append('<pre><code>' + html.escape('\n'.join(code)) + '</code></pre>')
+                code.clear()
+            in_code = not in_code
+        elif in_code:
+            code.append(line)
+        elif line.startswith('|'):
+            if paragraph:
+                flush()
+            table.append(line)
+        elif line.startswith('#'):
+            flush()
+            count = len(line) - len(line.lstrip('#'))
+            body.append(f'<h{count}>' + inline(line[count:].strip()) + f'</h{count}>')
+        elif line.startswith('!['):
+            flush()
+            match = re.fullmatch(r'!\[(.*?)\]\((.*?)\)', line)
+            if match:
+                image = ROOT / 'reports' / match.group(2)
+                data = base64.b64encode(image.read_bytes()).decode()
+                body.append(f'<figure><img alt="{html.escape(match.group(1))}" src="data:image/png;base64,{data}"></figure>')
+        elif not line.strip():
+            flush()
+        elif re.match(r'^\d+\. ', line):
+            flush()
+            body.append('<p class="step">' + inline(line) + '</p>')
+        else:
+            if table:
+                flush()
+            paragraph.append(line)
+    flush()
+    prefix = '''<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZetaMesh 50노드 검증 보고서</title><style>
+body{font-family:"Malgun Gothic","Noto Sans CJK KR",sans-serif;margin:auto;max-width:1250px;padding:40px 24px;color:#182334;background:#f7f9fc;line-height:1.8}h1{font-size:2rem;color:#10254a}h2{margin-top:2.8rem;border-bottom:2px solid #dce5f2;padding-bottom:.4rem;color:#18375f}p{max-width:1100px}strong{color:#b3261e}code{background:#e8edf5;padding:2px 5px;border-radius:4px;font-size:.9em}pre{background:#13233b;color:#edf3fb;overflow:auto;padding:20px;border-radius:10px;line-height:1.5}pre code{background:none;padding:0}table{border-collapse:collapse;background:white;font-size:.88em;white-space:nowrap;width:100%}th,td{padding:9px 12px;border-bottom:1px solid #d9e2ee;text-align:right}th{background:#18375f;color:white}th:first-child,td:first-child{text-align:left}tr:nth-child(even){background:#f0f4fa}.table{overflow:auto;margin:20px 0;border-radius:8px}figure{margin:30px 0;background:white;padding:10px;border:1px solid #dce5f2;border-radius:8px}img{width:100%;height:auto}.step{padding-left:10px;border-left:3px solid #a8bddb}@media print{body{max-width:none;background:white;padding:0}h2{break-after:avoid}figure{break-inside:avoid}table{font-size:.7em}}</style><main>'''
+    return prefix + '\n'.join(body) + '</main></html>'
+
+
+def main():
+    READY.mkdir(exist_ok=True)
+    shutil.copytree('/workspace/work/logs', ROOT / 'logs', dirs_exist_ok=True)
+    (ROOT / 'reports/50node_validation_ko.html').write_text(render_report(), encoding='utf-8')
+    for file in ROOT.rglob('__pycache__'):
+        shutil.rmtree(file)
+    shutil.rmtree(ROOT / '.pytest_cache', ignore_errors=True)
+    for file in ROOT.rglob('checkpoint_runs.csv'):
+        file.unlink()
+    entries = []
+    for file in sorted(ROOT.rglob('*')):
+        if file.is_file() and file.name != 'SHA256SUMS.json':
+            entries.append({'file': str(file.relative_to(ROOT)), 'bytes': file.stat().st_size,
+                            'sha256': hashlib.sha256(file.read_bytes()).hexdigest()})
+    (ROOT / 'SHA256SUMS.json').write_text(json.dumps(entries, ensure_ascii=False, indent=2), encoding='utf-8')
+    archive = READY / 'ZetaMesh50_연구결과.zip'
+    with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as zipped:
+        for file in sorted(ROOT.rglob('*')):
+            if file.is_file():
+                zipped.write(file, Path('ZetaMesh50') / file.relative_to(ROOT))
+    with zipfile.ZipFile(archive) as zipped:
+        assert zipped.testzip() is None
+    shutil.copy2(ROOT / 'reports/50node_validation_ko.html', READY / 'ZetaMesh50_검증보고서.html')
+    shutil.copy2(ROOT / 'reports/50node_validation_ko.md', READY / 'ZetaMesh50_검증보고서.md')
+    shutil.copy2(ROOT / 'reports/main_table.csv', READY / 'ZetaMesh50_50노드_요약.csv')
+    print(json.dumps({'archive': str(archive), 'archive_bytes': archive.stat().st_size,
+                      'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(),
+                      'source_files': len(entries), 'report_html_bytes': (READY / 'ZetaMesh50_검증보고서.html').stat().st_size}, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()

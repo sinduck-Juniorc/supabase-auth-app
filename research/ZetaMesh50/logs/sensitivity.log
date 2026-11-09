@@ -1,0 +1,108 @@
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/dense_donors.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy fixed combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/dense_donors
+[1/10] dense fixed seed=3000 E=78.4051J success=0.8811 events=147535 wall=1.446s
+[2/10] dense combined seed=3000 E=54.1759J success=0.8462 events=97710 wall=4.923s
+[3/10] dense fixed seed=3001 E=78.3634J success=1.0000 events=148459 wall=1.615s
+[4/10] dense combined seed=3001 E=56.9776J success=0.8252 events=103290 wall=4.672s
+[5/10] dense fixed seed=3002 E=78.3712J success=0.9790 events=147578 wall=1.313s
+[6/10] dense combined seed=3002 E=54.3863J success=0.8462 events=98454 wall=4.434s
+[7/10] dense fixed seed=3003 E=78.3571J success=0.9320 events=147539 wall=1.390s
+[8/10] dense combined seed=3003 E=58.2116J success=0.7619 events=104765 wall=4.824s
+[9/10] dense fixed seed=3004 E=78.4030J success=0.9384 events=146543 wall=1.312s
+[10/10] dense combined seed=3004 E=57.1120J success=0.8219 events=102785 wall=4.717s
+실행 종료: 10회, 벽시계 17.07s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/dense_lifetime.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy fixed combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/dense_lifetime
+[1/10] dense fixed seed=3000 E=85.0035J success=1.0000 events=148139 wall=1.234s
+[2/10] dense combined seed=3000 E=66.1848J success=0.7623 events=107343 wall=2.668s
+[3/10] dense fixed seed=3001 E=84.9609J success=0.9837 events=148869 wall=1.293s
+[4/10] dense combined seed=3001 E=65.5792J success=0.6992 events=107249 wall=2.892s
+[5/10] dense fixed seed=3002 E=84.9693J success=0.9919 events=148091 wall=1.253s
+[6/10] dense combined seed=3002 E=65.5633J success=0.8049 events=106717 wall=2.678s
+[7/10] dense fixed seed=3003 E=84.9549J success=0.9840 events=147980 wall=1.364s
+[8/10] dense combined seed=3003 E=65.4393J success=0.7920 events=106449 wall=2.589s
+[9/10] dense fixed seed=3004 E=85.0016J success=0.9919 events=147255 wall=1.398s
+[10/10] dense combined seed=3004 E=65.5953J success=0.7967 events=105893 wall=2.616s
+실행 종료: 10회, 벽시계 11.14s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/dense_nlos.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy fixed combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/dense_nlos
+[1/10] dense fixed seed=3000 E=85.0051J success=0.8770 events=145361 wall=1.456s
+[2/10] dense combined seed=3000 E=59.7633J success=0.8279 events=95486 wall=4.000s
+[3/10] dense fixed seed=3001 E=84.9633J success=1.0000 events=146223 wall=1.382s
+[4/10] dense combined seed=3001 E=58.9510J success=0.8049 events=94306 wall=4.377s
+[5/10] dense fixed seed=3002 E=84.9712J success=0.9431 events=145717 wall=1.554s
+[6/10] dense combined seed=3002 E=57.6970J success=0.8699 events=92351 wall=4.570s
+[7/10] dense fixed seed=3003 E=84.9570J success=0.9440 events=145679 wall=1.436s
+[8/10] dense combined seed=3003 E=60.7086J success=0.7680 events=97197 wall=4.675s
+[9/10] dense fixed seed=3004 E=85.0033J success=0.9756 events=144458 wall=1.560s
+[10/10] dense combined seed=3004 E=59.4506J success=0.8455 events=94596 wall=4.486s
+실행 종료: 10회, 벽시계 16.54s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/mountain_donors.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy fixed combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/mountain_donors
+[1/10] mountain fixed seed=3000 E=85.0013J success=0.9836 events=94880 wall=1.023s
+[2/10] mountain combined seed=3000 E=59.7697J success=0.7869 events=70511 wall=2.040s
+[3/10] mountain fixed seed=3001 E=84.9589J success=0.9837 events=95777 wall=0.902s
+[4/10] mountain combined seed=3001 E=59.5940J success=0.7886 events=70973 wall=1.850s
+[5/10] mountain fixed seed=3002 E=84.9671J success=0.9837 events=94928 wall=0.916s
+[6/10] mountain combined seed=3002 E=58.7199J success=0.8862 events=70585 wall=1.944s
+[7/10] mountain fixed seed=3003 E=84.9529J success=0.9440 events=94579 wall=0.845s
+[8/10] mountain combined seed=3003 E=60.1344J success=0.8400 events=71429 wall=1.886s
+[9/10] mountain fixed seed=3004 E=84.9995J success=0.9919 events=94852 wall=0.977s
+[10/10] mountain combined seed=3004 E=58.7958J success=0.8699 events=70258 wall=1.949s
+실행 종료: 10회, 벽시계 8.20s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/mountain_lifetime.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy fixed combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/mountain_lifetime
+[1/10] mountain fixed seed=3000 E=78.4006J success=0.9650 events=95020 wall=0.828s
+[2/10] mountain combined seed=3000 E=63.1343J success=0.6993 events=78714 wall=1.237s
+[3/10] mountain fixed seed=3001 E=78.3580J success=0.9021 events=95710 wall=0.793s
+[4/10] mountain combined seed=3001 E=63.7051J success=0.6993 events=80606 wall=1.238s
+[5/10] mountain fixed seed=3002 E=78.3664J success=0.9510 events=95036 wall=0.848s
+[6/10] mountain combined seed=3002 E=60.5957J success=0.8531 events=77583 wall=1.224s
+[7/10] mountain fixed seed=3003 E=78.3521J success=0.9456 events=94580 wall=0.768s
+[8/10] mountain combined seed=3003 E=62.9032J success=0.7347 events=79211 wall=1.211s
+[9/10] mountain fixed seed=3004 E=78.3986J success=0.9041 events=94875 wall=0.874s
+[10/10] mountain combined seed=3004 E=63.7810J success=0.7123 events=79781 wall=1.105s
+실행 종료: 10회, 벽시계 5.95s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/mountain_nlos.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy fixed combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/mountain_nlos
+[1/10] mountain fixed seed=3000 E=78.4012J success=0.9161 events=94400 wall=0.860s
+[2/10] mountain combined seed=3000 E=58.9533J success=0.7203 events=74990 wall=1.987s
+[3/10] mountain fixed seed=3001 E=78.3588J success=0.9510 events=95201 wall=0.872s
+[4/10] mountain combined seed=3001 E=56.9840J success=0.6923 events=74507 wall=2.584s
+[5/10] mountain fixed seed=3002 E=78.3671J success=0.9790 events=94711 wall=1.269s
+[6/10] mountain combined seed=3002 E=57.6813J success=0.7692 events=75125 wall=2.386s
+[7/10] mountain fixed seed=3003 E=78.3528J success=0.9388 events=94106 wall=1.048s
+[8/10] mountain combined seed=3003 E=60.7147J success=0.6803 events=77467 wall=2.024s
+[9/10] mountain fixed seed=3004 E=78.3993J success=0.8836 events=94366 wall=0.951s
+[10/10] mountain combined seed=3004 E=59.9531J success=0.7055 events=76753 wall=1.921s
+실행 종료: 10회, 벽시계 8.85s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/urban_donors.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy random combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/urban_donors
+[1/10] urban random seed=3000 E=78.3978J success=0.8239 events=90422 wall=0.887s
+[2/10] urban combined seed=3000 E=64.5226J success=0.5493 events=77842 wall=1.719s
+[3/10] urban random seed=3001 E=78.3575J success=0.7808 events=88941 wall=0.827s
+[4/10] urban combined seed=3001 E=64.4477J success=0.5753 events=77234 wall=1.817s
+[5/10] urban random seed=3002 E=78.3691J success=0.8322 events=89910 wall=0.911s
+[6/10] urban combined seed=3002 E=64.3034J success=0.5944 events=76977 wall=2.085s
+[7/10] urban random seed=3003 E=78.3434J success=0.8828 events=87829 wall=0.968s
+[8/10] urban combined seed=3003 E=62.6674J success=0.6207 events=73929 wall=1.469s
+[9/10] urban random seed=3004 E=78.4060J success=0.8472 events=88044 wall=0.765s
+[10/10] urban combined seed=3004 E=62.6302J success=0.6319 events=73860 wall=1.540s
+실행 종료: 10회, 벽시계 7.43s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/urban_lifetime.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy random combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/urban_lifetime
+[1/10] urban random seed=3000 E=85.0035J success=0.9262 events=90820 wall=0.933s
+[2/10] urban combined seed=3000 E=67.5377J success=0.7131 events=74298 wall=1.354s
+[3/10] urban random seed=3001 E=84.9603J success=0.8952 events=89841 wall=0.774s
+[4/10] urban combined seed=3001 E=69.8380J success=0.6452 events=75269 wall=1.087s
+[5/10] urban random seed=3002 E=84.9636J success=0.9350 events=89993 wall=0.671s
+[6/10] urban combined seed=3002 E=69.2487J success=0.7236 events=75219 wall=1.061s
+[7/10] urban random seed=3003 E=84.9437J success=0.8934 events=88263 wall=0.784s
+[8/10] urban combined seed=3003 E=67.9479J success=0.6885 events=72431 wall=1.188s
+[9/10] urban random seed=3004 E=85.0045J success=0.9587 events=87977 wall=0.771s
+[10/10] urban combined seed=3004 E=69.0656J success=0.7190 events=73778 wall=1.135s
+실행 종료: 10회, 벽시계 5.67s
+실행: /workspace/work/.venv/bin/python -m scripts.run_experiment --config /workspace/work/ZetaMesh50/configs/sensitivity/urban_nlos.yaml --phase sensitivity --seed-start 3000 --seeds 5 --workers 2 --policy random combined --out /workspace/work/ZetaMesh50/outputs/sensitivity/urban_nlos
+[1/10] urban random seed=3000 E=85.0000J success=0.9590 events=90687 wall=0.878s
+[2/10] urban combined seed=3000 E=61.7469J success=0.6967 events=69850 wall=1.657s
+[3/10] urban random seed=3001 E=84.9560J success=0.9435 events=88974 wall=0.839s
+[4/10] urban combined seed=3001 E=63.8800J success=0.7177 events=70857 wall=1.609s
+[5/10] urban random seed=3002 E=84.9648J success=0.9431 events=89524 wall=0.844s
+[6/10] urban combined seed=3002 E=63.1328J success=0.7642 events=70725 wall=1.768s
+[7/10] urban random seed=3003 E=84.9400J success=0.9836 events=87596 wall=0.785s
+[8/10] urban combined seed=3003 E=63.8368J success=0.7459 events=70007 wall=1.665s
+[9/10] urban random seed=3004 E=85.0074J success=0.9339 events=87960 wall=0.880s
+[10/10] urban combined seed=3004 E=64.5663J success=0.6777 events=70587 wall=1.378s
+실행 종료: 10회, 벽시계 6.91s

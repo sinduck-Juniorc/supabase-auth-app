@@ -1,0 +1,11 @@
+--- a/configs/50nodes_dense.yaml
++++ b/configs/50nodes_dense.yaml
+@@ -8,7 +8,7 @@
+ min_scan_window_s: 0.04
+ max_scan_window_s: 0.21
+ base_adv_s: 0.8
+-slow_adv_s: 1.6
++slow_adv_s: 0.8
+ min_adv_s: 0.4
+ max_adv_s: 2.0
+ airtime_s: 0.000376

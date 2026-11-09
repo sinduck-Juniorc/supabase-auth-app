@@ -1,0 +1,35 @@
+Sun Nov  8 08:13:38 2026    benchmarks/profile_fixed.prof
+
+         20616138 function calls (19749737 primitive calls) in 13.223 seconds
+
+   Ordered by: cumulative time
+   List reduced from 350 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.343    0.343   13.298   13.298 network.py:100(run)
+    77984    0.353    0.000    7.461    0.000 packet.py:27(valid)
+    78267    0.297    0.000    6.782    0.000 packet.py:21(signed)
+    71028    0.325    0.000    6.373    0.000 network.py:214(on_receive)
+    78753    0.058    0.000    5.385    0.000 dataclasses.py:1265(asdict)
+945036/78753    2.230    0.000    5.296    0.000 dataclasses.py:1289(_asdict_inner)
+    13087    0.022    0.000    1.636    0.000 network.py:90(schedule)
+    16761    0.288    0.000    1.548    0.000 network.py:200(on_tx_end)
+     7500    0.026    0.000    1.444    0.000 network.py:120(on_scan_start)
+     5587    0.030    0.000    1.413    0.000 network.py:149(on_adv)
+   866283    0.934    0.000    1.324    0.000 copy.py:128(deepcopy)
+    13211    0.012    0.000    1.171    0.000 network.py:70(fresh)
+    78268    0.153    0.000    1.010    0.000 __init__.py:183(dumps)
+    16761    0.211    0.000    0.928    0.000 network.py:161(on_tx_start)
+   148384    0.045    0.000    0.855    0.000 events.py:29(pop)
+   148384    0.301    0.000    0.810    0.000 {built-in method _heapq.heappop}
+    78268    0.134    0.000    0.794    0.000 encoder.py:183(encode)
+  1945790    0.740    0.000    0.740    0.000 <string>:2(__lt__)
+    78407    0.138    0.000    0.740    0.000 radio.py:33(success)
+  1023789    0.402    0.000    0.713    0.000 dataclasses.py:1253(_is_dataclass_instance)
+   148579    0.227    0.000    0.699    0.000 events.py:25(push)
+    78268    0.638    0.000    0.638    0.000 encoder.py:205(iterencode)
+   156783    0.592    0.000    0.592    0.000 radio.py:5(field_uniform)
+    20587    0.017    0.000    0.497    0.000 network.py:74(candidates)
+    78753    0.198    0.000    0.481    0.000 dataclasses.py:1235(fields)
+
+
