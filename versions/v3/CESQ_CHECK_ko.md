@@ -1,5 +1,11 @@
 # CESQ 신호 품질 1회 조회
 
+## CESQ 진단 재조회 결과 — 반복 중지
+
+사용자 제공 00c7fe3 실행 요약: 송신 8/수신 44바이트, OK/정상 close/오류 없음. signal_codes=null, signal_valid=false, CESQ 줄 0, 미해석 줄 1. 마스킹 진단은 length=35, cesq_marker_present=false, truncated=false. 원문 문자열을 수집하지 않았으므로 오류 문구·지원 거부·원인을 단정할 수 없다. 신호 품질 응답을 확보하지 못한 것으로 기록하고 CESQ 재조회는 여기서 중지한다.
+
+후속은 CLAC에 있던 기본 표준 AT+CSQ 1회 조회다. 별도 도구와 CSQ_CHECK_ko.md를 준비했으며 실제 CSQ는 아직 미실행이다. CESQ 종결 OK만으로 신호 측정 성공이나 NR 신호 수집 가능성을 주장하지 않는다.
+
 ## CESQ 첫 실측 — 형식 미해석
 
 사용자 제공 d0e6d24 실행 요약: COM3, 송신 8바이트/수신 46바이트, status=ok, terminal_response=OK, 정상 close, 두 오류 필드 null. signal_codes=null, signal_valid=false, cesq_lines=0, malformed_cesq_lines=0, unparsed_lines=1. OK 종결 응답은 확인했지만 신호 품질 데이터는 확인하지 못했다. 원문 미저장으로 미해석 줄의 내용·원인은 복구/추정할 수 없다. 빈/가짜 응답·단말 오류·특정 구분자 차이로 단정하지 않는다.

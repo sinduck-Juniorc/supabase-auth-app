@@ -1,5 +1,12 @@
 # V3 개발 이력
 
+## 2026-11-10 · CESQ 진단 결과 및 기본 CSQ 준비
+
+- 사용자 실측: 00c7fe3 CESQ 송신 8/수신 44바이트, OK/정상 close/오류 없음. 신호 값 없음, 미해석 1줄/35바이트/CESQ 마커 없음. 원문이 가려져 원인·문구를 단정할 수 없음. CESQ 반복 중지.
+- 변경: 상태/재개/CESQ 기록 갱신, 독립 csq_probe.py·CSQ_CHECK_ko.md·시험 추가. 근거는 공식 TS 27.007 8.5절과 CLAC의 CSQ 이름. 고정 CSQ+CR 7바이트 1회, 기존 설정/제한/종료 처리 유지. 2필드 코드만 검증, 99 미확인 보존, 비정상 원문은 마스킹 형식만 저장. CME 오류의 혼합 대소문자도 처리하며 이것이 이전 CESQ 원인이었다고 주장하지 않음.
+- 검증: 신규 8개 포함 46개 모의 시험 통과, 계획 출력/JSON/재개/diff 검사. CSQ 실측·위치 주입·셀 탐색 개선은 미실행/미검증. V2 코드/APK/기준점 변경 없음.
+- 다음 명령: 사용자 PC py -3 zetamesh_csq_probe.py --plan 후 --send-csq --port COM3 한 번. CESQ/CLAC/기본 AT 반복 없음. 개인 원문 파일 공개 없음.
+
 ## 2026-11-10 · CESQ 첫 응답 기록 및 형식 진단 보완
 
 - 사용자 실측: COM3, 송신 8/수신 46바이트, OK/정상 close/오류 없음. signal_codes=null, signal_valid=false, cesq_lines=0, malformed_cesq_lines=0, unparsed_lines=1. 신호 품질 값은 미확인. 원문을 저장하지 않아 원인·줄 내용은 추정하지 않음.
