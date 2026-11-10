@@ -1,0 +1,53 @@
+실행: java -m jdk.compiler/com.sun.tools.javac.Main -source 8 -target 8 -encoding UTF-8 -bootclasspath /workspace/work/gnss-tools/sdk/build-tools/35.0.0/core-lambda-stubs.jar:/workspace/work/gnss-tools/sdk/platforms/android-35/android.jar -classpath /workspace/work/gnss-tools/sdk/platforms/android-35/android.jar -d /workspace/work/supabase-auth-app/android/gnss-assist/build/classes /workspace/work/supabase-auth-app/android/gnss-assist/src/org/zetamesh/gnss/Cleanup.java /workspace/work/supabase-auth-app/android/gnss-assist/src/org/zetamesh/gnss/MainActivity.java /workspace/work/supabase-auth-app/android/gnss-assist/src/org/zetamesh/gnss/ObservationRules.java /workspace/work/supabase-auth-app/android/gnss-assist/src/org/zetamesh/gnss/Trial.java /workspace/work/supabase-auth-app/android/gnss-assist/src/org/zetamesh/gnss/WalkActivity.java
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+실행: java -m jdk.compiler/com.sun.tools.javac.Main -source 8 -target 8 -encoding UTF-8 -classpath /workspace/work/supabase-auth-app/android/gnss-assist/build/classes -d /workspace/work/supabase-auth-app/android/gnss-assist/build/classes /workspace/work/supabase-auth-app/android/gnss-assist/tests/TrialTest.java
+warning: [options] bootstrap class path not set in conjunction with -source 8
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+4 warnings
+실행: java -cp /workspace/work/supabase-auth-app/android/gnss-assist/build/classes TrialTest
+통과: 실외 위치의 캐시·미래·오래된·모의 위치 거부
+통과: 각 위치에서 해제 예외가 나도 모든 자원 정리 시도
+통과: 캐시·미래·오래된·모의 위치 제외, 시작 콜백·중복·종료 검증
+실행: /workspace/work/gnss-tools/sdk/build-tools/35.0.0/d8 --lib /workspace/work/gnss-tools/sdk/platforms/android-35/android.jar --min-api 30 --output /workspace/work/supabase-auth-app/android/gnss-assist/build/dex /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/Cleanup.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/MainActivity$1.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/MainActivity$2.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/MainActivity$3.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/MainActivity.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/ObservationRules.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/Trial.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/WalkActivity$1.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/WalkActivity$2.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/WalkActivity$3.class /workspace/work/supabase-auth-app/android/gnss-assist/build/classes/org/zetamesh/gnss/WalkActivity.class
+실행: /workspace/work/gnss-tools/sdk/build-tools/35.0.0/aapt2 link -I /workspace/work/gnss-tools/sdk/platforms/android-35/android.jar --manifest /workspace/work/supabase-auth-app/android/gnss-assist/AndroidManifest.xml -o /workspace/work/supabase-auth-app/android/gnss-assist/build/unsigned.apk
+실행: /workspace/work/gnss-tools/sdk/build-tools/35.0.0/zipalign -f 4 /workspace/work/supabase-auth-app/android/gnss-assist/build/unsigned.apk /workspace/work/supabase-auth-app/android/gnss-assist/build/aligned.apk
+실행: /workspace/work/gnss-tools/sdk/build-tools/35.0.0/apksigner sign --ks /workspace/work/gnss-tools/dev.keystore --ks-key-alias androiddebugkey --ks-pass pass:android --key-pass pass:android --out /workspace/work/supabase-auth-app/android/gnss-assist/build/ZetaMesh-GNSS-Assist-debug.apk /workspace/work/supabase-auth-app/android/gnss-assist/build/aligned.apk
+실행: /workspace/work/gnss-tools/sdk/build-tools/35.0.0/apksigner verify --verbose /workspace/work/supabase-auth-app/android/gnss-assist/build/ZetaMesh-GNSS-Assist-debug.apk
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): false
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+실행: /workspace/work/gnss-tools/sdk/build-tools/35.0.0/aapt2 dump badging /workspace/work/supabase-auth-app/android/gnss-assist/build/ZetaMesh-GNSS-Assist-debug.apk
+package: name='org.zetamesh.gnss' versionCode='4' versionName='0.2.1' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+minSdkVersion:'30'
+targetSdkVersion:'35'
+uses-permission: name='android.permission.ACCESS_FINE_LOCATION'
+uses-permission: name='android.permission.ACCESS_COARSE_LOCATION'
+uses-permission: name='android.permission.ACCESS_LOCATION_EXTRA_COMMANDS'
+uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
+uses-permission: name='android.permission.READ_PHONE_STATE'
+application: label='ZetaMesh 실내 관찰' icon=''
+launchable-activity: name='org.zetamesh.gnss.WalkActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.location'
+  uses-feature: name='android.hardware.location.gps'
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+other-activities
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales:
+densities:
+APK: /workspace/work/supabase-auth-app/android/gnss-assist/build/ZetaMesh-GNSS-Assist-debug.apk

@@ -1,6 +1,6 @@
 # ZetaMesh GNSS 지원 경로 진단
 
-현재 배포판은 **0.2.0 실내 이동 관찰 데모**다. [사용 안내와 검증 범위](WALK_DEMO_ko.md) · [새 APK](downloads/ZetaMesh-Indoor-Observer.apk). 이전 GNSS 비교 자료는 아래에 보존한다.
+현재 배포판은 **0.2.1 실내 이동 관찰 데모**다. [첫 로그 검증 및 수정 내역](WALK_VALIDATION_20261110_ko.md). [사용 안내와 검증 범위](WALK_DEMO_ko.md) · [새 APK](downloads/ZetaMesh-Indoor-Observer.apk). 이전 GNSS 비교 자료는 아래에 보존한다.
 
 [한국어 조사·적용 보고서](REPORT_ko.md)를 먼저 읽는다. 이 앱은 실제 GNSS 보조정보 갱신 요청과 TTFF 기록용이며, Fold3 가속 효과나 R4 좌표의 칩 주입을 입증한 제품이 아니다.
 
