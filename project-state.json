@@ -17,10 +17,24 @@
     "OAuth 만료·무료 사용량·프로젝트 정지를 코드로 제거할 수 없음"
   ],
   "services": {
-    "github": {"authentication": "재개 시 읽기 전용 조회로 확인"},
-    "supabase": {"authentication": "재개 시 연결 도구 및 프로젝트 상태 확인"},
-    "vercel": {"authentication": "사용 시 프로젝트 연결·배포 상태 확인"}
+    "github": {
+      "authentication": "재개 시 읽기 전용 조회로 확인"
+    },
+    "supabase": {
+      "authentication": "재개 시 연결 도구 및 프로젝트 상태 확인"
+    },
+    "vercel": {
+      "authentication": "사용 시 프로젝트 연결·배포 상태 확인"
+    }
   },
   "handoff": "docs/SESSION_RESUME_ko.md",
-  "changelog": "versions/v3/CHANGELOG_ko.md"
+  "changelog": "versions/v3/CHANGELOG_ko.md",
+  "interruption_cause": "사용자 확인: AI 사용량 한도 초과가 주원인이며 OAuth 만료를 뜻한 것이 아님",
+  "quota_policy": {
+    "bypass_limits": false,
+    "automatic_model_switch": false,
+    "quota_remaining_visible": false,
+    "save_unit": "작은 기능 하나 또는 검증 가능한 중간 결과마다 기록·커밋·푸시",
+    "resume": "사용량 초기화 후 또는 사용 가능한 모델을 사용자가 선택한 뒤 인수인계 문서로 재개"
+  }
 }
