@@ -29,3 +29,8 @@ android/gnss-assist/captures/
 # 개인 S26+ 기기의 로컬 진단 결과
 /s26-capabilities*.json
 reports/s26-cell-search/captures/
+
+# 버전별 개인 실험 및 복원 백업
+captures/
+private-backups/
+*.keystore
