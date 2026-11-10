@@ -1,5 +1,13 @@
 # V3 개발 이력
 
+## 2026-11-10 · 재연결 및 CLAC 조회 준비
+
+- 사용자 관찰: USB 재연결 후 Windows 모뎀 조회에서 SAMSUNG Mobile USB Modem / COM3 / OK. 포트 열기·새 AT 전송은 이 조회에 포함되지 않음.
+- 근거: ETSI TS 127 007 V17.5.0 8.37절의 AT+CLAC(사용자에게 제공되는 명령 목록 요청), 선택 구현. 삼성 단말 지원은 미확인. 공식 URL은 CLAC_CHECK_ko.md에 기록.
+- 변경: 별도 clac_probe.py, 모의 시험, CLAC_CHECK_ko.md 추가 및 상태/재개 문서 갱신. 기본 AT 도구는 보존. 고정 CLAC+CR 8바이트 한 번, 10초/65536바이트 수신 제한, finally close, 원문 미저장, 엄격한 명령 이름 추출. 비표준 줄은 개수만 기록.
+- 검증: 신규 8개 및 기존 16개, 총 24개 모의 시험 통과. 계획 출력·JSON 파싱·resume_check·git diff --check 확인. 실제 CLAC·Windows 드라이버·위치 주입·셀 탐색 개선 미검증. V2 코드/APK/기준점 변경 없음.
+- 다음 명령: 사용자 PC의 단독 다운로드 파일에서 py -3 zetamesh_clac_probe.py --plan. 계획 확인 후 --send-clac --port COM3 한 번. ERROR/시간 초과 시 자동 재시도하지 않고 요약 검토. 나열된 명령 자동 실행 없음.
+
 ## 2026-11-10 · 사용자 PC 기본 AT 응답 확인
 
 - 완료: c0fc902 도구를 사용자 Windows PC에서 실행한 결과 요약 수신. COM3, 115200/8N1, 흐름 제어 없음, DTR/RTS False 요청. status=ok, opened=true, write_attempted=true, bytes_written=3, bytes_received=8, terminal_response=OK, closed=true, error_type/close_error_type=null.

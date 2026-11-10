@@ -8,8 +8,8 @@
   "v2_android_version": "0.2.1",
   "v3_package": "org.zetamesh.gnss.v3",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "사용자 Windows PC에서 COM3 기본 AT 1회 전송 후 OK 응답 및 정상 close 확인(사용자 제공 요약)",
-  "next_work": "기본 AT 재실행 없이 후속 읽기 전용 AT 질의의 공식 근거·단말 지원 범위 검토. 위치 주입·셀 탐색 제어는 별도 미검증",
+  "last_completed": "기본 AT OK 확인 후 사용자 재연결 COM3/OK 확인. 표준 CLAC 목록 조회 도구 준비, 신규 8개 포함 모의 시험 24개 통과",
+  "next_work": "versions/v3/CLAC_CHECK_ko.md에 따라 사용자 PC에서 CLAC 계획 확인 후 AT+CLAC 1회 조회, 요약 검토. 실제 CLAC 전송은 미실행",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
     "V3 APK 미배포 및 실물 미검증",
@@ -40,6 +40,6 @@
   "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md",
   "device_preflight_handoff": "versions/v3/DEVICE_PREFLIGHT_ko.md",
   "current_phase": "ver.3(포트 통신)",
-  "phase_status": "기본 AT 응답 확인 완료·후속 질의 근거 검토 단계",
+  "phase_status": "CLAC 목록 조회 준비 완료·사용자 계획 확인 대기",
   "port_communication_handoff": "versions/v3/PORT_COMMUNICATION_RESUME_ko.md"
 }

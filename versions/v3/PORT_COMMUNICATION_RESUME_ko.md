@@ -24,6 +24,10 @@ PC에 Python 설치 후 `py -3`으로 계획을 정상 출력했고, `py -3 zeta
 
 COM3 열기, AT 전송, 응답 수신은 아직 실행하지 않았다. 다음 후보는 기본 AT 한 번의 응답 확인이지만 실행 방법·포트 설정·시간 제한·종료 처리는 아직 구현하지 않았다. 통신 성공, Binder/HAL 위치 주입, 실제 기지국 탐색 개선, V3 APK 설치·배포는 모두 미검증이다.
 
+## 후속 준비 체크포인트
+
+사용자 재연결 후 Windows 모뎀 조회에서 COM3/OK를 확인했다. 공식 TS 27.007 8.37절을 근거로 CLAC 목록 조회 전용 도구와 [절차](CLAC_CHECK_ko.md)를 준비했다. 실제 CLAC 전송은 아직 미실행이다. 기본 AT 시험은 반복하지 않고 CLAC 계획 확인부터 진행한다. 이전의 도구 고정 AT만 지원한다는 기술은 기본 at_probe.py에 해당하며 새 clac_probe.py는 CLAC 한 번만 지원한다.
+
 ## 다음 작업
 
 1. AGENTS.md, project-state.json, 이 문서와 CHANGELOG 최신 항목을 읽고 `python tools/resume_check.py`를 실행한다.
