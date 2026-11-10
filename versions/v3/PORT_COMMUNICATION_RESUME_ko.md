@@ -12,6 +12,12 @@
 - 첨부 INF를 분석했다. DriverVer=04/08/2026,2.21.4.0. 해당 VID/PID 모뎀 항목이 ssud.Install에 연결되며 ssud.Install.nt는 GenericAddReg 등을 참조한다. ssudmdm.sys 서비스와 하위 필터 정의가 있다. Windows의 modem 서비스 표시와 하위 필터 ssudmdm은 구분한다.
 - GenericAddReg에는 기본 AT 및 CR 종료, OK/ERROR 응답 정의가 있다. 초기화 ATE0V1&D2&C1S0=0, 리셋 AT&F, 응답·전화 제어 항목도 있다. 이들은 드라이버 정의이며 S26+의 실제 허용 명령 목록이 아니다. 위치 입력·기지국 탐색 개선 명령은 이 INF에서 확인하지 못했다.
 
+## CESQ 첫 실측 — 형식 미해석
+
+사용자 제공 d0e6d24 실행 요약: COM3, 송신 8바이트/수신 46바이트, status=ok, terminal_response=OK, 정상 close, 두 오류 필드 null. signal_codes=null, signal_valid=false, cesq_lines=0, malformed_cesq_lines=0, unparsed_lines=1. OK 종결 응답은 확인했지만 신호 품질 데이터는 확인하지 못했다. 원문 미저장으로 미해석 줄의 내용·원인은 복구/추정할 수 없다. 빈/가짜 응답·단말 오류·특정 구분자 차이로 단정하지 않는다.
+
+진단 보완: 인식 접두사의 대소문자·콜론 앞 공백을 허용한다. 이는 모의 호환 시험이며 실제 원인 확인은 아니다. 미해석 줄은 영문자 X, 숫자 #, 공백 _ 등으로 가려 최대 8줄/줄당 128문자 형식만 기록한다. 실제 단어·숫자·개인 원문은 저장하지 않는다. CESQ 마커 존재 여부와 줄 길이도 저장한다. 형식이 여전히 다르면 신호 유효 판정 없이 이 진단만 검토한다. 동일 조건의 진단 재조회 한 번으로 원인 범위를 좁힐 수 있도록 준비했으며 보완본 실측은 아직 미실행이다.
+
 ## CESQ 조회 준비 — 최신 재개 단계
 
 [CESQ 절차](CESQ_CHECK_ko.md)와 독립 실행 cesq_probe.py를 준비했다. 신규 11개 포함 35개 모의 시험 통과. 다음은 사용자 PC의 `py -3 zetamesh_cesq_probe.py --plan` 확인 후 CESQ 한 번 전송이다. 실제 CESQ는 미실행이며 기본 AT/CLAC는 반복하지 않는다.

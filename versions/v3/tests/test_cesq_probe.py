@@ -87,6 +87,25 @@ class CesqTests(unittest.TestCase):
             self.assertEqual(probe.main(['--plan']), 0)
         self.assertEqual(json.loads(output.getvalue())['command_hex'], '41 54 2b 43 45 53 51 0d')
 
+    def test_prefix_spacing_and_case(self):
+        r = self.run_probe(b'+cesq : 99,99,255,255,20,45\rOK\r')
+        self.assertTrue(r['signal_valid'])
+
+    def test_diagnostic_shape_does_not_retain_values_or_words(self):
+        r = self.run_probe(b'+CESQ=99,99,255,255,20,45\rPRIVATE123\rOK\r')
+        self.assertFalse(r['signal_valid'])
+        self.assertTrue(r['unparsed_shapes'][0]['cesq_marker_present'])
+        self.assertEqual(r['unparsed_shapes'][1]['shape'], 'XXXXXXX###')
+        self.assertNotIn('PRIVATE123', json.dumps(r))
+        self.assertNotIn('99,99', json.dumps(r))
+
+    def test_diagnostics_are_bounded(self):
+        port = FakePort((b'X' * 140 + b'\r') * 10 + b'OK\r', written=8)
+        r = probe.collect(lambda **kw: port, 'COM3', clock=lambda: 0)
+        self.assertEqual(len(r['unparsed_shapes']), 8)
+        self.assertEqual(len(r['unparsed_shapes'][0]['shape']), 128)
+        self.assertTrue(r['unparsed_shapes'][0]['truncated'])
+
 
 if __name__ == '__main__':
     unittest.main()

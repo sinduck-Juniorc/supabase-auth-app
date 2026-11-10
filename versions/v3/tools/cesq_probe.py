@@ -22,7 +22,7 @@ UNKNOWN_CODES = (99, 99, 255, 255, 255, 255, 255, 255, 255)
 
 
 def parse_codes(line):
-    match = re.fullmatch(rb'\+CESQ:\s*([0-9]{1,3}(?:\s*,\s*[0-9]{1,3}){5}(?:\s*,\s*[0-9]{1,3}){0,3})', line)
+    match = re.fullmatch(rb'\+CESQ\s*:\s*([0-9]{1,3}(?:\s*,\s*[0-9]{1,3}){5}(?:\s*,\s*[0-9]{1,3}){0,3})', line, re.IGNORECASE)
     if not match:
         return None
     values = [int(value.strip()) for value in match[1].split(b',')]
@@ -37,12 +37,27 @@ def parse_codes(line):
     return result
 
 
+def line_shape(line):
+    # 원문 문자/수치를 남기지 않고 형식만 관찰한다. 최대 8줄만 저장한다.
+    def mask(byte):
+        if 48 <= byte <= 57:
+            return '#'
+        if 65 <= byte <= 90 or 97 <= byte <= 122:
+            return 'X'
+        if byte in (9, 32):
+            return '_'
+        return chr(byte) if byte in b'+:;,=().?/-[]' else '?'
+    return dict(length=len(line), cesq_marker_present=b'CESQ' in line.upper(),
+                shape=''.join(mask(byte) for byte in line[:128]),
+                truncated=len(line) > 128)
+
+
 def collect(factory, port, clock=time.monotonic):
     report = dict(status='not_started', opened=False, write_attempted=False,
                   bytes_written=0, bytes_received=0, terminal_response=None,
                   closed=False, error_type=None, close_error_type=None,
                   signal_codes=None, signal_valid=False, cesq_lines=0,
-                  malformed_cesq_lines=0, unparsed_lines=0)
+                  malformed_cesq_lines=0, unparsed_lines=0, unparsed_shapes=[])
     connection = None
     try:
         # 생성자에서 열지 않는다. 제어선 요청값을 open 전에 설정한다.
@@ -77,14 +92,18 @@ def collect(factory, port, clock=time.monotonic):
                 report['signal_valid'] = (line == b'OK' and report['cesq_lines'] == 1
                                           and report['signal_codes'] is not None)
                 break
-            if line.startswith(b'+CESQ:'):
+            if re.match(rb'\+CESQ\s*:', line, re.IGNORECASE):
                 report['cesq_lines'] += 1
                 codes = parse_codes(line)
                 if codes is None:
                     report['malformed_cesq_lines'] += 1
+                    if len(report['unparsed_shapes']) < 8:
+                        report['unparsed_shapes'].append(line_shape(line))
                 report['signal_codes'] = codes
             else:
                 report['unparsed_lines'] += 1
+                if len(report['unparsed_shapes']) < 8:
+                    report['unparsed_shapes'].append(line_shape(line))
         else:
             report['status'] = ('receive_limit' if report['bytes_received'] >= MAX_BYTES
                                 else 'timeout')
