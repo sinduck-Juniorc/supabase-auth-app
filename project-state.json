@@ -8,8 +8,8 @@
   "v2_android_version": "0.2.1",
   "v3_package": "org.zetamesh.gnss.v3",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "사용자 제공 USB 식별자와 oem140.inf 분석 완료. AT 통신 드라이버 정의 확인, 실제 포트 통신 미실행",
-  "next_work": "versions/v3/PORT_COMMUNICATION_RESUME_ko.md부터 읽고 COM3 기본 AT 응답 확인 절차 설계. 새 대화에서 진행",
+  "last_completed": "기본 AT 1회 확인 도구·Windows 절차 구현, 신규 모의 시험 8개 및 기존 8개 통과. 실제 COM3 열기·전송 미실행",
+  "next_work": "versions/v3/AT_RESPONSE_CHECK_ko.md에 따라 사용자 Windows CMD에서 --plan 확인 후 기본 AT 1회 실행, result 요약 검토",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
     "V3 APK 미배포 및 실물 미검증",
@@ -18,7 +18,7 @@
   ],
   "services": {
     "github": {
-      "authentication": "2026-11-10 연결 도구로 저장소 읽기·push 권한 조회 성공, clone·원격 V2 refs 확인 성공"
+      "authentication": "2026-11-10 클라우드 clone·원격 V2 refs 읽기 성공; 쓰기 결과는 CHANGELOG 및 커밋/원격 검증 참조"
     },
     "supabase": {
       "authentication": "이번 Android 읽기 전용 작업에는 미사용·접근 미검증"
@@ -40,6 +40,6 @@
   "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md",
   "device_preflight_handoff": "versions/v3/DEVICE_PREFLIGHT_ko.md",
   "current_phase": "ver.3(포트 통신)",
-  "phase_status": "이전 대화 종료·새 대화에서 재개 대기",
+  "phase_status": "기본 AT 확인 도구 준비 완료·사용자 Windows 실측 대기",
   "port_communication_handoff": "versions/v3/PORT_COMMUNICATION_RESUME_ko.md"
 }

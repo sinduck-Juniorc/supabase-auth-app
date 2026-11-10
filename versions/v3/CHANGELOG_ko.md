@@ -1,5 +1,15 @@
 # V3 개발 이력
 
+## 2026-11-10 · 기본 AT 1회 확인 도구 준비
+
+- 완료: 60844f2에서 별도 V3 worktree로 재개. `tools/at_probe.py`, `tests/test_at_probe.py`, `AT_RESPONSE_CHECK_ko.md` 추가, 상태·재개 문서 갱신.
+- 동작: 기본/--plan은 포트를 열지 않음. Windows --send-at에서 COM3 115200/8N1, 흐름 제어 없음, DTR/RTS False 요청, AT+CR 한 번만 전송. 쓰기 1초·응답 관찰 3초·4096바이트 상한, finally close. 초기화·리셋·다이얼·자동 재시도 없음.
+- 보존: 원문 응답·개인 식별자·OS 오류 원문 미저장. 로컬 captures/v3에 새 요약 파일만 생성. 포트 열기/닫기 제어선 변화 가능성을 명시.
+- 검증: resume_check 브랜치·V2 태그 기준점 통과, 원격 baseline/v2와 V2 태그 peeled commit 고정 해시 일치. 신규 모의 시험 8개(단일 송신, 오류 응답, 무응답/부분 응답, 입출력 실패, 부분 쓰기, close 실패, 수신 상한, 계획 모드)와 기존 8개 통과. --plan, JSON 파싱, git diff --check 통과.
+- 미실행/제약: 클라우드는 사용자 PC COM3에 접근할 수 없음. Windows pyserial/드라이버 실측, 실제 AT 응답·위치 주입·셀 탐색 개선·APK 빌드/배포 미검증. Supabase/Vercel은 이번 작업에서 사용하지 않음.
+- 다음 명령: 사용자 Windows에서 `python versions\v3\tools\at_probe.py --plan`. 이후 동일 Python에 pyserial==3.5 설치, 문서 조건 확인 후 `python versions\v3\tools\at_probe.py --send-at --port COM3` 한 번 실행. result 요약을 받아 판단하며 무응답 시 자동 재시도하지 않음.
+- V2: 코드·APK·태그·baseline 브랜치 변경 없음. 실물 회귀 시험 미실행. 개인 백업·서명키 이전 미확인 유지.
+
 ## 2026-11-10 · 대화 분기: ver.3(포트 통신)
 
 - 사용자 요청: 이 대화의 사전 점검을 종료하고 새 Codex 프롬프트에서 포트 통신 단계로 재개. Git 브랜치는 development/v3 유지.

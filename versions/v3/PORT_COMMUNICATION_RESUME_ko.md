@@ -12,7 +12,11 @@
 - 첨부 INF를 분석했다. DriverVer=04/08/2026,2.21.4.0. 해당 VID/PID 모뎀 항목이 ssud.Install에 연결되며 ssud.Install.nt는 GenericAddReg 등을 참조한다. ssudmdm.sys 서비스와 하위 필터 정의가 있다. Windows의 modem 서비스 표시와 하위 필터 ssudmdm은 구분한다.
 - GenericAddReg에는 기본 AT 및 CR 종료, OK/ERROR 응답 정의가 있다. 초기화 ATE0V1&D2&C1S0=0, 리셋 AT&F, 응답·전화 제어 항목도 있다. 이들은 드라이버 정의이며 S26+의 실제 허용 명령 목록이 아니다. 위치 입력·기지국 탐색 개선 명령은 이 INF에서 확인하지 못했다.
 
-## 정확한 중단 지점
+## 이번 재개에서 준비한 실행 절차
+
+[기본 AT 확인 절차](AT_RESPONSE_CHECK_ko.md)와 `tools/at_probe.py`를 추가했다. 포트 설정·시간 제한·close 처리를 구현했고 신규 모의 시험 8개를 통과했다. 사용자 PC에서는 먼저 `python versions\v3\tools\at_probe.py --plan`으로 확인한다. 실제 포트 열기·AT 전송은 여전히 미실행이며 사용자 결과를 기다린다. 아래 첫 작업의 절차 설계 단계는 완료됐으므로 반복하지 않는다.
+
+## 이전 대화의 정확한 중단 지점
 
 COM3 열기, AT 전송, 응답 수신은 아직 실행하지 않았다. 다음 후보는 기본 AT 한 번의 응답 확인이지만 실행 방법·포트 설정·시간 제한·종료 처리는 아직 구현하지 않았다. 통신 성공, Binder/HAL 위치 주입, 실제 기지국 탐색 개선, V3 APK 설치·배포는 모두 미검증이다.
 

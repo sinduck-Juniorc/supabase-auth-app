@@ -1,6 +1,6 @@
 # 무료 플랜에서 작업을 이어가는 기준
 
-**현재 재개 단계: ver.3(포트 통신).** 사용자 요청으로 기존 대화는 종료하고 새 Codex 대화로 전환한다. [포트 통신 인수인계](../versions/v3/PORT_COMMUNICATION_RESUME_ko.md)를 우선 읽는다. Git 브랜치는 development/v3이며 실제 포트 열기·AT 전송은 미실행이다. 아래 사전 점검 절차를 처음부터 반복하지 않는다.
+**현재 재개 단계: ver.3(포트 통신).** 사용자 요청으로 기존 대화는 종료하고 새 Codex 대화로 전환한다. [포트 통신 인수인계](../versions/v3/PORT_COMMUNICATION_RESUME_ko.md)를 우선 읽는다. Git 브랜치는 development/v3이며 실제 포트 열기·AT 전송은 미실행이다. 기본 AT 도구와 [Windows 실행 절차](../versions/v3/AT_RESPONSE_CHECK_ko.md)는 준비됐다. 다음 단계는 사용자 PC의 `--plan` 확인과 AT 한 번의 실측 결과 수집이다. 아래 사전 점검 절차를 처음부터 반복하지 않는다.
 
 최신 실기기 진행 상황은 [DEVICE_PREFLIGHT_ko.md](../versions/v3/DEVICE_PREFLIGHT_ko.md)를 우선 읽는다. 사용자 PC의 shell 권한 기록과 삼성 모뎀 포트 관찰까지 진행했다. AT 명령 수신·위치 주입·가속은 미검증이며, 이미 확인한 설정과 도움말 전체를 다시 수집하지 않는다.
 
