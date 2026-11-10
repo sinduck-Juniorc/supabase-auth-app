@@ -1,5 +1,15 @@
 # V3 개발 이력
 
+## 2026-11-10 · 사용자 PC 기본 AT 응답 확인
+
+- 완료: c0fc902 도구를 사용자 Windows PC에서 실행한 결과 요약 수신. COM3, 115200/8N1, 흐름 제어 없음, DTR/RTS False 요청. status=ok, opened=true, write_attempted=true, bytes_written=3, bytes_received=8, terminal_response=OK, closed=true, error_type/close_error_type=null.
+- 근거 범위: 사용자 제공 실측 요약이며 클라우드 독립 실측 아님. 수신 원문 미수집으로 8바이트의 전체 구성은 추정하지 않음. PC Python 설치 후 py -3 계획 출력과 실제 실행 결과 확인. 개인 경로·결과 파일·원문은 커밋하지 않음.
+- 변경: project-state.json, SESSION_RESUME, PORT_COMMUNICATION_RESUME, AT_RESPONSE_CHECK와 이 CHANGELOG를 현재 상태로 갱신. 이전 체크포인트는 이력으로 보존.
+- 검증: JSON 파싱, resume_check 브랜치·V2 기준점 검사, git diff --check. 문서만 변경하여 코드 시험·앱 빌드는 반복하지 않음.
+- 미검증: 다른 AT 명령 지원, 위치 주입·셀 탐색 개선, 장기 안정성, V3 APK 배포. 기본 응답만으로 이 항목의 성공을 주장하지 않음.
+- 다음: 기본 AT를 재실행하지 않고 후속 읽기 전용 AT 질의의 공식 정의·단말 지원 근거를 검토. 아직 추가 실물 전송 명령은 선정하지 않음. 재개 시 python tools/resume_check.py.
+- V2 코드·APK·태그·baseline 브랜치 변경 없음. 개인 백업·서명키 이전 미확인 유지.
+
 ## 2026-11-10 · 기본 AT 1회 확인 도구 준비
 
 - 완료: 60844f2에서 별도 V3 worktree로 재개. `tools/at_probe.py`, `tests/test_at_probe.py`, `AT_RESPONSE_CHECK_ko.md` 추가, 상태·재개 문서 갱신.

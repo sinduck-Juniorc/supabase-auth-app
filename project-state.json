@@ -8,8 +8,8 @@
   "v2_android_version": "0.2.1",
   "v3_package": "org.zetamesh.gnss.v3",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "기본 AT 1회 확인 도구·Windows 절차 구현, 신규 모의 시험 8개 및 기존 8개 통과. 실제 COM3 열기·전송 미실행",
-  "next_work": "versions/v3/AT_RESPONSE_CHECK_ko.md에 따라 사용자 Windows CMD에서 --plan 확인 후 기본 AT 1회 실행, result 요약 검토",
+  "last_completed": "사용자 Windows PC에서 COM3 기본 AT 1회 전송 후 OK 응답 및 정상 close 확인(사용자 제공 요약)",
+  "next_work": "기본 AT 재실행 없이 후속 읽기 전용 AT 질의의 공식 근거·단말 지원 범위 검토. 위치 주입·셀 탐색 제어는 별도 미검증",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
     "V3 APK 미배포 및 실물 미검증",
@@ -40,6 +40,6 @@
   "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md",
   "device_preflight_handoff": "versions/v3/DEVICE_PREFLIGHT_ko.md",
   "current_phase": "ver.3(포트 통신)",
-  "phase_status": "기본 AT 확인 도구 준비 완료·사용자 Windows 실측 대기",
+  "phase_status": "기본 AT 응답 확인 완료·후속 질의 근거 검토 단계",
   "port_communication_handoff": "versions/v3/PORT_COMMUNICATION_RESUME_ko.md"
 }

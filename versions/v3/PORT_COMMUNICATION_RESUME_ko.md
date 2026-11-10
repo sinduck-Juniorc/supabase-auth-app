@@ -12,21 +12,25 @@
 - 첨부 INF를 분석했다. DriverVer=04/08/2026,2.21.4.0. 해당 VID/PID 모뎀 항목이 ssud.Install에 연결되며 ssud.Install.nt는 GenericAddReg 등을 참조한다. ssudmdm.sys 서비스와 하위 필터 정의가 있다. Windows의 modem 서비스 표시와 하위 필터 ssudmdm은 구분한다.
 - GenericAddReg에는 기본 AT 및 CR 종료, OK/ERROR 응답 정의가 있다. 초기화 ATE0V1&D2&C1S0=0, 리셋 AT&F, 응답·전화 제어 항목도 있다. 이들은 드라이버 정의이며 S26+의 실제 허용 명령 목록이 아니다. 위치 입력·기지국 탐색 개선 명령은 이 INF에서 확인하지 못했다.
 
-## 이번 재개에서 준비한 실행 절차
+## 최신 실측 체크포인트 — 2026-11-10
 
-[기본 AT 확인 절차](AT_RESPONSE_CHECK_ko.md)와 `tools/at_probe.py`를 추가했다. 포트 설정·시간 제한·close 처리를 구현했고 신규 모의 시험 8개를 통과했다. 사용자 PC에서는 먼저 `python versions\v3\tools\at_probe.py --plan`으로 확인한다. 실제 포트 열기·AT 전송은 여전히 미실행이며 사용자 결과를 기다린다. 아래 첫 작업의 절차 설계 단계는 완료됐으므로 반복하지 않는다.
+사용자 Windows CMD에서 c0fc902의 도구를 실행한 결과 요약을 받았다. COM3, 115200/8N1, 흐름 제어 없음, DTR/RTS False 요청 조건에서 `status=ok`, `opened=true`, `write_attempted=true`, `bytes_written=3`, `bytes_received=8`, `terminal_response=OK`, `closed=true`, 두 오류 필드 null을 확인했다. 이는 사용자 제공 실측 요약이며 클라우드 독립 측정은 아니다. 수신 원문은 수집하지 않아 8바이트 전체의 구성은 추정하지 않는다.
+
+PC에 Python 설치 후 `py -3`으로 계획을 정상 출력했고, `py -3 zetamesh_at_probe.py --send-at --port COM3` 실행 결과를 공유받았다. 개인 결과 파일은 PC의 captures/v3에 보관하며 저장소에 올리지 않는다. 실행 절차는 [기본 AT 확인 절차](AT_RESPONSE_CHECK_ko.md)에 보존한다.
+
+기본 AT 응답과 정상 close까지 확인했다. 다른 AT 명령 지원, 위치 주입, 기지국 탐색 개선, 장기 안정성은 입증하지 않았다. 아래 이전 대화 기록은 과거 상태다.
 
 ## 이전 대화의 정확한 중단 지점
 
 COM3 열기, AT 전송, 응답 수신은 아직 실행하지 않았다. 다음 후보는 기본 AT 한 번의 응답 확인이지만 실행 방법·포트 설정·시간 제한·종료 처리는 아직 구현하지 않았다. 통신 성공, Binder/HAL 위치 주입, 실제 기지국 탐색 개선, V3 APK 설치·배포는 모두 미검증이다.
 
-## 새 대화의 첫 작업
+## 다음 작업
 
-1. AGENTS.md, project-state.json, 이 문서, versions/v3/CHANGELOG_ko.md를 읽고 미커밋 변경을 확인한다. 가능하면 `python tools/resume_check.py`를 실행한다.
-2. 이미 확인한 설정 목록·도움말·전체 드라이버를 반복 수집하지 않는다. 필요하면 DEVICE_PREFLIGHT_ko.md를 참고한다.
-3. COM3의 기본 AT 응답 확인 절차를 설계한다. 포트의 baud/parity/stopbits/flow control, DTR/RTS, timeout과 close 처리를 명시한다. 포트 열기 자체도 제어선 변화가 있을 수 있으므로 무조건 무변경이라고 표현하지 않는다. INF 초기화·리셋·다이얼 명령을 자동 재생하지 않는다.
-4. 사용자 PC에서 실행할 방법을 안내한다. 사용자는 Windows CMD를 사용하며 여러 줄 붙여넣기 때 명령이 섞인 경험이 있다. 한 줄 명령 또는 검토 가능한 스크립트를 우선한다. ADB는 PATH에 없고 다운로드한 platform-tools 폴더에 있다.
-5. 응답·오류·미실행·다음 명령을 작은 단위로 기록하고 커밋·푸시한다. 기본 AT 응답이 와도 위치 주입·셀 탐색 제어 가능성은 별도 검증한다.
+1. AGENTS.md, project-state.json, 이 문서와 CHANGELOG 최신 항목을 읽고 `python tools/resume_check.py`를 실행한다.
+2. 기본 AT 성공 시험과 기존 USB/INF/ADB 사전 점검을 반복하지 않는다.
+3. 후속 읽기 전용 AT 질의의 공식 정의와 단말 적용 근거를 검토한다. 기본 OK만으로 임의의 명령 지원을 가정하지 않는다. 초기화·리셋·다이얼·설정 변경 명령은 자동 실행하지 않는다.
+4. 후속 질의를 선택하면 명령·목적·출력의 개인정보 범위·시간 제한을 명시하고 Windows CMD에서 한 단계씩 진행한다. 현재 도구는 고정 AT만 지원하며 임의 명령으로 수정해 실행하지 않는다.
+5. 관찰·미실행·다음 작업을 작은 단위로 기록·커밋·푸시한다. 위치 주입·셀 탐색 제어 가능성은 별도 검증한다.
 
 연결 확인이 필요할 때 사용자의 기존 CMD 위치(platform-tools-latest-windows)에서는 다음을 쓴다. 포트 통신 명령은 아니다.
 
@@ -40,4 +44,4 @@ platform-tools\adb.exe devices
 
 ## 새 대화에 붙여넣을 프롬프트
 
-ZetaMesh ver.3(포트 통신)을 이어서 진행해주세요. 한국어로 답변하세요. 저장소는 https://github.com/sinduck-Juniorc/supabase-auth-app, 작업 브랜치는 development/v3입니다. AGENTS.md, project-state.json, docs/SESSION_RESUME_ko.md, versions/v3/PORT_COMMUNICATION_RESUME_ko.md, versions/v3/CHANGELOG_ko.md를 읽고 가능하면 python tools/resume_check.py를 실행하세요. 기존 대화는 COM3와 드라이버의 AT 정의 확인에서 종료됐고, 실제 포트 열기·AT 전송은 미실행입니다. 기본 AT 응답 확인 절차부터 설계하고 사용자 Windows PC에서 한 단계씩 진행하세요. V2는 수정하지 말고 개인 원문·서명키는 공개하지 마세요. 작은 단위로 검증·기록·커밋·푸시하세요.
+ZetaMesh ver.3(포트 통신)을 이어서 진행해주세요. 한국어로 답변하세요. 저장소는 https://github.com/sinduck-Juniorc/supabase-auth-app, 작업 브랜치는 development/v3입니다. AGENTS.md, project-state.json, docs/SESSION_RESUME_ko.md, versions/v3/PORT_COMMUNICATION_RESUME_ko.md, versions/v3/CHANGELOG_ko.md를 읽고 가능하면 python tools/resume_check.py를 실행하세요. 사용자 Windows PC의 COM3에서 기본 AT 1회 전송 후 OK 응답과 정상 close를 확인했습니다. 기본 AT를 반복하지 말고 후속 읽기 전용 질의의 공식 근거와 단말 지원 범위 검토부터 진행하세요. V2는 수정하지 말고 개인 원문·서명키는 공개하지 마세요. 작은 단위로 검증·기록·커밋·푸시하세요.
