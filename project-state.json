@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "language": "ko",
+  "repository": "sinduck-Juniorc/supabase-auth-app",
+  "development_branch": "development/v3",
+  "baseline_tag": "zetamesh-v2.0.0",
+  "baseline_commit": "1cf897fe85480fdd0773cc8286746a9e739aa405",
+  "v2_android_version": "0.2.1",
+  "v3_package": "org.zetamesh.gnss.v3",
+  "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
+  "last_completed": "V2 고정 및 복원 검사, V3 패키지 분리 준비",
+  "next_work": "S26+에서 사용 가능한 제어 권한의 읽기 전용 확인 설계. 관찰만으로 통신 가속을 주장하지 않음",
+  "known_limits": [
+    "기지국 탐색 개선·직접 위치 주입 미입증",
+    "V3 APK 미배포 및 실물 미검증",
+    "개인 전체 백업의 PC 다운로드 실패, 서명키 이전 미확인",
+    "OAuth 만료·무료 사용량·프로젝트 정지를 코드로 제거할 수 없음"
+  ],
+  "services": {
+    "github": {"authentication": "재개 시 읽기 전용 조회로 확인"},
+    "supabase": {"authentication": "재개 시 연결 도구 및 프로젝트 상태 확인"},
+    "vercel": {"authentication": "사용 시 프로젝트 연결·배포 상태 확인"}
+  },
+  "handoff": "docs/SESSION_RESUME_ko.md",
+  "changelog": "versions/v3/CHANGELOG_ko.md"
+}
