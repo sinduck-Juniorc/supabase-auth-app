@@ -12,6 +12,14 @@
 - 첨부 INF를 분석했다. DriverVer=04/08/2026,2.21.4.0. 해당 VID/PID 모뎀 항목이 ssud.Install에 연결되며 ssud.Install.nt는 GenericAddReg 등을 참조한다. ssudmdm.sys 서비스와 하위 필터 정의가 있다. Windows의 modem 서비스 표시와 하위 필터 ssudmdm은 구분한다.
 - GenericAddReg에는 기본 AT 및 CR 종료, OK/ERROR 응답 정의가 있다. 초기화 ATE0V1&D2&C1S0=0, 리셋 AT&F, 응답·전화 제어 항목도 있다. 이들은 드라이버 정의이며 S26+의 실제 허용 명령 목록이 아니다. 위치 입력·기지국 탐색 개선 명령은 이 INF에서 확인하지 못했다.
 
+## CSQ 실측 결과 — 신호 질의 중지 체크포인트
+
+2026-11-10 사용자 제공 08cc4a6 실행 요약: COM3에서 AT+CSQ+CR 7바이트 전송, 38바이트 수신, status=error_response, terminal_response=+CME ERROR. opened/write_attempted/closed=true, error_type/close_error_type=null. signal_codes=null, signal_valid=false, csq_lines/malformed_csq_lines/unparsed_lines=0. 포트 입출력 예외 없이 모뎀 오류 응답이 관찰됐으며 유효한 신호 값은 확보하지 못했다.
+
+현재 도구는 CME 오류 번호/문구를 저장하지 않으므로 이 요약과 수신 길이만으로 원인을 식별할 수 없다. 명령 미지원·접근 제한·현재 단말 상태 등 어느 원인인지 단정하지 않는다. 앞선 CESQ의 마스킹 문자열을 이번 오류와 같은 내용이었다고 소급 확정하지 않는다. CLAC 이름 노출은 실행 성공을 보장하지 않는다는 실측 한계로 남긴다.
+
+CSQ/CESQ 재전송과 다른 유사 신호 명령의 순차 시도를 멈춘다. 현재 결과 파일에는 상세 오류가 없어 재파싱으로 복구할 수 없다. 다음은 재전송 없이 공식 삼성/단말 문서의 포트 허용 범위를 조사하고, 필요하다면 오류 코드/허용된 오류 분류만 보존하는 최소 진단 설계를 검토하는 단계다. 오류 상세를 보려고 CMEE 등 설정 명령을 먼저 보내거나 초기화/리셋하지 않는다. 위치 주입·셀 탐색 개선·신호 수집 성공은 모두 미입증이다.
+
 ## CESQ 진단 재조회 결과 — 반복 중지
 
 사용자 제공 00c7fe3 실행 요약: 송신 8/수신 44바이트, OK/정상 close/오류 없음. signal_codes=null, signal_valid=false, CESQ 줄 0, 미해석 줄 1. 마스킹 진단은 length=35, cesq_marker_present=false, truncated=false. 원문 문자열을 수집하지 않았으므로 오류 문구·지원 거부·원인을 단정할 수 없다. 신호 품질 응답을 확보하지 못한 것으로 기록하고 CESQ 재조회는 여기서 중지한다.

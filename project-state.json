@@ -8,8 +8,8 @@
   "v2_android_version": "0.2.1",
   "v3_package": "org.zetamesh.gnss.v3",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "CESQ 진단도 OK·정상 close이나 CESQ 표기 없는 미해석 1줄. 반복 중지. 기본 CSQ 도구 준비, 모의 시험 46개 통과",
-  "next_work": "versions/v3/CSQ_CHECK_ko.md의 기본 CSQ 계획 확인 후 사용자 PC에서 1회 조회. CESQ/CLAC/기본 AT 성공 시험 반복하지 않음",
+  "last_completed": "사용자 PC CSQ 7바이트 전송 후 +CME ERROR·정상 close 확인. 신호 값 미확보, 오류 번호/문구 미저장으로 원인 미확인",
+  "next_work": "CSQ/CESQ 재전송 없이 공식 삼성/단말 자료의 포트 허용 범위 조사. 필요 시 오류 코드/분류만 보존할 최소 진단 설계 검토, CMEE/초기화/설정 변경 없이 진행",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
     "V3 APK 미배포 및 실물 미검증",
@@ -40,6 +40,6 @@
   "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md",
   "device_preflight_handoff": "versions/v3/DEVICE_PREFLIGHT_ko.md",
   "current_phase": "ver.3(포트 통신)",
-  "phase_status": "CESQ 신호 미확인·CSQ 계획 확인 대기",
+  "phase_status": "기본 AT/CLAC 응답 확인·신호 조회 오류 원인 조사 단계",
   "port_communication_handoff": "versions/v3/PORT_COMMUNICATION_RESUME_ko.md"
 }
