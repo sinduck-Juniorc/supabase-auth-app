@@ -12,6 +12,10 @@
 - 첨부 INF를 분석했다. DriverVer=04/08/2026,2.21.4.0. 해당 VID/PID 모뎀 항목이 ssud.Install에 연결되며 ssud.Install.nt는 GenericAddReg 등을 참조한다. ssudmdm.sys 서비스와 하위 필터 정의가 있다. Windows의 modem 서비스 표시와 하위 필터 ssudmdm은 구분한다.
 - GenericAddReg에는 기본 AT 및 CR 종료, OK/ERROR 응답 정의가 있다. 초기화 ATE0V1&D2&C1S0=0, 리셋 AT&F, 응답·전화 제어 항목도 있다. 이들은 드라이버 정의이며 S26+의 실제 허용 명령 목록이 아니다. 위치 입력·기지국 탐색 개선 명령은 이 INF에서 확인하지 못했다.
 
+## CESQ 조회 준비 — 최신 재개 단계
+
+[CESQ 절차](CESQ_CHECK_ko.md)와 독립 실행 cesq_probe.py를 준비했다. 신규 11개 포함 35개 모의 시험 통과. 다음은 사용자 PC의 `py -3 zetamesh_cesq_probe.py --plan` 확인 후 CESQ 한 번 전송이다. 실제 CESQ는 미실행이며 기본 AT/CLAC는 반복하지 않는다.
+
 ## CLAC 실측 체크포인트 — 2026-11-10
 
 사용자 제공 Windows 실행 요약: COM3에서 `AT+CLAC`+CR 8바이트 전송, 2212바이트 수신, terminal_response=OK, status=ok, opened/write_attempted/closed=true, 두 오류 필드 null. c6b559a의 도구를 사용했다. command_names에 CSQ, CESQ, CREG/CGREG/CEREG/C5GREG 및 비표준 NCELL/SCELL/RSRP/RSRQ 등의 이름이 포함됐다. 명령 이름 노출은 각 실행형·읽기형·설정형의 허용·권한을 입증하지 않는다.

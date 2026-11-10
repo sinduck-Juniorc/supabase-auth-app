@@ -1,5 +1,13 @@
 # V3 개발 이력
 
+## 2026-11-10 · CESQ 신호 품질 조회 준비
+
+- 완료: CLAC에 나열된 CESQ와 공식 TS 27.007 V17.5.0 8.69절을 근거로 cesq_probe.py, CESQ_CHECK_ko.md, 전용 시험 추가. 기본 AT/CLAC 도구 보존.
+- 동작: 고정 AT+CESQ+CR 8바이트 한 번, 기존 포트 설정 유지. 쓰기 1초/관찰 10초/4096바이트 상한/finally close. 6/9필드 코드 범위 검증, 알 수 없음 코드 보존, 중복 CESQ 모호성 판정. 원문·개인 식별자 미저장. dBm/dB 단일값으로 임의 변환하지 않음.
+- 검증: 신규 모의 시험 11개(6/9필드, 알 수 없음/0, 범위/필드 오류, 중복, 빈 OK/URC, ERROR/CME, 부분 응답, 입출력/close/부분 쓰기, 상한, 계획)와 기존 24개, 총 35개 통과. --plan, JSON 파싱, resume_check, git diff --check 통과.
+- 미실행: 실제 Windows/단말 CESQ 응답, 위치 주입·셀 탐색 개선. V2 코드/APK/기준점 변경 없음.
+- 다음 명령: 사용자 PC py -3 zetamesh_cesq_probe.py --plan. 계획 확인 후 --send-cesq --port COM3 한 번. 실패 시 재시도 없이 요약 검토. 개인 파일은 PC에 유지.
+
 ## 2026-11-10 · 사용자 PC CLAC 응답 확인
 
 - 완료: c6b559a 도구의 사용자 실행 요약 수신. COM3, 8바이트 전송, 2212바이트 수신, status=ok/terminal_response=OK, 정상 close, 오류 없음. 표준 CSQ/CESQ/등록 상태 및 제조사별 명령 이름 노출 확인. 클라우드 독립 실측은 아님.
