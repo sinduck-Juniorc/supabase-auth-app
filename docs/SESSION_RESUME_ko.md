@@ -1,6 +1,6 @@
 # 무료 플랜에서 작업을 이어가는 기준
 
-**현재 재개 단계: ver.3(포트 통신), 기본 AT 응답 확인 완료.** [포트 통신 인수인계](../versions/v3/PORT_COMMUNICATION_RESUME_ko.md)를 우선 읽는다. Git 브랜치는 development/v3다. 사용자 Windows PC의 COM3에서 AT 3바이트 전송, OK 응답, 정상 close를 확인했다(사용자 제공 요약). [Windows 실행 절차](../versions/v3/AT_RESPONSE_CHECK_ko.md)는 보존하되 기본 AT 성공 시험은 반복하지 않는다. 후속 CLAC 목록 조회의 공식 근거 검토와 전용 도구 준비를 완료했다. 다음은 [CLAC 절차](../versions/v3/CLAC_CHECK_ko.md)의 사용자 계획 확인이며 실제 CLAC 전송은 미실행이다. 위치 주입·셀 탐색 제어는 미검증이다. 아래 사전 점검 절차를 처음부터 반복하지 않는다.
+**현재 재개 단계: ver.3(포트 통신), 기본 AT 응답 확인 완료.** [포트 통신 인수인계](../versions/v3/PORT_COMMUNICATION_RESUME_ko.md)를 우선 읽는다. Git 브랜치는 development/v3다. 사용자 Windows PC의 COM3에서 AT 3바이트 전송, OK 응답, 정상 close를 확인했다(사용자 제공 요약). [Windows 실행 절차](../versions/v3/AT_RESPONSE_CHECK_ko.md)는 보존하되 기본 AT 성공 시험은 반복하지 않는다. 후속 CLAC 목록 조회의 공식 근거 검토와 전용 도구 준비를 완료했다. [CLAC 실측](../versions/v3/CLAC_CHECK_ko.md)도 사용자 PC에서 OK·정상 close를 확인했다. 세 줄 미해석으로 목록 완전성은 미확인이다. 다음은 표준 CESQ 신호 품질 조회 도구 준비이며, 기본 AT/CLAC 시험은 반복하지 않는다. 위치 주입·셀 탐색 제어는 미검증이다. 아래 사전 점검 절차를 처음부터 반복하지 않는다.
 
 최신 실기기 진행 상황은 [DEVICE_PREFLIGHT_ko.md](../versions/v3/DEVICE_PREFLIGHT_ko.md)를 우선 읽는다. 사용자 PC의 shell 권한 기록과 삼성 모뎀 포트 관찰까지 진행했다. 기본 AT의 OK 응답은 확인했으나 위치 주입·가속은 미검증이며, 이미 확인한 설정과 도움말 전체를 다시 수집하지 않는다.
 

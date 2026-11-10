@@ -12,6 +12,14 @@
 - 첨부 INF를 분석했다. DriverVer=04/08/2026,2.21.4.0. 해당 VID/PID 모뎀 항목이 ssud.Install에 연결되며 ssud.Install.nt는 GenericAddReg 등을 참조한다. ssudmdm.sys 서비스와 하위 필터 정의가 있다. Windows의 modem 서비스 표시와 하위 필터 ssudmdm은 구분한다.
 - GenericAddReg에는 기본 AT 및 CR 종료, OK/ERROR 응답 정의가 있다. 초기화 ATE0V1&D2&C1S0=0, 리셋 AT&F, 응답·전화 제어 항목도 있다. 이들은 드라이버 정의이며 S26+의 실제 허용 명령 목록이 아니다. 위치 입력·기지국 탐색 개선 명령은 이 INF에서 확인하지 못했다.
 
+## CLAC 실측 체크포인트 — 2026-11-10
+
+사용자 제공 Windows 실행 요약: COM3에서 `AT+CLAC`+CR 8바이트 전송, 2212바이트 수신, terminal_response=OK, status=ok, opened/write_attempted/closed=true, 두 오류 필드 null. c6b559a의 도구를 사용했다. command_names에 CSQ, CESQ, CREG/CGREG/CEREG/C5GREG 및 비표준 NCELL/SCELL/RSRP/RSRQ 등의 이름이 포함됐다. 명령 이름 노출은 각 실행형·읽기형·설정형의 허용·권한을 입증하지 않는다.
+
+unparsed_lines=3, list_complete=false. 이는 엄격한 파서가 세 줄을 이름으로 저장하지 않았다는 뜻이며 OK 응답 실패를 뜻하지 않는다. 원문을 수집하지 않았으므로 세 줄의 내용·원인은 추정하지 않는다. 전체 목록 복원을 위해 재전송하지 않는다. 전체 결과 파일·개인 경로는 PC에 보존하며 공개 저장소에 올리지 않는다.
+
+후속 후보는 표준 27.007 8.69절의 AT+CESQ 실행형(신호 품질 반환)이다. 전용 도구 준비 후 계획 확인부터 진행하며 아직 실제 CESQ는 미실행이다. NCELL/SCELL 등 제조사별 명령은 이름만으로 문법·효과를 추측하지 않는다. C5GNSSAI 계열은 5GS의 NSSAI/네트워크 슬라이스 관련 표기이므로 위성 GNSS 위치 주입 기능으로 해석하지 않는다. 위치 주입·셀 탐색 개선은 미검증이다.
+
 ## 최신 실측 체크포인트 — 2026-11-10
 
 사용자 Windows CMD에서 c0fc902의 도구를 실행한 결과 요약을 받았다. COM3, 115200/8N1, 흐름 제어 없음, DTR/RTS False 요청 조건에서 `status=ok`, `opened=true`, `write_attempted=true`, `bytes_written=3`, `bytes_received=8`, `terminal_response=OK`, `closed=true`, 두 오류 필드 null을 확인했다. 이는 사용자 제공 실측 요약이며 클라우드 독립 측정은 아니다. 수신 원문은 수집하지 않아 8바이트 전체의 구성은 추정하지 않는다.
@@ -26,7 +34,7 @@ COM3 열기, AT 전송, 응답 수신은 아직 실행하지 않았다. 다음 �
 
 ## 후속 준비 체크포인트
 
-사용자 재연결 후 Windows 모뎀 조회에서 COM3/OK를 확인했다. 공식 TS 27.007 8.37절을 근거로 CLAC 목록 조회 전용 도구와 [절차](CLAC_CHECK_ko.md)를 준비했다. 실제 CLAC 전송은 아직 미실행이다. 기본 AT 시험은 반복하지 않고 CLAC 계획 확인부터 진행한다. 이전의 도구 고정 AT만 지원한다는 기술은 기본 at_probe.py에 해당하며 새 clac_probe.py는 CLAC 한 번만 지원한다.
+사용자 재연결 후 Windows 모뎀 조회에서 COM3/OK를 확인했다. 공식 TS 27.007 8.37절을 근거로 CLAC 목록 조회 전용 도구와 [절차](CLAC_CHECK_ko.md)를 준비했다. 이 준비 단계 이후 실제 CLAC 응답을 확인했으며 위 최신 체크포인트를 따른다. 기본 AT/CLAC 성공 시험을 반복하지 않는다. 이전의 도구 고정 AT만 지원한다는 기술은 기본 at_probe.py에 해당하며 새 clac_probe.py는 CLAC 한 번만 지원한다.
 
 ## 다음 작업
 

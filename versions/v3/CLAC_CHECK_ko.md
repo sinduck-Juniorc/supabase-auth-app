@@ -1,4 +1,12 @@
-# 지원 명령 목록 조회 준비
+# 지원 명령 목록 조회 기록
+
+## CLAC 실측 체크포인트 — 2026-11-10
+
+사용자 제공 Windows 실행 요약: COM3에서 `AT+CLAC`+CR 8바이트 전송, 2212바이트 수신, terminal_response=OK, status=ok, opened/write_attempted/closed=true, 두 오류 필드 null. c6b559a의 도구를 사용했다. command_names에 CSQ, CESQ, CREG/CGREG/CEREG/C5GREG 및 비표준 NCELL/SCELL/RSRP/RSRQ 등의 이름이 포함됐다. 명령 이름 노출은 각 실행형·읽기형·설정형의 허용·권한을 입증하지 않는다.
+
+unparsed_lines=3, list_complete=false. 이는 엄격한 파서가 세 줄을 이름으로 저장하지 않았다는 뜻이며 OK 응답 실패를 뜻하지 않는다. 원문을 수집하지 않았으므로 세 줄의 내용·원인은 추정하지 않는다. 전체 목록 복원을 위해 재전송하지 않는다. 전체 결과 파일·개인 경로는 PC에 보존하며 공개 저장소에 올리지 않는다.
+
+후속 후보는 표준 27.007 8.69절의 AT+CESQ 실행형(신호 품질 반환)이다. 전용 도구 준비 후 계획 확인부터 진행하며 아직 실제 CESQ는 미실행이다. NCELL/SCELL 등 제조사별 명령은 이름만으로 문법·효과를 추측하지 않는다. C5GNSSAI 계열은 5GS의 NSSAI/네트워크 슬라이스 관련 표기이므로 위성 GNSS 위치 주입 기능으로 해석하지 않는다. 위치 주입·셀 탐색 개선은 미검증이다.
 
 ## 근거와 범위
 
