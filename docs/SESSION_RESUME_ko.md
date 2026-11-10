@@ -1,5 +1,7 @@
 # 무료 플랜에서 작업을 이어가는 기준
 
+**현재 재개 단계: ver.3(포트 통신).** 사용자 요청으로 기존 대화는 종료하고 새 Codex 대화로 전환한다. [포트 통신 인수인계](../versions/v3/PORT_COMMUNICATION_RESUME_ko.md)를 우선 읽는다. Git 브랜치는 development/v3이며 실제 포트 열기·AT 전송은 미실행이다. 아래 사전 점검 절차를 처음부터 반복하지 않는다.
+
 최신 실기기 진행 상황은 [DEVICE_PREFLIGHT_ko.md](../versions/v3/DEVICE_PREFLIGHT_ko.md)를 우선 읽는다. 사용자 PC의 shell 권한 기록과 삼성 모뎀 포트 관찰까지 진행했다. AT 명령 수신·위치 주입·가속은 미검증이며, 이미 확인한 설정과 도움말 전체를 다시 수집하지 않는다.
 
 V3 읽기 전용 제어 경로의 최신 재개 지점은 [CONTROL_PATHS_ko.md](../versions/v3/CONTROL_PATHS_ko.md)와 V3 CHANGELOG 첫 항목이다. 기존 S26 진단 도구를 재사용한 V3 점검은 합성 시험을 통과했다. 사용자 PC 권한 관찰은 위 최신 실기기 요약을 따르며, 실제 제어 호출·가속은 미검증이다. 사용자 PC에서 `python versions/v3/tools/control_probe.py --plan`부터 확인한다. 개인 결과는 `captures/v3/`에 보관한다.

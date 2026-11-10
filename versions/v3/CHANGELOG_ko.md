@@ -1,5 +1,14 @@
 # V3 개발 이력
 
+## 2026-11-10 · 대화 분기: ver.3(포트 통신)
+
+- 사용자 요청: 이 대화의 사전 점검을 종료하고 새 Codex 프롬프트에서 포트 통신 단계로 재개. Git 브랜치는 development/v3 유지.
+- 완료: USB 식별자·CDC ACM/AT 계열 표기와 첨부 INF 분석 요약, 단계 경계·새 대화용 프롬프트·첫 작업을 PORT_COMMUNICATION_RESUME_ko.md에 기록. project-state.json과 세션 재개 문서 갱신.
+- 검증: JSON 파싱, resume_check의 브랜치·V2 기준점 검사, git diff --check. 문서 작업이므로 앱 빌드·시험 반복은 생략.
+- 미실행: COM3 열기·AT 전송·응답 수신·위치 주입·셀 탐색 개선 검증. 이번 대화에서 새 통신 시험을 시작하지 않음.
+- 다음 명령: 새 대화에서 python tools/resume_check.py. 포트 통신 명령은 인수인계의 조건을 검토한 뒤 설계.
+- 원문 INF·개인 정보·키 업로드 없음. V2 코드·APK·기준점 변경 없음. PC 백업·서명키 이전 미확인 유지.
+
 ## 2026-11-10 · 사용자 PC 사전 관찰 체크포인트
 
 - 완료: 사용자 제공 결과로 모델/OS, UID 2000, shell의 네 권한 granted 기록, 통신사 권한 false, V3 설치 경로 미확인, 위치/전화 도움말을 요약. 사용자가 3GPP AT 설정을 켜고 재부팅한 뒤 ADB device 및 Windows 삼성 모뎀 COM3/service modem을 보고. USB 속성은 mtp,adb.
