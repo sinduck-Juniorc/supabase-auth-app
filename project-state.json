@@ -8,8 +8,8 @@
   "v2_android_version": "0.2.1",
   "v3_package": "org.zetamesh.gnss.v3",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "V3 읽기 전용 제어 경로 점검 도구·판정 문서 추가, 합성 시험13개 통과. 실기기 미연결",
-  "next_work": "사용자 PC에서 python versions/v3/tools/control_probe.py --plan 확인 후 --serial 기기번호 --out captures/v3/control-capabilities-01.json 실행. 요약에서 모델·OS·shell/V3 권한을 구분해 검토",
+  "last_completed": "사용자 PC 관찰: 목표 모델/OS, shell 네 권한, 통신사 권한 false, V3 설치 미확인, AT 설정 후 재부팅·ADB device·삼성 모뎀 포트 확인. 독립 실측 아님",
+  "next_work": "versions/v3/DEVICE_PREFLIGHT_ko.md부터 읽고 COM3 AT 지원 근거·연결 조건·읽기 질의 범위 검토. 포트 열기·AT 전송·위치 주입은 미실행. 이미 수집한 권한·도움말 반복 수집하지 않음",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
     "V3 APK 미배포 및 실물 미검증",
@@ -37,5 +37,6 @@
     "save_unit": "작은 기능 하나 또는 검증 가능한 중간 결과마다 기록·커밋·푸시",
     "resume": "사용량 초기화 후 또는 사용 가능한 모델을 사용자가 선택한 뒤 인수인계 문서로 재개"
   },
-  "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md"
+  "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md",
+  "device_preflight_handoff": "versions/v3/DEVICE_PREFLIGHT_ko.md"
 }
