@@ -1,0 +1,13 @@
+{
+  "baseline_commit": "1cf897fe85480fdd0773cc8286746a9e739aa405",
+  "git_bundle_restored": true,
+  "restored_apk_matches_baseline": true,
+  "apk_sha256": "63e6bf76e04fc6e9f3aee6701ca5e5970c6fb79726e9c3c470d82a9440d1541a",
+  "python_tests_passed": 8,
+  "v2_package": "org.zetamesh.gnss",
+  "v3_package": "org.zetamesh.gnss.v3",
+  "v3_apk_built": false,
+  "device_rollback_executed": false,
+  "private_archive_sha256": "5a21921625b7030f596f31249cc7b8092525010d597b9cf1a8e2007c01e57fc7",
+  "private_archive_bytes": 19868709
+}
