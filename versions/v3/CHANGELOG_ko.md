@@ -1,5 +1,17 @@
 # V3 개발 이력
 
+## 2026-11-10 · 읽기 전용 제어 경로 사전 점검
+
+- 목적: 한국형 S26+ / Android 17 / One UI 9의 실제 권한 확인 준비. 기존 관찰을 가속 또는 위치 주입 성공으로 판정하지 않음.
+- 완료: `versions/v3/tools/control_probe.py`, `tests/test_control_probe.py`, `CONTROL_PATHS_ko.md` 추가. 기존 S26 보고서의 진단 함수를 재사용하고 shell UID 및 V3 패키지 권한 조회를 보완. 기존 보고서·도구·앱·APK는 수정하지 않음.
+- 출력: 원문 덤프·도움말·오류·기기 선택 번호를 저장하지 않고 모델/OS와 권한 요약만 보관. shell/V3 권한을 분리하고 요청 목록·누락·충돌을 미확인으로 처리. 기본 출력 `captures/v3/`는 Git 제외이며 기존 결과를 덮어쓰지 않음.
+- 검증: `python tools/resume_check.py`의 브랜치·V2 기준점 검사 통과. 원격 `baseline/v2` 및 annotated tag의 peeled commit은 고정 해시 `1cf897fe85480fdd0773cc8286746a9e739aa405`와 일치. GitHub 연결 도구의 저장소 읽기·push 권한 조회 성공.
+- 시험: 신규 unittest 8개, 기존 probe 시험 5개 통과. `--plan` 정상 출력. ADB가 없는 실제 클라우드 실행은 종료 코드 2·`실행 불가`로 기록되고 후속 shell 명령이 실행되지 않음. 실패 결과의 Git 제외 확인. `git diff --check` 통과.
+- 미실행/원인: 현재 클라우드에 ADB와 연결된 단말이 없어 모델/OS/실제 권한·Binder·GNSS HAL·통신사 권한·성능은 미검증. APK 빌드·설치·위치 주입·망 스캔 미실행. Supabase/Vercel은 이번 Android 작업에서 미사용·접근 미검증. 개인 ZIP의 PC 다운로드·서명키 이전은 여전히 미확인.
+- 다음 명령: 사용자 PC의 저장소 루트에서 `python versions/v3/tools/control_probe.py --plan`, `adb devices`, `python versions/v3/tools/control_probe.py --adb adb --serial 기기번호 --out captures/v3/control-capabilities-01.json`. Windows의 실행기 선택과 판정 기준은 `CONTROL_PATHS_ko.md` 참조.
+- 다음 판단: 실기기 요약의 모델·빌드·shell/V3 권한을 분리 검토한 뒤 사용자/AppOps/서비스 호출 조건을 좁힘. 권한 기록 충족만으로 호출 성공·캐시→HAL·모뎀 반영을 주장하지 않음.
+- V2 회귀: 이번 단위는 V3 도구·문서와 재개 상태만 변경. V2 코드/APK/태그/브랜치 변경 없음, V2 실물 회귀 시험 미실행.
+
 ## 2026-11-10 · 분리 준비
 
 기준: zetamesh-v2.0.0, 앱 0.2.1. 아직 V3 기능 또는 V3 APK의 구현·실기기 검증을 완료한 것은 아니다.
