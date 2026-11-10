@@ -47,12 +47,41 @@ def line_shape(line):
                 truncated=len(line) > 128)
 
 
+def cme_summary(line):
+    """오류 접두사 뒤에서 숫자 코드/허용 단서만 추출. 임의 문구 미보존."""
+    detail = re.split(rb':', line, maxsplit=1)[1].strip()
+    code = int(detail) if re.fullmatch(rb'[0-9]{1,5}', detail) else None
+    if code is not None and code > 65535:
+        code = None
+    meanings = {3: 'operation_not_allowed', 4: 'operation_not_supported',
+                10: 'sim_not_inserted', 11: 'sim_pin_required', 12: 'sim_puk_required',
+                13: 'sim_failure', 14: 'sim_busy', 30: 'no_network_service',
+                31: 'network_timeout', 100: 'unknown'}
+    text = re.sub(rb'\s+', b' ', detail.lower())
+    exact = {b'operation not allowed': 'operation_not_allowed',
+             b'operation not supported': 'operation_not_supported',
+             b'sim not inserted': 'sim_not_inserted',
+             b'sim pin required': 'sim_pin_required',
+             b'no network service': 'no_network_service', b'unknown': 'unknown'}
+    cues = []
+    for pattern, label in ((rb'\bnot support(?:ed)?\b', 'not_supported_wording'),
+                           (rb'\bnot allowed\b', 'not_allowed_wording'),
+                           (rb'\bpermission denied\b', 'permission_denied_wording')):
+        if re.search(pattern, text):
+            cues.append(label)
+    return dict(numeric_code=code, standard_meaning=meanings.get(code) if code is not None
+                else exact.get(text), wording_cues=cues,
+                detail_shape=line_shape(detail),
+                interpretation='문구 단서는 표준 코드/단말 허용 범위의 확정 근거가 아님')
+
+
 def collect(factory, port, clock=time.monotonic):
     report = dict(status='not_started', opened=False, write_attempted=False,
                   bytes_written=0, bytes_received=0, terminal_response=None,
                   closed=False, error_type=None, close_error_type=None,
                   signal_codes=None, signal_valid=False, csq_lines=0,
-                  malformed_csq_lines=0, unparsed_lines=0, unparsed_shapes=[])
+                  malformed_csq_lines=0, unparsed_lines=0, unparsed_shapes=[],
+                  cme_error=None)
     connection = None
     try:
         # 생성자에서 열지 않는다. 제어선 요청값을 open 전에 설정한다.
@@ -82,6 +111,8 @@ def collect(factory, port, clock=time.monotonic):
                 continue
             is_cme_error = bool(re.match(rb'\+CME\s+ERROR\s*:', line, re.IGNORECASE))
             if line in (b'OK', b'ERROR') or is_cme_error:
+                if is_cme_error:
+                    report['cme_error'] = cme_summary(line)
                 report['terminal_response'] = ('+CME ERROR' if is_cme_error else line.decode('ascii'))
                 report['status'] = 'ok' if line == b'OK' else 'error_response'
                 report['signal_valid'] = (line == b'OK' and report['csq_lines'] == 1

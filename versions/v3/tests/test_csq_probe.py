@@ -66,6 +66,32 @@ class CsqTests(unittest.TestCase):
             self.assertEqual(probe.main(['--plan']), 0)
         self.assertEqual(json.loads(output.getvalue())['command_hex'], '41 54 2b 43 53 51 0d')
 
+    def test_numeric_error_meaning(self):
+        r = self.collect(b'+CME ERROR: 4\r')
+        self.assertEqual(r['cme_error']['numeric_code'], 4)
+        self.assertEqual(r['cme_error']['standard_meaning'], 'operation_not_supported')
+
+    def test_exact_verbose_error(self):
+        r = self.collect(b'+CME Error: Operation Not Allowed\r')
+        self.assertEqual(r['cme_error']['standard_meaning'], 'operation_not_allowed')
+
+    def test_vendor_wording_is_only_a_cue(self):
+        r = self.collect(b'+CME Error:Not Support(private-serial)\r')
+        self.assertIsNone(r['cme_error']['standard_meaning'])
+        self.assertEqual(r['cme_error']['wording_cues'], ['not_supported_wording'])
+        self.assertNotIn('private-serial', json.dumps(r))
+
+    def test_unknown_error_and_long_identifier_not_retained(self):
+        for detail in (b'123456789012345', b'private-serial', b'99999'):
+            r = self.collect(b'+CME ERROR: ' + detail + b'\r')
+            self.assertIsNone(r['cme_error']['numeric_code'])
+            self.assertNotIn(detail.decode(), json.dumps(r))
+
+    def test_unmapped_numeric_code_preserved_without_invented_meaning(self):
+        r = self.collect(b'+CME ERROR: 515\r')
+        self.assertEqual(r['cme_error']['numeric_code'], 515)
+        self.assertIsNone(r['cme_error']['standard_meaning'])
+
 
 if __name__ == '__main__':
     unittest.main()
