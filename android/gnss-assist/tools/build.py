@@ -18,7 +18,7 @@ run([*compiler,'-source','8','-target','8','-encoding','UTF-8','-classpath',clas
 run([java('java'),'-cp',classes,'TrialTest'])
 (classes/'TrialTest.class').unlink()
 run([tool('d8'),'--lib',jar,'--min-api','30','--output',dex,*sorted(classes.rglob('*.class'))])
-unsigned=build/'unsigned.apk';aligned=build/'aligned.apk';apk=build/'ZetaMesh-GNSS-Assist-debug.apk'
+unsigned=build/'unsigned.apk';aligned=build/'aligned.apk';apk=build/'ZetaMesh-V3-dev.apk'
 run([tool('aapt2'),'link','-I',jar,'--manifest',root/'AndroidManifest.xml','-o',unsigned])
 with zipfile.ZipFile(unsigned,'a',zipfile.ZIP_DEFLATED) as z:
     for file in dex.glob('*.dex'): z.write(file,file.name)

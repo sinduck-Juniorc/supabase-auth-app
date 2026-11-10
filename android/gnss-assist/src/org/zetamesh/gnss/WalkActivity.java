@@ -53,7 +53,7 @@ public final class WalkActivity extends Activity {
         ScrollView scroll=new ScrollView(this);scroll.setFillViewport(true);scroll.setBackgroundColor(Color.rgb(242,246,250));
         root=new LinearLayout(this);root.setOrientation(1);root.setPadding(dp(22),dp(20),dp(22),dp(28));scroll.addView(root);setContentView(scroll);
         scroll.setOnApplyWindowInsetsListener((v,i)->{android.graphics.Insets b=i.getInsets(WindowInsets.Type.systemBars());v.setPadding(b.left,b.top,b.right,b.bottom);return i;});
-        label("ZetaMesh  ·  실내 이동 관찰",14,false);
+        label("ZetaMesh V3 개발  ·  실내 이동 관찰",14,false);
         label("밖에서 준비하고,\n안에서 확인하세요",28,true);
         label("최근 위치와 휴대폰 통신 상태를 함께 기록합니다. 위치 주입이나 통신 가속은 실행하지 않습니다.",16,false);
         guide=card("1  실외에서 위치 준비\n2  실내의 같은 지점으로 이동\n3  결과 저장");
@@ -71,7 +71,7 @@ public final class WalkActivity extends Activity {
         end=button("관찰 마치기",()->finish("user_finish"));
         save=button("기록 파일 저장하기",()->export());
         notice=label("화면을 유지해 주세요. 다른 앱으로 나가면 관찰을 종료합니다. 전체 5분, 위치 수신 2분 종료 예정입니다. 좌표는 파일에 저장하지 않습니다.",14,false);
-        label("0.2.1 · "+Build.MODEL+" · Android "+Build.VERSION.RELEASE,12,false);
+        label("0.3.0-dev · "+Build.MODEL+" · Android "+Build.VERSION.RELEASE,12,false);
         controls();
     }
     private TextView label(String value,int size,boolean bold){TextView t=new TextView(this);t.setText(value);t.setTextSize(size);t.setTextColor(Color.rgb(24,43,61));t.setPadding(0,dp(8),0,dp(10));if(bold)t.setTypeface(null,Typeface.BOLD);root.addView(t);return t;}
@@ -89,7 +89,7 @@ public final class WalkActivity extends Activity {
         if(!cleanup()){notice.setText("이전 구독을 해제하지 못했습니다. 앱 정보에서 강제 종료 후 다시 실행하세요.");return;}
         if(storageFailed||log.length()>=8L*1024*1024){notice.setText("기록 공간이 부족합니다. 파일을 저장한 뒤 앱 저장공간을 정리하세요.");return;}
         radio.setText("모바일 데이터\n새 상태를 기다리는 중입니다");recent=null;position.setText("최근 실외 위치\n새 위치를 기다리는 중입니다");phone.setText("휴대전화망\n상태를 확인하는 중입니다");inside=false;active=true;began=gpsBegan=SystemClock.elapsedRealtime();session=java.util.UUID.randomUUID().toString();lastNetwork=lastPhone="";lastSnapshot=0;serviceObservedAt=dataObservedAt=0;observedService=observedData=-1;observedRat=0;eventSequence=0;
-        write("observation_start",data("model",Build.MODEL,"android",Build.VERSION.RELEASE,"app_version","0.2.1","intervention","none"));
+        write("observation_start",data("model",Build.MODEL,"android",Build.VERSION.RELEASE,"app_version","0.3.0-dev","intervention","none"));
         guide.setText("실외 위치를 기다리는 중\n하늘이 보이는 곳에 머물러 주세요. 준비되면 실내 도착 버튼이 활성화됩니다.");
         try{
             int sub=SubscriptionManager.getDefaultDataSubscriptionId();
