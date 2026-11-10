@@ -1,5 +1,15 @@
 # 기본 CSQ 신호 조회
 
+## CME 최소 진단 실측 — 2026-11-10
+
+사용자가 현재 3GPP AT 옵션 켜짐을 다시 확인한 뒤 bb5a7f5로 CSQ 한 번 실행. 송신 7/수신 38바이트, +CME ERROR, 정상 close, 입출력 예외 없음. signal_valid=false. cme_error의 numeric_code/standard_meaning=null, wording_cues=[], detail_shape.length=24, CSQ 마커 없음, 마스킹 형식 XXXX(XX),XXX?XXXXXXX?XXX, 잘림 없음.
+
+숫자 코드와 도구의 제한된 문구 패턴으로 분류하지 못했다는 것이 확인됐다. 분류 미일치는 표준 오류가 아니라는 증명도 아니며 오류 실제 문구를 복원할 수 있다는 뜻도 아니다. 모든 영문자를 X로, 밑줄 등 일부 구분자를 ?로 바꿔 내용 구분이 불가능하다. 이번 추가 조회도 원인 식별에 필요한 정보를 충분히 보존하지 못한 도구 설계 한계다. 현재 파일의 재파싱으로 잃어버린 문구를 복구할 수 없다.
+
+마스킹 형식으로 가능한 문구를 역추측하거나 공개 검색의 무관한 커널/다른 기기 자료를 이 단말의 근거로 사용하지 않는다. 옵션 켜짐은 사용자 현재 관찰이며 모든 명령 허용의 증거는 아니다. 표준 문구와 일치하지 않았다고 삼성 미지원 또는 접근 제한으로 단정하지 않는다.
+
+CSQ/CESQ와 유사 명령 재전송을 중지한다. 이 이후 필요한 정보는 원래 오류 상세지만 확보하려면 별도 관찰이 필요하다. 새 실물 명령을 바로 안내하지 않고, 필요 시 오류 접두사 뒤의 원문을 개인 PC 화면에만 표시하고 결과 파일·공개 저장소에는 남기지 않는 진단 방식을 먼저 명시적으로 설계한다. 임의 명령 탐색·설정 토글·리셋은 근거가 없다.
+
 ## CSQ 실측 결과 — 신호 질의 중지 체크포인트
 
 2026-11-10 사용자 제공 08cc4a6 실행 요약: COM3에서 AT+CSQ+CR 7바이트 전송, 38바이트 수신, status=error_response, terminal_response=+CME ERROR. opened/write_attempted/closed=true, error_type/close_error_type=null. signal_codes=null, signal_valid=false, csq_lines/malformed_csq_lines/unparsed_lines=0. 포트 입출력 예외 없이 모뎀 오류 응답이 관찰됐으며 유효한 신호 값은 확보하지 못했다.
