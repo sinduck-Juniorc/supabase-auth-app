@@ -1,5 +1,11 @@
 # V3 개발 이력
 
+## 2026-11-17 · GitHub 푸시 경로 정리
+
+- 변경: `AGENTS.md`에 Windows V3 worktree의 로컬 Git 사용, GitHub Desktop 우선 푸시, 셸 HTTPS 실패 경로의 반복 방지, 푸시 후 원격 커밋 해시 한 번 확인, Desktop 실패 시 대체 경로와 실패 기록을 명시했다.
+- 검증: 변경 전 development/v3 작업 트리 깨끗함과 원격 커밋 일치 확인. 문서 diff 검사와 재개 검사에서 브랜치·V2 기준점 일치 확인. 코드·앱·AT 명령 변경 없음. V2 실물 시험은 해당 없음.
+- 다음: 이후 작업 단위부터 이 경로를 적용한다. 단말 재연결 시 `py -3 versions\v3\tools\find_samsung_modem.py`로 COM 번호만 확인하며 추가 AT 전송 중지는 유지한다.
+
 ## 2026-11-17 · 삼성 모뎀 COM 번호 읽기 전용 확인
 
 - 변경: `find_samsung_modem.py`와 모의 시험 추가. Windows 포트 목록에서 기존 관찰과 일치하는 삼성 USB 모뎀 VID/PID·설명·COM 형식만 필터링해 COM 번호만 출력한다. 포트를 열거나 AT 명령을 보내지 않으며 원문 하드웨어 ID·시리얼·개인 경로를 출력/저장하지 않는다. 후보 0개·복수개는 확정 포트로 해석하지 않는다.

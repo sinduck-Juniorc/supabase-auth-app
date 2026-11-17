@@ -11,6 +11,7 @@ V3 앱은 org.zetamesh.gnss.v3 패키지로 V2와 분리하고 별도 APK 파일
 새 대화·환경·모델에서 project-state.json과 docs/SESSION_RESUME_ko.md를 읽고 tools/resume_check.py를 실행한다.
 무료 사용량·OAuth·클라우드 수명을 무제한으로 유지한다고 약속하지 않는다.
 작업 단위마다 CHANGELOG에 완료·시험·실패·다음 명령을 남기고 커밋·푸시한다. 세션 종료 직전 저장에 의존하지 않는다.
+Windows V3 worktree에서는 로컬 상태 확인·커밋에 GitHub Desktop 내장 Git을 사용할 수 있다. 푸시는 GitHub Desktop에서 먼저 시도한다. 셸의 GitHub HTTPS 연결이 실패한 세션에서는 같은 경로로 푸시를 반복하지 않는다. 푸시 후 원격 development/v3의 커밋 해시를 한 번 확인한다. GitHub Desktop 푸시도 실패하면 다른 연결 경로를 검토하고 실패 원인을 CHANGELOG에 기록한다.
 서비스 접근은 각각 재검증한다. 인증 만료 시 해당 연결만 재인증하며 토큰을 공개하거나 권한 검사를 생략하지 않는다.
 문맥을 줄이기 위해 전체 로그·기존 조사를 반복 출력하지 말고 고정 문서와 필요한 부분부터 읽는다.
 
