@@ -75,7 +75,15 @@ def cme_summary(line):
                 interpretation='문구 단서는 표준 코드/단말 허용 범위의 확정 근거가 아님')
 
 
-def collect(factory, port, clock=time.monotonic):
+def show_cme_detail(line):
+    """CME 상세를 콘솔에만 출력한다. 제어 문자와 잘린 부분은 표시하지 않는다."""
+    detail = line.split(b':', 1)[1].strip()
+    visible = detail[:256].decode('utf-8', 'backslashreplace')
+    suffix = ' [256바이트 이후 생략]' if len(detail) > 256 else ''
+    print('CME 상세 (PC 화면 전용):', repr(visible) + suffix)
+
+
+def collect(factory, port, clock=time.monotonic, detail_sink=None):
     report = dict(status='not_started', opened=False, write_attempted=False,
                   bytes_written=0, bytes_received=0, terminal_response=None,
                   closed=False, error_type=None, close_error_type=None,
@@ -113,6 +121,8 @@ def collect(factory, port, clock=time.monotonic):
             if line in (b'OK', b'ERROR') or is_cme_error:
                 if is_cme_error:
                     report['cme_error'] = cme_summary(line)
+                    if detail_sink is not None:
+                        detail_sink(line)
                 report['terminal_response'] = ('+CME ERROR' if is_cme_error else line.decode('ascii'))
                 report['status'] = 'ok' if line == b'OK' else 'error_response'
                 report['signal_valid'] = (line == b'OK' and report['csq_lines'] == 1
@@ -153,24 +163,37 @@ def main(argv=None):
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--plan', action='store_true')
     mode.add_argument('--send-csq', action='store_true')
-    parser.add_argument('--port', default='COM3')
+    mode.add_argument('--send-csq-show-cme', action='store_true',
+                      help='고정 CSQ를 한 번 전송하고 CME 상세를 대화형 화면에만 표시')
+    parser.add_argument('--port')
     parser.add_argument('--out', type=Path)
     args = parser.parse_args(argv)
-    if not re.fullmatch(r'COM[1-9][0-9]*', args.port, re.IGNORECASE):
+    if args.port is not None and not re.fullmatch(r'COM[1-9][0-9]*', args.port, re.IGNORECASE):
         parser.error('Windows COM 번호만 허용합니다. 예: COM3')
-    plan = dict(port=args.port.upper(), settings=SETTINGS, dtr=False, rts=False,
+    if (args.send_csq or args.send_csq_show_cme) and args.port is None:
+        parser.error('송신 전에 현재 포트를 확인하고 --port COM번호를 명시하세요.')
+    if args.send_csq_show_cme and args.out is not None:
+        parser.error('화면 전용 모드에서 --out은 사용할 수 없습니다.')
+    plan = dict(port=args.port.upper() if args.port else None, settings=SETTINGS,
+                dtr=False, rts=False,
                 command_hex='41 54 2b 43 53 51 0d', command_count=1,
                 response_seconds=RESPONSE_SECONDS, receive_limit=MAX_BYTES,
                 warning='포트 열기/닫기 때 드라이버에 의한 제어선 변화 가능. 실물 미검증.')
-    if not args.send_csq:
+    if not (args.send_csq or args.send_csq_show_cme):
         print(json.dumps(plan, ensure_ascii=False, indent=2))
         return 0
     if sys.platform != 'win32':
         parser.error('실행은 COM 장치가 연결된 Windows PC에서만 가능합니다.')
+    if args.send_csq_show_cme and not sys.stdout.isatty():
+        parser.error('화면 전용 모드는 출력 리디렉션 없이 대화형 CMD에서만 실행합니다.')
     try:
         import serial
     except ImportError:
         parser.error('동일 Python에 pyserial 필요: python -m pip install pyserial==3.5')
+    if args.send_csq_show_cme:
+        result = collect(serial.Serial, args.port.upper(), detail_sink=show_cme_detail)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result['status'] == 'ok' and result['signal_valid'] else 2
     output = args.out or Path('captures/v3/csq-' + datetime.now(timezone.utc).strftime(
         '%Y%m%dT%H%M%S%fZ') + '.json')
     # 저장 경로 오류/기존 파일은 포트를 열기 전에 확인한다.

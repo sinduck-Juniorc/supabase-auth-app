@@ -1,5 +1,9 @@
 # 기본 CSQ 신호 조회
 
+## 현재 상태 · 2026-11-17
+
+추가 AT 조회는 중지된 상태다. 아래 과거 `--send-csq` 예시는 이전 실행 절차 기록이며 지금 다시 실행하라는 지시가 아니다. `--send-csq-show-cme` 화면 전용 모드를 구현하고 모의 검증했지만 실기기 전송은 하지 않았다. 포트 재연결 뒤 현재 COM 번호를 읽기만 확인하고, 실물 송신 필요성은 별도로 판단한다. [화면 전용 설계와 한계](PORT_ERROR_REVIEW_ko.md)를 따른다.
+
 ## CME 최소 진단 실측 — 2026-11-10
 
 사용자가 현재 3GPP AT 옵션 켜짐을 다시 확인한 뒤 bb5a7f5로 CSQ 한 번 실행. 송신 7/수신 38바이트, +CME ERROR, 정상 close, 입출력 예외 없음. signal_valid=false. cme_error의 numeric_code/standard_meaning=null, wording_cues=[], detail_shape.length=24, CSQ 마커 없음, 마스킹 형식 XXXX(XX),XXX?XXXXXXX?XXX, 잘림 없음.

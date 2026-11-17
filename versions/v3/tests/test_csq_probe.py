@@ -4,7 +4,9 @@ import io
 import json
 from pathlib import Path
 import sys
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import csq_probe as probe
@@ -91,6 +93,58 @@ class CsqTests(unittest.TestCase):
         r = self.collect(b'+CME ERROR: 515\r')
         self.assertEqual(r['cme_error']['numeric_code'], 515)
         self.assertIsNone(r['cme_error']['standard_meaning'])
+
+    def test_screen_detail_is_separate_from_result(self):
+        port = FakePort(b'+CME ERROR: private-serial\r', written=7)
+        shown = []
+        result = probe.collect(lambda **kw: port, 'COM7', clock=lambda: port.now,
+                               detail_sink=shown.append)
+        self.assertEqual(shown, [b'+CME ERROR: private-serial'])
+        self.assertNotIn('private-serial', json.dumps(result))
+        self.assertEqual(port.writes, [b'AT+CSQ\r'])
+        self.assertEqual(port.events[-1], 'close')
+
+    def test_screen_render_escapes_controls_and_limits_length(self):
+        with contextlib.redirect_stdout(io.StringIO()) as output:
+            probe.show_cme_detail(b'+CME ERROR: private\x1b[31m\x00\tvalue')
+        rendered = output.getvalue()
+        self.assertIn('private', rendered)
+        self.assertIn('\\x1b', rendered)
+        self.assertIn('\\x00', rendered)
+        self.assertNotIn('\x1b', rendered)
+        self.assertNotIn('\x00', rendered)
+        with contextlib.redirect_stdout(io.StringIO()) as output:
+            probe.show_cme_detail(b'+CME ERROR: ' + b'x' * 300)
+        self.assertIn('256바이트 이후 생략', output.getvalue())
+        self.assertNotIn('x' * 257, output.getvalue())
+
+    def test_screen_mode_requires_explicit_port_and_console(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                probe.main(['--send-csq-show-cme'])
+            with patch.object(probe.sys, 'platform', 'win32'):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    with self.assertRaises(SystemExit):
+                        probe.main(['--send-csq-show-cme', '--port', 'COM7'])
+            with self.assertRaises(SystemExit):
+                probe.main(['--send-csq-show-cme', '--port', 'COM7', '--out', 'x.json'])
+
+    def test_screen_mode_writes_no_result_file(self):
+        class Console(io.StringIO):
+            def isatty(self):
+                return True
+
+        port = FakePort(b'+CME ERROR: private-serial\r', written=7)
+        console = Console()
+        fake_serial = SimpleNamespace(Serial=lambda **kw: port)
+        with patch.object(probe.sys, 'platform', 'win32'):
+            with patch.object(probe.sys, 'stdout', console):
+                with patch.dict(sys.modules, {'serial': fake_serial}):
+                    with patch.object(probe.Path, 'open', side_effect=AssertionError('file opened')):
+                        self.assertEqual(probe.main(['--send-csq-show-cme', '--port', 'COM7']), 2)
+        self.assertEqual(console.getvalue().count('private-serial'), 1)
+        self.assertEqual(port.writes, [b'AT+CSQ\r'])
+        self.assertEqual(port.events[-1], 'close')
 
 
 if __name__ == '__main__':
