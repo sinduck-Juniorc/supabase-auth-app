@@ -10,15 +10,16 @@ permissions:
   contents: read
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: SDK 35 준비
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: 계측 및 시연 APK 빌드
         run: |
           export JAVA_HOME="$JAVA_HOME_17_X64"
+          test -x "$JAVA_HOME/bin/javac"
+          test -f "$ANDROID_HOME/platforms/android-35/android.jar"
+          test -x "$ANDROID_HOME/build-tools/35.0.0/aapt2"
           key="$RUNNER_TEMP/eco-trekking-demo.keystore"
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key"
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key" --demo
