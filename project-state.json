@@ -10,7 +10,7 @@
   "service_name": "에코 트레킹",
   "service_name_meaning": "‘에코’는 저전력으로 트래킹한다는 서비스 목표를 표현한다.",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "1홉 로그 APK 빌드·서명 검사, R4 숫자 입력 도구, 최신 JSONL 시험 세션 로컬 검사 도구 검증 완료",
+  "last_completed": "UNO R4 WiFi 실물에서 Arduino IDE 시리얼 모니터로 숫자 0을 보내 queued 0 응답 확인. 1홉 로그 APK 및 JSONL 검사 도구 준비 완료",
   "next_work": "UNO R4 WiFi를 연결하고 python versions/v3/tools/send_one_hop_digits.py --list로 포트를 확인한다. 폰 1홉 수신 시작 후 실제 R4 포트로 네 자리 입력을 보낸다. 폰에서 저장 후 종료하고 check_one_hop_log.py로 JSONL을 검사한다. 추가 AT 명령 전송 중지 유지",
   "service_plan": "versions/v3/ECO_TREKKING_PLAN_ko.md",
   "known_limits": [
