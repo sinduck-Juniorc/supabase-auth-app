@@ -42,6 +42,15 @@ jobs:
               --build-path "$RUNNER_TEMP/r4-build-$role" --output-dir ".r4-build/artifacts/role$role" \
               firmware/uno-r4-wifi/ZetaMeshR4 2>&1 | tee ".r4-build/logs/role$role.txt"
           done
+      - name: 에코 트레킹 시연 및 계측 스케치 빌드
+        shell: bash
+        run: |
+          set -o pipefail
+          for sketch in EcoTrekkingBinaryDemo EcoTrekkingEcho; do
+            arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi --jobs 2 --warnings all \
+              --build-path "$RUNNER_TEMP/$sketch" --output-dir ".r4-build/artifacts/$sketch" \
+              "firmware/uno-r4-wifi/$sketch" 2>&1 | tee ".r4-build/logs/$sketch.txt"
+          done
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: uno-r4-wifi-builds
