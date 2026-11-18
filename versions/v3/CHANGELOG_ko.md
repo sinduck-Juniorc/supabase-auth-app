@@ -1,5 +1,11 @@
 # V3 개발 이력
 
+## 2026-11-18 · BLE 시연 APK와 R4 빌드 검증
+
+- 검증: Android SDK 35에서 계측·시연 APK 빌드와 서명 검사가 통과했다. [시연 APK ZIP](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44214488531/artifacts/14386978169)을 확인했다.
+- 검증: [UNO R4 WiFi Actions](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44214234299)에서 시연·계측 스케치의 컴파일이 통과했다.
+- 다음: [시연 절차](ECO_TREKKING_DEMO_ko.md)대로 BLE 연결 후 1과 0의 화면 표시를 실기기로 확인한다. 추가 AT 명령 전송 중지 유지.
+
 ## 2026-11-18 · Android 시연 빌드 실행 환경 조정
 
 - 실패: 첫 Actions 실행은 Ubuntu 26.04의 `sdkmanager` 부재로 Android 소스 컴파일 전에 중단됐다.

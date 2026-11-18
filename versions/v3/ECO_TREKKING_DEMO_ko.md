@@ -10,7 +10,7 @@ UNO R4 WiFi에서 BLE 알림으로 한 바이트를 보내면 Android 앱이 `0`
 
 ## Android 앱 준비
 
-GitHub Actions의 **에코 트레킹 Android 시연 빌드**에서 `Eco-Trekking-BLE-Demo` 아티팩트를 내려받고 ZIP의 `Eco-Trekking-BLE-Demo.apk`를 설치한다. 로컬의 SDK 35와 JDK 17이 있는 경우 저장소 루트에서 아래처럼 빌드할 수 있다.
+[시연 APK ZIP](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44214488531/artifacts/14386978169)을 내려받고 압축을 풀어 `Eco-Trekking-BLE-Demo.apk`를 설치한다. 로컬에 SDK 35와 JDK 17이 있는 경우 저장소 루트에서 아래처럼 빌드할 수 있다.
 
 ```powershell
 python .\android\gnss-assist\tools\build.py --demo --sdk "$env:LOCALAPPDATA\Android\Sdk" --keystore .\.local\eco-trekking-demo.keystore
