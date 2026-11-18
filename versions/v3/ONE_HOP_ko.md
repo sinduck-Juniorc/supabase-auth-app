@@ -1,5 +1,15 @@
 # 에코 트레킹 1홉 광고 시연
 
+## 수신 로그
+
+**에코 트레킹 1홉 로그** 앱에서 **1홉 수신 시작**을 누르면 로그를 자동 기록한다. 측정이 끝나면 **저장 후 종료**를 눌러 폴더를 선택한다. 파일 쓰기에 성공하면 앱이 닫힌다. **로그 내보내기**는 같은 파일을 저장하고 앱 화면을 유지한다. 두 버튼 모두 파일 위치를 고르기 전에 현재 수신 세션을 종료한다. 취소하거나 저장에 실패하면 내부 기록에서 다시 내보낼 수 있다.
+
+`eco-trekking-one-hop-*.jsonl`은 UTF-8로 저장하며 각 줄은 JSON 객체 하나다. 앱에 누적된 세션들은 `session_id`로 구분한다. 수신 이벤트의 `digit`, `sequence`, `sender_boot_id`, `rssi_dbm`, `received_elapsed_ms`, `remaining_ttl_ms`와 종료 요약의 수신·무효·만료·중복/역순 개수를 분석할 수 있다. `unix_ms`는 폰의 기록 시각이다. 로그에는 원본 무선 패킷, 기기 Bluetooth 주소, 좌표를 저장하지 않는다.
+
+전달률을 계산하려면 R4에 몇 번 입력했는지 따로 남긴다. 폰 기록만으로 미수신 송신 시도 수나 R4의 광고 주기 전환을 모두 확인할 수 없다. 기존 시연 APK와 로그 추가 APK는 서로 다른 패키지를 사용하므로 함께 설치할 수 있다.
+
+## 초기 시연 자료
+
 [에코 트레킹 1홉 APK 및 Arduino 스케치 ZIP 다운로드](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44218457506/artifacts/14389013826)
 
 GitHub Actions의 **에코 트레킹 Android 시연 빌드**에서 `Eco-Trekking-OneHop` ZIP을 받는다. 압축 안의 `Eco-Trekking-OneHop.apk`를 스마트폰에 설치하고, `EcoOneHop` 폴더 전체를 유지한 채 Arduino IDE에서 `EcoOneHop.ino`를 열어 UNO R4 WiFi에 업로드한다. 보드와 라이브러리는 [R4 준비 절차](../../firmware/uno-r4-wifi/README.md)를 따른다. 업로드하면 보드에 있던 스케치가 교체된다.
