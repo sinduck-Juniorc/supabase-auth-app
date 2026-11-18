@@ -2,6 +2,8 @@
 
 ## 수신 로그
 
+[수신 로그 앱 0.2.0 다운로드](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44221604949/artifacts/14391061941)
+
 **에코 트레킹 1홉 로그** 앱에서 **1홉 수신 시작**을 누르면 로그를 자동 기록한다. 측정이 끝나면 **저장 후 종료**를 눌러 폴더를 선택한다. 파일 쓰기에 성공하면 앱이 닫힌다. **로그 내보내기**는 같은 파일을 저장하고 앱 화면을 유지한다. 두 버튼 모두 파일 위치를 고르기 전에 현재 수신 세션을 종료한다. 취소하거나 저장에 실패하면 내부 기록에서 다시 내보낼 수 있다.
 
 `eco-trekking-one-hop-*.jsonl`은 UTF-8로 저장하며 각 줄은 JSON 객체 하나다. 앱에 누적된 세션들은 `session_id`로 구분한다. 수신 이벤트의 `digit`, `sequence`, `sender_boot_id`, `rssi_dbm`, `received_elapsed_ms`, `remaining_ttl_ms`와 종료 요약의 수신·무효·만료·중복/역순 개수를 분석할 수 있다. `unix_ms`는 폰의 기록 시각이다. 로그에는 원본 무선 패킷, 기기 Bluetooth 주소, 좌표를 저장하지 않는다.
