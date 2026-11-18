@@ -13,9 +13,18 @@
 ### 로그 APK 실물 시험
 
 1. 폰에서 **에코 트레킹 1홉 로그** 앱의 **1홉 수신 시작**을 누른다. R4에 `EcoOneHop`이 올라가 있다면 기존 스케치를 그대로 사용한다.
-2. Arduino IDE에서 보드 이름과 포트를 확인하고 시리얼 모니터를 115200 baud로 연다. `1`을 입력하고 폰에 값과 순번이 표시되면 `0`을 입력한다. 시도마다 입력값과 폰 표시 여부를 기록한다. 첫 입력이 표시되지 않으면 해당 시도를 미수신으로 기록한 뒤 다음 입력을 따로 시험한다.
+2. Arduino IDE의 시리얼 모니터를 닫고 아래 명령으로 R4에 `0 → 1 → 0 → 1`을 보낸다. 폰에 값이 표시되는지와 관계없이 PC가 각 입력을 3초 간격으로 전송한다.
 3. 폰에서 **저장 후 종료**를 누르고 기기 내부 저장소의 폴더를 선택한다. 저장이 완료된 뒤 앱 화면이 닫히는지 확인한다. 폰의 파일 앱에서 생성된 JSONL을 확인한다. PC에서 검사할 때는 개인 원본을 Git이 제외하는 `captures/v3/`에 둔다.
-4. 이번 `session_id`의 `session_start`부터 `session_end`까지 확인한다. 두 번 모두 수신했다면 `packet_received`의 `digit`은 `1`, `0` 순이고 같은 `sender_boot_id`에서 `sequence`가 진행한다. 종료 행의 `reason`은 `save_and_exit`이며 `received_count`는 해당 세션의 `packet_received` 행 수와 일치해야 한다. 종료 행과 별도로 앱 화면이 실제로 닫혔는지 기록한다.
+4. 이번 `session_id`의 `session_start`부터 `session_end`까지 확인한다. 네 번 모두 수신했다면 `packet_received`의 `digit`은 `0 → 1 → 0 → 1` 순이고 같은 `sender_boot_id`에서 `sequence`가 진행한다. 종료 행의 `reason`은 `save_and_exit`이며 `received_count`는 해당 세션의 `packet_received` 행 수와 일치해야 한다. 종료 행과 별도로 앱 화면이 실제로 닫혔는지 기록한다.
+
+Windows에서 저장소 루트를 열고 실행한다. `COM3`은 `--list`에서 확인한 UNO R4 WiFi 포트로 바꾼다. `pyserial`이 필요한 경우 `python -m pip install -r firmware/uno-r4-wifi/requirements.txt`로 설치한다. 포트 목록은 Arduino의 보드 정의에 있는 USB ID를 사용한다. [UNO R4 WiFi 보드 정의](https://github.com/arduino/ArduinoCore-renesas/blob/main/boards.txt#L98-L117)
+
+```powershell
+python versions/v3/tools/send_one_hop_digits.py --list
+python versions/v3/tools/send_one_hop_digits.py --port COM3
+```
+
+115200 baud로 포트를 열고 2초 뒤 첫 입력을 보낸다. 출력 시간은 첫 쓰기 시작을 기준으로 한 PC 경과 시간이다. 쓰기 성공 행으로 PC 입력 시도 수를 세고, 폰 JSONL의 순번으로 확인된 수신 수를 센다. 실제 BLE 광고 시각은 별도 측정이 필요하다.
 
 PC에서 JSONL 문법을 확인하려면 저장소 루트에서 다음을 실행한다. 경로는 옮겨 놓은 파일 이름에 맞춘다. 이 명령은 로그 내용을 출력하지 않는다.
 
