@@ -1,5 +1,13 @@
 # V3 개발 이력
 
+## 2026-11-18 · 삼성 USB 모뎀 포트 목록 재확인
+
+- 완료: Windows 포트 목록에서 일치 후보 0개(종료 코드 1)를 확인했다. 이 결과는 현재 필터에 맞는 항목이 없다는 뜻이다. 포트를 열거나 AT 명령을 보내지 않았다.
+- 변경: 프로젝트 상태와 포트 통신 재개 절차를 갱신하고 화면 전용 모드를 포함한 추가 AT 명령의 전송 중지를 명시했다.
+- 검증: V3 모의 시험 58개 통과. 재개 검사에서 development/v3 및 V2 고정 태그 일치 확인. 로컬 origin/baseline/v2도 고정 커밋과 일치했다.
+- 실패/제한: `py -3`가 Microsoft Store Python을 시작하지 못해 설치된 `python`으로 완료했다. 단말 재연결과 실제 COM 번호는 미확인이다.
+- 다음: 재연결이 확인되면 `python versions/v3/tools/find_samsung_modem.py`로 COM 번호만 확인한다.
+
 ## 2026-11-17 · GitHub 푸시 경로 정리
 
 - 변경: `AGENTS.md`에 Windows V3 worktree의 로컬 Git 사용, GitHub Desktop 우선 푸시, 셸 HTTPS 실패 경로의 반복 방지, 푸시 후 원격 커밋 해시 한 번 확인, Desktop 실패 시 대체 경로와 실패 기록을 명시했다.

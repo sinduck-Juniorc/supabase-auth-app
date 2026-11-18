@@ -73,10 +73,9 @@ COM3 열기, AT 전송, 응답 수신은 아직 실행하지 않았다. 다음 �
 ## 다음 작업
 
 1. AGENTS.md, project-state.json, 이 문서와 CHANGELOG 최신 항목을 읽고 `python tools/resume_check.py`를 실행한다.
-2. 기본 AT 성공 시험과 기존 USB/INF/ADB 사전 점검을 반복하지 않는다.
-3. 후속 읽기 전용 AT 질의의 공식 정의와 단말 적용 근거를 검토한다. 기본 OK만으로 임의의 명령 지원을 가정하지 않는다. 초기화·리셋·다이얼·설정 변경 명령은 자동 실행하지 않는다.
-4. 후속 질의를 선택하면 명령·목적·출력의 개인정보 범위·시간 제한을 명시하고 Windows CMD에서 한 단계씩 진행한다. 현재 도구는 고정 AT만 지원하며 임의 명령으로 수정해 실행하지 않는다.
-5. 관찰·미실행·다음 작업을 작은 단위로 기록·커밋·푸시한다. 위치 주입·셀 탐색 제어 가능성은 별도 검증한다.
+2. 2026-11-18 Windows 포트 목록 확인에서 일치 후보는 0개였다. 단말 재연결이 확인되면 `python versions/v3/tools/find_samsung_modem.py`로 COM 번호만 확인한다.
+3. 화면 전용 모드를 포함해 추가 AT 명령 전송은 중지한다. 오류 원인은 미분류 상태이며 위치 주입과 셀 탐색 개선은 미검증이다.
+4. 관찰 결과와 다음 작업을 CHANGELOG에 기록하고 커밋·푸시한다.
 
 연결 확인이 필요할 때 사용자의 기존 CMD 위치(platform-tools-latest-windows)에서는 다음을 쓴다. 포트 통신 명령은 아니다.
 
@@ -90,4 +89,4 @@ platform-tools\adb.exe devices
 
 ## 새 대화에 붙여넣을 프롬프트
 
-ZetaMesh ver.3(포트 통신)을 이어서 진행해주세요. 한국어로 답변하세요. 저장소는 https://github.com/sinduck-Juniorc/supabase-auth-app, 작업 브랜치는 development/v3입니다. AGENTS.md, project-state.json, docs/SESSION_RESUME_ko.md, versions/v3/PORT_COMMUNICATION_RESUME_ko.md, versions/v3/CHANGELOG_ko.md를 읽고 가능하면 python tools/resume_check.py를 실행하세요. 사용자 Windows PC의 COM3에서 기본 AT 1회 전송 후 OK 응답과 정상 close를 확인했습니다. 기본 AT를 반복하지 말고 후속 읽기 전용 질의의 공식 근거와 단말 지원 범위 검토부터 진행하세요. V2는 수정하지 말고 개인 원문·서명키는 공개하지 마세요. 작은 단위로 검증·기록·커밋·푸시하세요.
+ZetaMesh ver.3(포트 통신)을 한국어로 이어서 진행해 주세요. 저장소는 https://github.com/sinduck-Juniorc/supabase-auth-app, 작업 브랜치는 development/v3입니다. AGENTS.md, project-state.json, docs/SESSION_RESUME_ko.md, versions/v3/PORT_COMMUNICATION_RESUME_ko.md, versions/v3/CHANGELOG_ko.md를 읽고 python tools/resume_check.py를 실행하세요. 단말 재연결이 확인되면 Windows 포트 목록에서 COM 번호만 확인하세요. 화면 전용 모드를 포함해 추가 AT 명령은 보내지 마세요. V2와 개인 원문·서명키를 보호하고, 검증 가능한 단위마다 CHANGELOG를 갱신하고 커밋·푸시하세요.
