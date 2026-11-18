@@ -4,6 +4,7 @@ on:
     branches: [development/v3]
     paths:
       - android/gnss-assist/**
+      - firmware/uno-r4-wifi/EcoOneHop/**
       - .github/workflows/eco-trekking-android.yml
   workflow_dispatch:
 permissions:
@@ -20,9 +21,22 @@ jobs:
           test -x "$JAVA_HOME/bin/javac"
           test -f "$ANDROID_HOME/platforms/android-35/android.jar"
           test -x "$ANDROID_HOME/build-tools/35.0.0/aapt2"
+          onehop=android/gnss-assist/onehop
+          g++ -std=c++11 "$onehop/tests/wire_test.cpp" -o "$RUNNER_TEMP/wire_test"
+          "$JAVA_HOME/bin/javac" -d "$RUNNER_TEMP" "$onehop/src/org/zetamesh/ecotrekking/demo/OneHopFrame.java" "$onehop/tests/WireTest.java"
+          "$RUNNER_TEMP/wire_test" | "$JAVA_HOME/bin/java" -cp "$RUNNER_TEMP" org.zetamesh.ecotrekking.demo.WireTest
           key="$RUNNER_TEMP/eco-trekking-demo.keystore"
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key"
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key" --demo
+          python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key" --one-hop
+          mkdir -p "$RUNNER_TEMP/onehop-kit"
+          cp android/gnss-assist/build/onehop/Eco-Trekking-OneHop.apk "$RUNNER_TEMP/onehop-kit/"
+          cp -r firmware/uno-r4-wifi/EcoOneHop "$RUNNER_TEMP/onehop-kit/"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: Eco-Trekking-OneHop
+          path: ${{ runner.temp }}/onehop-kit/
+          if-no-files-found: error
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: Eco-Trekking-BLE-Demo

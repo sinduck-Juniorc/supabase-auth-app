@@ -46,7 +46,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          for sketch in EcoTrekkingBinaryDemo EcoTrekkingEcho; do
+          for sketch in EcoTrekkingBinaryDemo EcoTrekkingEcho EcoOneHop; do
             arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi --jobs 2 --warnings all \
               --build-path "$RUNNER_TEMP/$sketch" --output-dir ".r4-build/artifacts/$sketch" \
               "firmware/uno-r4-wifi/$sketch" 2>&1 | tee ".r4-build/logs/$sketch.txt"
