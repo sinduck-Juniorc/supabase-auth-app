@@ -1,5 +1,7 @@
 # 에코 트레킹 1홉 광고 시연
 
+[에코 트레킹 1홉 APK 및 Arduino 스케치 ZIP 다운로드](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44218457506/artifacts/14389013826)
+
 GitHub Actions의 **에코 트레킹 Android 시연 빌드**에서 `Eco-Trekking-OneHop` ZIP을 받는다. 압축 안의 `Eco-Trekking-OneHop.apk`를 스마트폰에 설치하고, `EcoOneHop` 폴더 전체를 유지한 채 Arduino IDE에서 `EcoOneHop.ino`를 열어 UNO R4 WiFi에 업로드한다. 보드와 라이브러리는 [R4 준비 절차](../../firmware/uno-r4-wifi/README.md)를 따른다. 업로드하면 보드에 있던 스케치가 교체된다.
 
 1. 휴대폰의 Bluetooth를 켜고 **에코 트레킹 1홉 → 1홉 수신 시작**을 누른다. 근처 기기 권한을 허용하고 화면을 열어 둔다.

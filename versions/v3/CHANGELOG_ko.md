@@ -1,5 +1,11 @@
 # V3 개발 이력
 
+## 2026-11-18 · 1홉 시연 빌드 및 패킷 호환 검증
+
+- [Android 빌드](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44218457506)에서 APK 서명 검사와 R4 인코더→Android 디코더 시험을 통과했다. 0·1, CRC 오류 검출, 순번 중복·역순·순환을 검사했다.
+- [UNO R4 WiFi 빌드](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44218457530)에서 EcoOneHop 스케치 컴파일을 통과했다. APK와 Arduino IDE용 스케치 폴더가 든 ZIP 다운로드를 확인했다.
+- 다음: 실물로 숫자·순번·스케줄 전환을 확인한다. 무선 전달률과 배터리 소모량은 미측정이다.
+
 ## 2026-11-18 · 연구 방식의 첫 홉 구현
 
 - 완료: R4의 숫자 데이터 광고와 스마트폰의 존재 광고, 단일 후보 조건에서 R4의 탐색·송신 주기 전환, 수명·CRC·홉 제한·중복 검사를 구현했다. GATT 시연과 별도로 설치하는 앱이다.

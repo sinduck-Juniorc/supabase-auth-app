@@ -10,7 +10,7 @@
   "service_name": "에코 트레킹",
   "service_name_meaning": "‘에코’는 저전력으로 트래킹한다는 서비스 목표를 표현한다.",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "독자 광고 방식 1홉 앱·R4 스케치와 송수신 프레임 호환 시험 작성",
+  "last_completed": "1홉 앱 APK·R4 스케치 빌드와 송수신 프레임 호환 시험 통과. APK와 스케치 ZIP 확인",
   "next_work": "ONE_HOP_ko.md에 따라 숫자, 순번, R4 주기 전환, 데이터 만료를 실기기로 확인한다. 추가 AT 명령 전송 중지 유지",
   "service_plan": "versions/v3/ECO_TREKKING_PLAN_ko.md",
   "known_limits": [
