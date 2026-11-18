@@ -26,12 +26,13 @@ python versions/v3/tools/send_one_hop_digits.py --port COM3
 
 115200 baud로 포트를 열고 2초 뒤 첫 입력을 보낸다. 출력 시간은 첫 쓰기 시작을 기준으로 한 PC 경과 시간이다. 쓰기 성공 행으로 PC 입력 시도 수를 세고, 폰 JSONL의 순번으로 확인된 수신 수를 센다. 실제 BLE 광고 시각은 별도 측정이 필요하다.
 
-PC에서 JSONL 문법을 확인하려면 저장소 루트에서 다음을 실행한다. 경로는 옮겨 놓은 파일 이름에 맞춘다. 이 명령은 로그 내용을 출력하지 않는다.
+PC에서 최신 시작 세션을 검사하려면 저장소 루트에서 다음을 실행한다. 경로는 옮겨 놓은 파일 이름에 맞춘다.
 
 ```powershell
-Get-Content -LiteralPath 'captures/v3/eco-trekking-one-hop-실제파일명.jsonl' -Encoding UTF8 -ErrorAction Stop |
-  ForEach-Object { $null = ConvertFrom-Json -InputObject $_ -ErrorAction Stop }
+python versions/v3/tools/check_one_hop_log.py 'captures/v3/eco-trekking-one-hop-실제파일명.jsonl'
 ```
+
+검사기는 수신 개수와 항목별 통과 여부만 표시한다. 종료 코드 0은 네 자리·동일 부팅·순번 진행·저장 후 종료 사유·수신 집계가 모두 일치한 경우다. 1은 항목 불일치, 2는 파일·형식·세션 경계 오류다. 실제 앱 화면이 닫혔는지는 폰에서 확인한다.
 
 ## 초기 시연 자료
 
