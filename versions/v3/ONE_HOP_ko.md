@@ -10,6 +10,20 @@
 
 전달률을 계산하려면 R4에 몇 번 입력했는지 따로 남긴다. 폰 기록만으로 미수신 송신 시도 수나 R4의 광고 주기 전환을 모두 확인할 수 없다. 기존 시연 APK와 로그 추가 APK는 서로 다른 패키지를 사용하므로 함께 설치할 수 있다.
 
+### 로그 APK 실물 시험
+
+1. 폰에서 **에코 트레킹 1홉 로그** 앱의 **1홉 수신 시작**을 누른다. R4에 `EcoOneHop`이 올라가 있다면 기존 스케치를 그대로 사용한다.
+2. Arduino IDE에서 보드 이름과 포트를 확인하고 시리얼 모니터를 115200 baud로 연다. `1`을 입력하고 폰에 값과 순번이 표시되면 `0`을 입력한다. 시도마다 입력값과 폰 표시 여부를 기록한다. 첫 입력이 표시되지 않으면 해당 시도를 미수신으로 기록한 뒤 다음 입력을 따로 시험한다.
+3. 폰에서 **저장 후 종료**를 누르고 기기 내부 저장소의 폴더를 선택한다. 저장이 완료된 뒤 앱 화면이 닫히는지 확인한다. 폰의 파일 앱에서 생성된 JSONL을 확인한다. PC에서 검사할 때는 개인 원본을 Git이 제외하는 `captures/v3/`에 둔다.
+4. 이번 `session_id`의 `session_start`부터 `session_end`까지 확인한다. 두 번 모두 수신했다면 `packet_received`의 `digit`은 `1`, `0` 순이고 같은 `sender_boot_id`에서 `sequence`가 진행한다. 종료 행의 `reason`은 `save_and_exit`이며 `received_count`는 해당 세션의 `packet_received` 행 수와 일치해야 한다. 종료 행과 별도로 앱 화면이 실제로 닫혔는지 기록한다.
+
+PC에서 JSONL 문법을 확인하려면 저장소 루트에서 다음을 실행한다. 경로는 옮겨 놓은 파일 이름에 맞춘다. 이 명령은 로그 내용을 출력하지 않는다.
+
+```powershell
+Get-Content -LiteralPath 'captures/v3/eco-trekking-one-hop-실제파일명.jsonl' -Encoding UTF8 -ErrorAction Stop |
+  ForEach-Object { $null = ConvertFrom-Json -InputObject $_ -ErrorAction Stop }
+```
+
 ## 초기 시연 자료
 
 [에코 트레킹 1홉 APK 및 Arduino 스케치 ZIP 다운로드](https://github.com/sinduck-Juniorc/supabase-auth-app/actions/runs/44218457506/artifacts/14389013826)
