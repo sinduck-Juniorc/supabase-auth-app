@@ -10,8 +10,8 @@
   "service_name": "에코 트레킹",
   "service_name_meaning": "‘에코’는 저전력으로 트래킹한다는 서비스 목표를 표현한다.",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
-  "last_completed": "R4 시리얼 입력과 폰 1홉 BLE 수신 11건을 실물 확인. 최신 JSONL의 동일 송신기·연속 순번·종료 집계 일치 확인",
-  "next_work": "IDE 시리얼 모니터를 닫고 폰에서 새 1홉 수신 세션을 시작한다. python versions/v3/tools/send_one_hop_digits.py --list로 확인한 포트에 네 자리 시험 입력을 한 번 보낸다. 폰에서 저장 후 종료를 선택하고 check_one_hop_log.py로 JSONL을 검사한다. 추가 AT 명령 전송 중지 유지",
+  "last_completed": "실물 JSONL 최신 세션에서 수신 4건·종료 집계 일치·save_and_exit 확인. 사용자 제공 R4 입력과 폰 수신 순서 일치 및 R4 스케줄 전환 확인",
+  "next_work": "마지막 수동 입력에서 24초 이상 지난 뒤 새 폰 세션을 시작한다. IDE 시리얼 모니터를 닫고 실제 R4 포트에 네 자리 시험 입력을 한 번 보낸다. PC 쓰기 성공 행과 폰 JSONL을 대조하고 저장 후 화면 종료를 확인한다. 추가 AT 명령 전송 중지 유지",
   "service_plan": "versions/v3/ECO_TREKKING_PLAN_ko.md",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
@@ -43,6 +43,6 @@
   "control_path_handoff": "versions/v3/CONTROL_PATHS_ko.md",
   "device_preflight_handoff": "versions/v3/DEVICE_PREFLIGHT_ko.md",
   "current_phase": "ver.3(에코 트레킹 기획)",
-  "phase_status": "R4→폰 1홉 BLE 수신 실물 확인·4회 입력과 저장 후 종료 검증 대기·추가 AT 전송 중지",
+  "phase_status": "R4 입력과 폰 수신 순서 및 저장 후 종료 로그 확인·자동 시험과 화면 종료 확인 대기·추가 AT 전송 중지",
   "port_communication_handoff": "versions/v3/PORT_COMMUNICATION_RESUME_ko.md"
 }
