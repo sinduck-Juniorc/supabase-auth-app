@@ -7,6 +7,8 @@
   "baseline_commit": "1cf897fe85480fdd0773cc8286746a9e739aa405",
   "v2_android_version": "0.2.1",
   "v3_package": "org.zetamesh.gnss.v3",
+  "service_name": "에코 트레킹",
+  "service_name_meaning": "‘에코’는 저전력으로 트래킹한다는 서비스 목표를 표현한다.",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
   "last_completed": "2026-11-18 Windows 포트 목록 재확인: 일치 삼성 USB 모뎀 후보 0개. V3 모의 시험 58개 통과. 추가 AT 전송 없음",
   "next_work": "단말 재연결이 확인되면 python versions/v3/tools/find_samsung_modem.py로 COM 번호만 확인. 화면 전용 모드를 포함한 추가 AT 명령 전송은 중지 상태로 유지",
