@@ -5,6 +5,9 @@ on:
     paths:
       - android/gnss-assist/**
       - firmware/uno-r4-wifi/EcoOneHop/**
+      - firmware/uno-r4-wifi/EcoRelaySink/**
+      - firmware/uno-r4-wifi/tests/relay_sink_test.cpp
+      - desktop/eco-relay/**
       - .github/workflows/eco-trekking-android.yml
   workflow_dispatch:
 permissions:
@@ -25,13 +28,25 @@ jobs:
           g++ -std=c++11 "$onehop/tests/wire_test.cpp" -o "$RUNNER_TEMP/wire_test"
           "$JAVA_HOME/bin/javac" -d "$RUNNER_TEMP" "$onehop/src/org/zetamesh/ecotrekking/demo/OneHopFrame.java" "$onehop/tests/WireTest.java"
           "$RUNNER_TEMP/wire_test" | "$JAVA_HOME/bin/java" -cp "$RUNNER_TEMP" org.zetamesh.ecotrekking.demo.WireTest
+          relay=android/gnss-assist/relay
+          "$JAVA_HOME/bin/javac" -d "$RUNNER_TEMP" "$relay/src/org/zetamesh/gnss/v3/relay/RelayWire.java" "$relay/tests/RelayWireTest.java"
+          input=5A-52-01-03-01-00-00-00-02-00-00-00-03-00-00-00-01
+          forward=$("$JAVA_HOME/bin/java" -cp "$RUNNER_TEMP" org.zetamesh.gnss.v3.relay.RelayWireTest "$input")
+          g++ -std=c++11 firmware/uno-r4-wifi/tests/relay_sink_test.cpp -o "$RUNNER_TEMP/relay_sink_test"
+          "$RUNNER_TEMP/relay_sink_test" "$forward"
           key="$RUNNER_TEMP/eco-trekking-demo.keystore"
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key"
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key" --demo
           python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key" --one-hop
+          python3 android/gnss-assist/tools/build.py --sdk "$ANDROID_HOME" --keystore "$key" --relay
           mkdir -p "$RUNNER_TEMP/onehop-kit"
           cp android/gnss-assist/build/onehop/Eco-Trekking-OneHop.apk "$RUNNER_TEMP/onehop-kit/"
           cp -r firmware/uno-r4-wifi/EcoOneHop "$RUNNER_TEMP/onehop-kit/"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: EcoRelay-Android
+          path: android/gnss-assist/build/relay/EcoRelay.apk
+          if-no-files-found: error
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: Eco-Trekking-OneHop

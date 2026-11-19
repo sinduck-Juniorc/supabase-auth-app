@@ -6,6 +6,7 @@ p=argparse.ArgumentParser();p.add_argument('--sdk',type=Path,required=True);p.ad
 variants=p.add_mutually_exclusive_group()
 variants.add_argument('--demo',dest='variant',action='store_const',const='demo')
 variants.add_argument('--one-hop',dest='variant',action='store_const',const='onehop')
+variants.add_argument('--relay',dest='variant',action='store_const',const='relay')
 args=p.parse_args()
 source=root/args.variant if args.variant else root
 manifest=source/'AndroidManifest.xml'
@@ -28,7 +29,7 @@ if not args.variant:
     run([java('java'),'-cp',classes,'TrialTest'])
     (classes/'TrialTest.class').unlink()
 run([tool('d8'),'--lib',jar,'--min-api','30','--output',dex,*sorted(classes.rglob('*.class'))])
-apk_names={None:'ZetaMesh-V3-dev.apk','demo':'Eco-Trekking-BLE-Demo.apk','onehop':'Eco-Trekking-OneHop.apk'}
+apk_names={None:'ZetaMesh-V3-dev.apk','demo':'Eco-Trekking-BLE-Demo.apk','onehop':'Eco-Trekking-OneHop.apk','relay':'EcoRelay.apk'}
 unsigned=build/'unsigned.apk';aligned=build/'aligned.apk';apk=build/apk_names[args.variant]
 run([tool('aapt2'),'link','-I',jar,'--manifest',manifest,'-o',unsigned])
 with zipfile.ZipFile(unsigned,'a',zipfile.ZIP_DEFLATED) as z:

@@ -1,5 +1,7 @@
 # 무료 플랜에서 작업을 이어가는 기준
 
+현재 실물 시험은 [노트북 → 스마트폰 → R4 자동 중계](../versions/v3/ECO_RELAY_ko.md)다. 중계 실행 파일과 검증 내역은 V3 CHANGELOG의 2026-11-19 항목에 있다.
+
 **현재 제품 기획은 [에코 트레킹](../versions/v3/ECO_TREKKING_PLAN_ko.md)이다.** 등산 트래킹 앱과 Bluetooth 메시·Wi‑Fi 전송의 배터리 비교를 우선한다. 아래 포트 통신 기록은 이전 실험 이력이며, 추가 AT 명령 전송은 중지 상태를 유지한다.
 
 **현재 재개 단계: ver.3(포트 통신), 기본 AT 응답 확인 완료.** [포트 통신 인수인계](../versions/v3/PORT_COMMUNICATION_RESUME_ko.md)를 우선 읽는다. Git 브랜치는 development/v3다. 사용자 Windows PC의 COM3에서 AT 3바이트 전송, OK 응답, 정상 close를 확인했다(사용자 제공 요약). [Windows 실행 절차](../versions/v3/AT_RESPONSE_CHECK_ko.md)는 보존하되 기본 AT 성공 시험은 반복하지 않는다. 후속 CLAC 목록 조회의 공식 근거 검토와 전용 도구 준비를 완료했다. [CLAC 실측](../versions/v3/CLAC_CHECK_ko.md)도 사용자 PC에서 OK·정상 close를 확인했다. 세 줄 미해석으로 목록 완전성은 미확인이다. 표준 CESQ 신호 품질 조회 도구 준비도 완료했다. CESQ 첫 실측은 OK·정상 close였으나 신호 값은 미해석 1줄로 확인하지 못했다. CESQ 진단 재조회도 CESQ 표기가 없는 미해석 한 줄이어서 반복을 중지했다. [CSQ 실측](../versions/v3/CSQ_CHECK_ko.md)은 +CME ERROR·정상 close로 끝났고 오류 상세는 저장되지 않았다. 현재 AT 옵션 on 확인 후 최소 오류 진단도 실시했지만 오류 상세가 마스킹돼 분류하지 못했다. 최신 PORT_ERROR_REVIEW 기록을 따르고 CSQ/CESQ 재전송을 중지하며, 기본 AT/CLAC 시험은 반복하지 않는다. 위치 주입·셀 탐색 제어는 미검증이다. 아래 사전 점검 절차를 처음부터 반복하지 않는다.
