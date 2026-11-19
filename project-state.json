@@ -11,7 +11,7 @@
   "service_name_meaning": "‘에코’는 저전력으로 트래킹한다는 서비스 목표를 표현한다.",
   "budget": "무료 모델·무료 서비스 범위, 추가 결제·상시 실행을 전제하지 않음",
   "last_completed": "노트북 자동 입력 → 선택된 Android 폰 중계 → R4 수신 구현. EXE·APK·스케치 빌드 및 세 구현의 패킷 호환 시험 통과",
-  "next_work": "versions/v3/ECO_RELAY_ko.md에 따라 R4 수신 스케치, 폰 중계 APK, 노트북 EXE로 실물 시험. 노트북 순번과 R4 수신 숫자를 대조한다. 추가 AT 명령 전송 중지 유지",
+  "next_work": "우선 보고 사항: 2026-11-20(금) 저녁 한국 시간에 노트북 → 스마트폰 → R4 자동 BLE 중계 실물 시험 예정. 재개 시 시험 진행 여부를 먼저 확인한다. versions/v3/ECO_RELAY_ko.md에 따라 노트북 송신 순번·값과 R4 수신 순번·값을 대조한다. 추가 AT 명령 전송 중지 유지",
   "service_plan": "versions/v3/ECO_TREKKING_PLAN_ko.md",
   "known_limits": [
     "기지국 탐색 개선·직접 위치 주입 미입증",
